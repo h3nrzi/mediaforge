@@ -1,9 +1,19 @@
 # MF-MOD-01 — Private Workspace and Member Authority
 
 Status: ready-for-agent
-Specification approval: Pending explicit Product Owner approval.
+Specification approval: Explicitly approved by the Product Owner on 2026-10-14 as the authoritative MF-MOD-01 implementation specification.
+Implementation readiness: Sufficiently specified for later agent work; readiness is distinct from approval and does not authorize execution.
 Ticket generation / implementation: Not authorized; no tickets or application code created.
+Executed verification / acceptance: Not executed; no tests or acceptance cases claimed passed, and no capability claimed implemented.
 Prepared: 2026-10-14.
+
+## Product Owner Approval Record
+
+On 2026-10-14, the Product Owner explicitly stated: “I explicitly approve `.scratch/mf-mod-01/spec.md` as the authoritative implementation specification for **MF-MOD-01 — Private Workspace and Member Authority**.”
+
+Approval covers the complete specification and its implementation decisions; the HTTP service and operator-command testing seams; the shared authority boundary and cross-module integration obligations; all 17 verification scenarios (M01-V01 through M01-V17); the requirement and acceptance coverage; and the selected Node.js, SQLite, credential, concurrency and documented-client approaches. The approved product requirements, technical decisions and traceability are preserved.
+
+This action records specification approval only. The Product Owner explicitly instructed that `to-tickets` must not be invoked, implementation tickets must not be created, application code must not be written and Module 02 must not be started. Approval and the `ready-for-agent` triage value do not authorize those actions or establish executed verification, implementation completion or acceptance.
 
 ## Problem Statement
 
@@ -15,7 +25,7 @@ Module 01 owns the workspace's membership, responsibility evaluation, revocation
 
 Provide one private backend workspace with an operator-run, one-time initialization command; Manager-controlled membership and independent responsibility assignments; actor-bound opaque bearer credentials; a constrained operator credential-recovery command; and version-controlled curl workflows. Persist authority in SQLite on one host. Evaluate current authority and competing-change preconditions inside the same durable transaction as each effect, preserve at least one admitted Manager, and report accepted, refused and indeterminate actions accurately.
 
-Technical Discovery Q1–Q14 is complete and explicitly approved; Q6's recipient-identity/secret-ownership clarification is binding. This specification synthesizes those decisions and selects routine implementation details for specification review. Its triage label means sufficiently specified for later agent work; it does not bypass the explicit specification approval gate.
+Technical Discovery Q1–Q14 is complete and explicitly approved; Q6's recipient-identity/secret-ownership clarification is binding. This specification synthesizes those decisions and records the implementation details now explicitly approved by the Product Owner. Its triage label means sufficiently specified for later agent work; approval is recorded separately and ticket generation/implementation remain unauthorized.
 
 ## User Stories
 
@@ -282,4 +292,4 @@ Context7 resolved official Node.js v24 documentation and queried the SQLite conn
 
 There is no known implementation-blocking contradiction. Important implementation risks are stale authorization after waiting, uncertain commits being mislabeled as refusal, recipient/actor misbinding, private file/log leakage, revision/no-op handling, the host-operator trust boundary and the replaceable built-in SQLite API's release-candidate stability. The scenario matrix supplies concrete verification for these risks; proper SQLite configuration cannot promise recovery from damaged storage or an unavailable host.
 
-Technical Discovery is complete. This specification is complete for Product Owner review and ready to be decomposed into tickets after explicit approval. Reversible stack/encoding/routes/body guard/testing selections here are specification choices, not retroactively recorded as additional approved discovery answers. Specification review includes the proposed HTTP/CLI testing seams required by to-spec; the user requested the complete reviewable specification before the approval gate, so no separate preliminary seam interview was conducted. No application tests have been executed, no acceptance case has passed, and no ticket or implementation work is authorized by the ready-for-agent triage value alone.
+Technical Discovery is complete. The Product Owner explicitly approved this authoritative specification on 2026-10-14, including its implementation decisions and HTTP/CLI testing seams. It is sufficiently specified for later ticket decomposition and implementation, but those actions remain unauthorized under the approval-only instruction. Reversible stack/encoding/routes/body guard/testing selections here are approved specification choices, not retroactively recorded as additional approved discovery answers. Specification review included the HTTP/CLI testing seams required by to-spec; the user requested the complete reviewable specification before the approval gate, so no separate preliminary seam interview was conducted. No application tests have been executed, no acceptance case has passed, and no capability has been implemented as part of this action. The ready-for-agent triage value records readiness only; it does not establish execution authorization or acceptance.
