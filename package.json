@@ -1,0 +1,11 @@
+{
+  "name": "mediaforge",
+  "private": true,
+  "type": "module",
+  "engines": { "node": "24.22.0" },
+  "scripts": {
+    "start": "node src/cli.js serve",
+    "test": "node --test test/*.test.js",
+    "check": "node scripts/check.js"
+  }
+}

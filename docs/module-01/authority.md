@@ -1,0 +1,28 @@
+# Atomic consumer authority contract
+
+Modules 02–06 integrate with `Authority.admit(bearer, kind, loadSubject, apply)` from `src/authority.js` inside the same single-host SQLite authority deployment. HTTP adapters pass the strictly parsed current bearer proof to this boundary and redact it from logs. Consumers receive actor facts, never secrets, verifier material, a reusable authorization boolean or a raw SQLite connection.
+
+`loadSubject(readScope, { actorId })` synchronously queries authoritative consumer records in the already-owned immediate transaction and returns bounded subject facts. `apply(writeScope, attribution, subject)` synchronously checks eligibility/quotas/lifecycle and writes the admitted effect. Attribution contains stable `actorId`, action-time `label`, and ISO server `time`. Subject loading exposes only `get` and `all`; admission additionally exposes `run`. Use parameterized SQL (`tx.get(sql, ...parameters)`, `tx.all`, `tx.run`). The scopes expire when the callback returns. They cannot execute schema or transaction-control statements, independently commit or retain a usable connection. Asynchronous callbacks/external I/O are rejected; prepare external data before admission.
+
+The boundary acquires `BEGIN IMMEDIATE` on an owned connection before dependent reads. It authenticates current credential/membership, loads subjects, takes fresh time and rechecks credential expiry, evaluates policy and invokes consumer work once. Only the store commits, using WAL, FULL synchronization, foreign keys and immediate acquisition with a default one-second cumulative monotonic budget. Failed authority or consumer eligibility rolls back all consumer effects. Consumers must not edit authority tables, implement separate role semantics, precompute authorization remotely or move effects into a separate commit. Add consumer schema through an explicit atomic non-destructive migration before admitting its operations; no generic migration platform is delivered.
+
+| Action kind | Current authority |
+| --- | --- |
+| `shared_read` | Any admitted member, including zero roles |
+| `source_submit`, `request_submit` | Contributor |
+| `request_retry`, `request_cancel` | Operations, or Contributor whose actor ID equals authoritative `subject.submittingActorId` |
+| `selection` | Reviewer |
+| `evidence_check`, `provisional_cleanup` | Operations |
+| `membership_manage`, `responsibilities_manage` | Manager |
+| `accepted_media_delete`, `deletion_followup` | Manager |
+| Unknown kind | Denied |
+
+Combining roles unions these permissions. Manager inherits no other role. Source-uploader identity does not grant request ownership. A consumer loads the request submitter from its retained record, not caller JSON. Any Contributor may submit a request for an eligible shared source; consumer eligibility remains its own responsibility.
+
+Every new listing page/retrieval/read scope must evaluate current proof with `shared_read`. The owned transaction is short: an authorized read may finish after a concurrent later removal; its next call/page must recheck. Later transfer adapters retain the approved already-authorized-transfer policy. This module creates no transfers or media endpoints.
+
+`Refusal` exposes bounded `status`, `category`, `message`, optional permitted `currentState` and `actionStatus`. Expected authentication/authority/eligibility refusals should throw this error inside the scope. Unexpected failures become a safe 503, with confirmed rollback distinguished from indeterminate commit. Do not return a denial after writing; throw so the complete consumer effect rolls back. No caller should automatically retry an executed body. An uncertain commit quarantines that store instance's mutations; separate verified reads remain possible. HTTP loss is separately uncertain to the client, even when the server committed successfully.
+
+Consumer records retain actor foreign keys with `ON DELETE RESTRICT` plus immutable action-time label/time snapshots. Membership changes do not cancel work, release accounting or rewrite these records. Consumers own real source/request/output eligibility, quotas, lifecycle, submission-reference recovery and dependency/history lifetimes. Use exact actor IDs for original request submitters after readmission. There is no actor purge API or unbounded authority receipt archive.
+
+Internal `Store`, membership and credential-operation callbacks support Module 01 adapters. They are not integration authorization APIs. The public consumer seam is `admit`; `test/policy.test.js` uses a minimal foreign-key-backed construction-only consumer to verify its matrix, atomic rollback and retained attribution. Those results are local policy-contract evidence; real-subject acceptance remains with the named modules.

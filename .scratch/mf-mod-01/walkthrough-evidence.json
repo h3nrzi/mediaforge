@@ -1,0 +1,542 @@
+{
+  "runtime": "24.22.0",
+  "curl": "curl 8.17.0 (aarch64-apple-darwin24.4.0) libcurl/8.17.0 OpenSSL/3.6.3 zlib/1.2.12 brotli/1.2.0 zstd/1.5.7 AppleIDN libssh2/1.11.1 nghttp2/1.69.0 ngtcp2/1.24.0 nghttp3/1.17.0 librtmp/2.3 mit-krb5/1.7-prerelease",
+  "scope": "Module 01 HTTP/operator workflow; later capability acceptance remains outstanding",
+  "observations": [
+    {
+      "operation": "operator bootstrap",
+      "result": "ok",
+      "actionStatus": "accepted",
+      "reasonCategory": "ok",
+      "actorId": "fc02d5da-a18e-455d-8565-28cee26fa8ee",
+      "membershipVersion": "1",
+      "credentialRevision": "1",
+      "responsibilities": [
+        "Manager"
+      ],
+      "credentialStatus": "active",
+      "issuedAt": "2026-10-14T20:23:27.221Z",
+      "expiresAt": "2026-11-13T20:23:27.221Z"
+    },
+    {
+      "operation": "Manager self",
+      "httpStatus": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "fc02d5da-a18e-455d-8565-28cee26fa8ee",
+      "membershipVersion": "1",
+      "credentialRevision": "1",
+      "responsibilities": [
+        "Manager"
+      ],
+      "credentialStatus": "active",
+      "issuedAt": "2026-10-14T20:23:27.221Z",
+      "expiresAt": "2026-11-13T20:23:27.221Z"
+    },
+    {
+      "operation": "admit Zero responsibilities",
+      "httpStatus": 200,
+      "result": "ok",
+      "actionStatus": "accepted",
+      "reasonCategory": "ok",
+      "actorId": "cc8c6c76-ffbc-4c74-8a32-8b064e124ddb",
+      "membershipVersion": "1",
+      "credentialRevision": "1",
+      "responsibilities": [],
+      "credentialStatus": "active",
+      "issuedAt": "2026-10-14T20:23:27.373Z",
+      "expiresAt": "2026-11-13T20:23:27.373Z"
+    },
+    {
+      "operation": "self Zero responsibilities",
+      "httpStatus": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "cc8c6c76-ffbc-4c74-8a32-8b064e124ddb",
+      "membershipVersion": "1",
+      "credentialRevision": "1",
+      "responsibilities": [],
+      "credentialStatus": "active",
+      "issuedAt": "2026-10-14T20:23:27.373Z",
+      "expiresAt": "2026-11-13T20:23:27.373Z"
+    },
+    {
+      "operation": "admit Contributor",
+      "httpStatus": 200,
+      "result": "ok",
+      "actionStatus": "accepted",
+      "reasonCategory": "ok",
+      "actorId": "57e03510-882a-45f6-b373-8dd10653f89f",
+      "membershipVersion": "1",
+      "credentialRevision": "1",
+      "responsibilities": [
+        "Contributor"
+      ],
+      "credentialStatus": "active",
+      "issuedAt": "2026-10-14T20:23:27.463Z",
+      "expiresAt": "2026-11-13T20:23:27.463Z"
+    },
+    {
+      "operation": "self Contributor",
+      "httpStatus": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "57e03510-882a-45f6-b373-8dd10653f89f",
+      "membershipVersion": "1",
+      "credentialRevision": "1",
+      "responsibilities": [
+        "Contributor"
+      ],
+      "credentialStatus": "active",
+      "issuedAt": "2026-10-14T20:23:27.463Z",
+      "expiresAt": "2026-11-13T20:23:27.463Z"
+    },
+    {
+      "operation": "admit Reviewer",
+      "httpStatus": 200,
+      "result": "ok",
+      "actionStatus": "accepted",
+      "reasonCategory": "ok",
+      "actorId": "50fde197-c0ff-4fa0-ac16-6a2418f7b69c",
+      "membershipVersion": "1",
+      "credentialRevision": "1",
+      "responsibilities": [
+        "Reviewer"
+      ],
+      "credentialStatus": "active",
+      "issuedAt": "2026-10-14T20:23:27.553Z",
+      "expiresAt": "2026-11-13T20:23:27.553Z"
+    },
+    {
+      "operation": "self Reviewer",
+      "httpStatus": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "50fde197-c0ff-4fa0-ac16-6a2418f7b69c",
+      "membershipVersion": "1",
+      "credentialRevision": "1",
+      "responsibilities": [
+        "Reviewer"
+      ],
+      "credentialStatus": "active",
+      "issuedAt": "2026-10-14T20:23:27.553Z",
+      "expiresAt": "2026-11-13T20:23:27.553Z"
+    },
+    {
+      "operation": "admit Operations",
+      "httpStatus": 200,
+      "result": "ok",
+      "actionStatus": "accepted",
+      "reasonCategory": "ok",
+      "actorId": "e35e5211-cba9-40ec-bf28-67a83516be04",
+      "membershipVersion": "1",
+      "credentialRevision": "1",
+      "responsibilities": [
+        "Operations"
+      ],
+      "credentialStatus": "active",
+      "issuedAt": "2026-10-14T20:23:27.645Z",
+      "expiresAt": "2026-11-13T20:23:27.645Z"
+    },
+    {
+      "operation": "self Operations",
+      "httpStatus": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "e35e5211-cba9-40ec-bf28-67a83516be04",
+      "membershipVersion": "1",
+      "credentialRevision": "1",
+      "responsibilities": [
+        "Operations"
+      ],
+      "credentialStatus": "active",
+      "issuedAt": "2026-10-14T20:23:27.645Z",
+      "expiresAt": "2026-11-13T20:23:27.645Z"
+    },
+    {
+      "operation": "admit Manager",
+      "httpStatus": 200,
+      "result": "ok",
+      "actionStatus": "accepted",
+      "reasonCategory": "ok",
+      "actorId": "723710ee-bebe-4060-84ce-d5c923eda9b6",
+      "membershipVersion": "1",
+      "credentialRevision": "1",
+      "responsibilities": [
+        "Manager"
+      ],
+      "credentialStatus": "active",
+      "issuedAt": "2026-10-14T20:23:27.734Z",
+      "expiresAt": "2026-11-13T20:23:27.734Z"
+    },
+    {
+      "operation": "self Manager",
+      "httpStatus": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "723710ee-bebe-4060-84ce-d5c923eda9b6",
+      "membershipVersion": "1",
+      "credentialRevision": "1",
+      "responsibilities": [
+        "Manager"
+      ],
+      "credentialStatus": "active",
+      "issuedAt": "2026-10-14T20:23:27.734Z",
+      "expiresAt": "2026-11-13T20:23:27.734Z"
+    },
+    {
+      "operation": "admit Contributor+Reviewer",
+      "httpStatus": 200,
+      "result": "ok",
+      "actionStatus": "accepted",
+      "reasonCategory": "ok",
+      "actorId": "5fa04b3f-8091-46fc-8d77-0de53c30c4e6",
+      "membershipVersion": "1",
+      "credentialRevision": "1",
+      "responsibilities": [
+        "Contributor",
+        "Reviewer"
+      ],
+      "credentialStatus": "active",
+      "issuedAt": "2026-10-14T20:23:27.823Z",
+      "expiresAt": "2026-11-13T20:23:27.823Z"
+    },
+    {
+      "operation": "self Contributor+Reviewer",
+      "httpStatus": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "5fa04b3f-8091-46fc-8d77-0de53c30c4e6",
+      "membershipVersion": "1",
+      "credentialRevision": "1",
+      "responsibilities": [
+        "Contributor",
+        "Reviewer"
+      ],
+      "credentialStatus": "active",
+      "issuedAt": "2026-10-14T20:23:27.823Z",
+      "expiresAt": "2026-11-13T20:23:27.823Z"
+    },
+    {
+      "operation": "admit Contributor+Reviewer+Operations+Manager",
+      "httpStatus": 200,
+      "result": "ok",
+      "actionStatus": "accepted",
+      "reasonCategory": "ok",
+      "actorId": "953cae7a-9962-4930-b9ca-40f76a7e1ba6",
+      "membershipVersion": "1",
+      "credentialRevision": "1",
+      "responsibilities": [
+        "Contributor",
+        "Manager",
+        "Operations",
+        "Reviewer"
+      ],
+      "credentialStatus": "active",
+      "issuedAt": "2026-10-14T20:23:27.915Z",
+      "expiresAt": "2026-11-13T20:23:27.915Z"
+    },
+    {
+      "operation": "self Contributor+Reviewer+Operations+Manager",
+      "httpStatus": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "953cae7a-9962-4930-b9ca-40f76a7e1ba6",
+      "membershipVersion": "1",
+      "credentialRevision": "1",
+      "responsibilities": [
+        "Contributor",
+        "Manager",
+        "Operations",
+        "Reviewer"
+      ],
+      "credentialStatus": "active",
+      "issuedAt": "2026-10-14T20:23:27.915Z",
+      "expiresAt": "2026-11-13T20:23:27.915Z"
+    },
+    {
+      "operation": "zero-role management denied",
+      "httpStatus": 403,
+      "result": "refused",
+      "reasonCategory": "forbidden"
+    },
+    {
+      "operation": "label edit",
+      "httpStatus": 200,
+      "result": "ok",
+      "actionStatus": "accepted",
+      "reasonCategory": "ok",
+      "actorId": "cc8c6c76-ffbc-4c74-8a32-8b064e124ddb",
+      "membershipVersion": "2",
+      "credentialRevision": "1",
+      "responsibilities": [],
+      "credentialStatus": "active",
+      "issuedAt": "2026-10-14T20:23:27.373Z",
+      "expiresAt": "2026-11-13T20:23:27.373Z"
+    },
+    {
+      "operation": "stale edit refused",
+      "httpStatus": 409,
+      "result": "refused",
+      "actionStatus": "refused_without_effect",
+      "reasonCategory": "state_conflict"
+    },
+    {
+      "operation": "current facts after stale edit",
+      "httpStatus": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "cc8c6c76-ffbc-4c74-8a32-8b064e124ddb",
+      "membershipVersion": "2",
+      "credentialRevision": "1",
+      "responsibilities": [],
+      "credentialStatus": "active",
+      "issuedAt": "2026-10-14T20:23:27.373Z",
+      "expiresAt": "2026-11-13T20:23:27.373Z"
+    },
+    {
+      "operation": "remove member",
+      "httpStatus": 200,
+      "result": "ok",
+      "actionStatus": "accepted",
+      "reasonCategory": "ok",
+      "actorId": "cc8c6c76-ffbc-4c74-8a32-8b064e124ddb",
+      "membershipVersion": "3",
+      "credentialRevision": "2",
+      "responsibilities": [],
+      "credentialStatus": "invalidated",
+      "issuedAt": "2026-10-14T20:23:27.373Z",
+      "expiresAt": "2026-11-13T20:23:27.373Z"
+    },
+    {
+      "operation": "removed credential denied",
+      "httpStatus": 401,
+      "result": "refused",
+      "reasonCategory": "unauthenticated"
+    },
+    {
+      "operation": "exact-ID readmission",
+      "httpStatus": 200,
+      "result": "ok",
+      "actionStatus": "accepted",
+      "reasonCategory": "ok",
+      "actorId": "cc8c6c76-ffbc-4c74-8a32-8b064e124ddb",
+      "membershipVersion": "4",
+      "credentialRevision": "3",
+      "responsibilities": [],
+      "credentialStatus": "active",
+      "issuedAt": "2026-10-14T20:23:28.091Z",
+      "expiresAt": "2026-11-13T20:23:28.091Z"
+    },
+    {
+      "operation": "readmitted self",
+      "httpStatus": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "cc8c6c76-ffbc-4c74-8a32-8b064e124ddb",
+      "membershipVersion": "4",
+      "credentialRevision": "3",
+      "responsibilities": [],
+      "credentialStatus": "active",
+      "issuedAt": "2026-10-14T20:23:28.091Z",
+      "expiresAt": "2026-11-13T20:23:28.091Z"
+    },
+    {
+      "operation": "zero-role self replacement",
+      "httpStatus": 200,
+      "result": "ok",
+      "actionStatus": "accepted",
+      "reasonCategory": "ok",
+      "actorId": "cc8c6c76-ffbc-4c74-8a32-8b064e124ddb",
+      "membershipVersion": "4",
+      "credentialRevision": "4",
+      "responsibilities": [],
+      "credentialStatus": "active",
+      "issuedAt": "2026-10-14T20:23:28.218Z",
+      "expiresAt": "2026-11-13T20:23:28.218Z"
+    },
+    {
+      "operation": "replaced credential denied",
+      "httpStatus": 401,
+      "result": "refused",
+      "reasonCategory": "unauthenticated"
+    },
+    {
+      "operation": "saved replacement candidate inspection",
+      "httpStatus": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "cc8c6c76-ffbc-4c74-8a32-8b064e124ddb",
+      "membershipVersion": "4",
+      "credentialRevision": "4",
+      "responsibilities": [],
+      "credentialStatus": "active",
+      "issuedAt": "2026-10-14T20:23:28.218Z",
+      "expiresAt": "2026-11-13T20:23:28.218Z"
+    },
+    {
+      "operation": "Manager replaces member credential",
+      "httpStatus": 200,
+      "result": "ok",
+      "actionStatus": "accepted",
+      "reasonCategory": "ok",
+      "actorId": "cc8c6c76-ffbc-4c74-8a32-8b064e124ddb",
+      "membershipVersion": "4",
+      "credentialRevision": "5",
+      "responsibilities": [],
+      "credentialStatus": "active",
+      "issuedAt": "2026-10-14T20:23:28.327Z",
+      "expiresAt": "2026-11-13T20:23:28.327Z"
+    },
+    {
+      "operation": "exact credential revoke",
+      "httpStatus": 200,
+      "result": "ok",
+      "actionStatus": "accepted",
+      "reasonCategory": "ok",
+      "actorId": "cc8c6c76-ffbc-4c74-8a32-8b064e124ddb",
+      "membershipVersion": "4",
+      "credentialRevision": "6",
+      "responsibilities": [],
+      "credentialStatus": "invalidated",
+      "issuedAt": "2026-10-14T20:23:28.327Z",
+      "expiresAt": "2026-11-13T20:23:28.327Z"
+    },
+    {
+      "operation": "repeated exact revoke adds no effect",
+      "httpStatus": 200,
+      "result": "already_satisfied",
+      "actionStatus": "accepted",
+      "reasonCategory": "no_change",
+      "actorId": "cc8c6c76-ffbc-4c74-8a32-8b064e124ddb",
+      "membershipVersion": "4",
+      "credentialRevision": "6",
+      "responsibilities": [],
+      "credentialStatus": "invalidated",
+      "issuedAt": "2026-10-14T20:23:28.327Z",
+      "expiresAt": "2026-11-13T20:23:28.327Z"
+    },
+    {
+      "operation": "restore admitted member",
+      "httpStatus": 200,
+      "result": "ok",
+      "actionStatus": "accepted",
+      "reasonCategory": "ok",
+      "actorId": "cc8c6c76-ffbc-4c74-8a32-8b064e124ddb",
+      "membershipVersion": "4",
+      "credentialRevision": "7",
+      "responsibilities": [],
+      "credentialStatus": "active",
+      "issuedAt": "2026-10-14T20:23:28.431Z",
+      "expiresAt": "2026-11-13T20:23:28.431Z"
+    },
+    {
+      "operation": "old revoke cannot redirect",
+      "httpStatus": 409,
+      "result": "refused",
+      "actionStatus": "refused_without_effect",
+      "reasonCategory": "state_conflict"
+    },
+    {
+      "operation": "Manager exact self revoke",
+      "httpStatus": 200,
+      "result": "ok",
+      "actionStatus": "accepted",
+      "reasonCategory": "ok",
+      "actorId": "723710ee-bebe-4060-84ce-d5c923eda9b6",
+      "membershipVersion": "1",
+      "credentialRevision": "2",
+      "responsibilities": [
+        "Manager"
+      ],
+      "credentialStatus": "invalidated",
+      "issuedAt": "2026-10-14T20:23:27.734Z",
+      "expiresAt": "2026-11-13T20:23:27.734Z"
+    },
+    {
+      "operation": "Manager exact self revoke",
+      "httpStatus": 200,
+      "result": "ok",
+      "actionStatus": "accepted",
+      "reasonCategory": "ok",
+      "actorId": "953cae7a-9962-4930-b9ca-40f76a7e1ba6",
+      "membershipVersion": "1",
+      "credentialRevision": "2",
+      "responsibilities": [
+        "Contributor",
+        "Manager",
+        "Operations",
+        "Reviewer"
+      ],
+      "credentialStatus": "invalidated",
+      "issuedAt": "2026-10-14T20:23:27.915Z",
+      "expiresAt": "2026-11-13T20:23:27.915Z"
+    },
+    {
+      "operation": "Manager exact self revoke",
+      "httpStatus": 200,
+      "result": "ok",
+      "actionStatus": "accepted",
+      "reasonCategory": "ok",
+      "actorId": "fc02d5da-a18e-455d-8565-28cee26fa8ee",
+      "membershipVersion": "1",
+      "credentialRevision": "2",
+      "responsibilities": [
+        "Manager"
+      ],
+      "credentialStatus": "invalidated",
+      "issuedAt": "2026-10-14T20:23:27.221Z",
+      "expiresAt": "2026-11-13T20:23:27.221Z"
+    },
+    {
+      "operation": "operator recovery status",
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "fc02d5da-a18e-455d-8565-28cee26fa8ee",
+      "membershipVersion": "1",
+      "credentialRevision": "2",
+      "responsibilities": [
+        "Manager"
+      ],
+      "credentialStatus": "invalidated",
+      "issuedAt": "2026-10-14T20:23:27.221Z",
+      "expiresAt": "2026-11-13T20:23:27.221Z"
+    },
+    {
+      "operation": "operator recovers total Manager credential loss",
+      "result": "ok",
+      "actionStatus": "accepted",
+      "reasonCategory": "ok",
+      "actorId": "fc02d5da-a18e-455d-8565-28cee26fa8ee",
+      "membershipVersion": "1",
+      "credentialRevision": "3",
+      "responsibilities": [
+        "Manager"
+      ],
+      "credentialStatus": "active",
+      "issuedAt": "2026-10-14T20:23:28.649Z",
+      "expiresAt": "2026-11-13T20:23:28.649Z"
+    },
+    {
+      "operation": "recovered Manager self",
+      "httpStatus": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "fc02d5da-a18e-455d-8565-28cee26fa8ee",
+      "membershipVersion": "1",
+      "credentialRevision": "3",
+      "responsibilities": [
+        "Manager"
+      ],
+      "credentialStatus": "active",
+      "issuedAt": "2026-10-14T20:23:28.649Z",
+      "expiresAt": "2026-11-13T20:23:28.649Z"
+    },
+    {
+      "operation": "directory after recovery",
+      "httpStatus": 200,
+      "result": "ok",
+      "reasonCategory": "ok"
+    }
+  ]
+}
