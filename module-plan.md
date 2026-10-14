@@ -1,9 +1,9 @@
 # MediaForge — V1 Module Plan
 
-**Status: Pending Product Owner approval.**  
+**Status: Explicitly approved by the Product Owner on 2026-10-14; authoritative V1 Module Plan.**  
 **Prepared:** 2026-10-14.  
 **Product contract:** [final-prd.md](./final-prd.md), explicitly approved by the Product Owner on 2026-10-14.  
-**Module 01:** Not started; no module-scoped Technical Discovery or implementation authorized by this proposed plan.
+**Module 01:** Module-scoped Technical Discovery authorized and started on 2026-10-14. Specification, tickets and implementation have not begun.
 
 ## 1. Authority and planning scope
 
@@ -375,8 +375,8 @@ These are sequencing and verification risks, not unanswered product policies. An
 
 **Product readiness for Module 01:** Sufficient. Its purpose, authority rules, prerequisites, shared responsibilities and expected local evidence are defined. No upstream capability or unresolved product decision prevents module-scoped Technical Discovery after approval. Initial Manager/access setup and verification mechanisms are questions for that future discovery, not decisions made here. Rendering-reference approval belongs to later work and does not block Module 01.
 
-**Authorization readiness:** Pending explicit Product Owner approval of this `module-plan.md`. No module has begun. Plan approval authorizes entering the agreed module workflow; it does not approve an architecture, specification, ticket breakdown, executed acceptance result or V1 release.
+**Authorization readiness:** Explicit Product Owner approval of this `module-plan.md` recorded on 2026-10-14. The approved scope includes all six capability modules, their ownership boundaries, dependencies, requirement coverage, acceptance responsibilities and final integration gate. The Product Owner separately authorized starting MF-MOD-01 Technical Discovery — Round 1. Plan approval authorizes entering the agreed module workflow; it does not approve an architecture, specification, ticket breakdown, executed acceptance result or V1 release.
 
 After approval, proceed one module at a time through **module-scoped Technical Discovery using `grill-with-docs` → `to-spec` → `to-tickets` → `implement` → verification and acceptance**, honoring the relevant later review gates. Issue/spec artifacts then follow the local `.scratch/` conventions; none are generated during this planning session. Only after the six capabilities and gate 07 satisfy their acceptance obligations may V1 be presented for final product acceptance.
 
-**Product Owner plan approval: Pending.** Stop at this proposed plan; do not start Module 01 until explicit approval.
+**Product Owner plan approval: Explicitly approved on 2026-10-14.** The Product Owner stated: “I explicitly approve `module-plan.md` as the authoritative V1 Module Plan, including all six capability modules, their ownership boundaries, dependencies, requirement coverage, acceptance responsibilities, and final integration gate.” Module 01 Technical Discovery may proceed within the separately authorized scope; proposed technical decisions require explicit approval before being recorded as approved.

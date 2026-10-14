@@ -28,6 +28,14 @@ _Avoid_: Processing success, publication confirmation
 The single private, manager-controlled collaboration boundary containing the team's sources, requests, and output variants.
 _Avoid_: Public gallery
 
+**Workspace actor**:
+An identified participant to whom workspace actions are attributed, whose identity remains distinct from current membership and responsibilities. Removal from membership does not change the actor's historical identity.
+_Avoid_: Display label as identity, current member as historical identity
+
+**Admitted member**:
+A workspace actor currently admitted to the private workspace, with shared inspection/retrieval access and any explicitly assigned responsibilities. Historical participation alone does not confer current membership or authority.
+_Avoid_: Every actor as a current member, responsibility as membership
+
 **Contributor**:
 An admitted member permitted to submit sources and processing requests, and to retry or request cancellation of their own eligible requests.
 _Avoid_: Asset owner as a separate permission role
