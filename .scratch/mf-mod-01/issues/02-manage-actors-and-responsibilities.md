@@ -6,8 +6,8 @@
 
 **Status:** ready-for-agent
 **Plan approval:** Explicitly approved by the Product Owner on 2026-10-14.
-**Execution readiness:** Blocked by 01; dependency completion required before execution. Awaiting a separate explicit implementation instruction.
-**Evidence:** Not executed.
+**Execution readiness:** Implemented under `$implement .scratch/mf-mod-01`; direct dependencies completed in the approved order. Local completion ready for owner review on 2026-10-15.
+**Evidence:** [Executed scenario matrix, 50-test result and integration handoff](../../../docs/module-01/verification.md); [full suite output](../test-evidence.txt); [independent review](../review.md).
 
 ## Authoritative context and scope
 
@@ -17,17 +17,17 @@ Implement PUT/PATCH actor operations, GET exact actor, GET bounded actors and pe
 
 ## Acceptance criteria
 
-- [ ] Manager-only admission atomically creates caller-prepared actor ID, current label, explicit assignments, membership version/credential revision at one and the first verifier. Validate descriptor actor/revision/binding and trusted recipient-confirmation workflow; no secret file transfer. Existing IDs cannot be overwritten or implicitly readmitted.
-- [ ] Authorized repetition confirms only matching current admitted facts without new issuance, expiry, version or attribution. Conflicting bindings/states refuse; lost acknowledgement uses exact prepared actor lookup rather than a new ID.
-- [ ] Zero responsibilities is valid; Contributor, Reviewer, Operations and Manager are independent combinable values. Unknown or duplicate responsibilities refuse. Manager alone grants no other responsibility; non-Managers cannot admit/edit/list others, and body claims never override authenticated identity.
-- [ ] PATCH requires the observed membership version and desired label and/or complete responsibility set; forbid immutable-ID or implicit membership changes. Atomically recheck current Manager authority, version and last-Manager invariant. Actual changes increment membership version once, preserve credential revision unless credential state changes and record application-time actor ID/label; satisfied absolute state adds no timestamp/version/attribution. Stale incompatible edits return 409 and only permitted current facts.
-- [ ] A lone Manager cannot remove their Manager responsibility; self-edits obey the same rules. Concurrency safety is part of this endpoint now, with expanded removal races in Ticket 03.
-- [ ] Immutable first-admission actor/origin/time/label facts survive subsequent admitting-Manager relabeling/demotion. Duplicate labels are permitted and never identity; no unrestricted change history or purge API is added.
-- [ ] GET self/exact actor and credential metadata apply self-versus-Manager access correctly; unauthorized callers receive no target facts. Never expose raw secrets or stored verifiers in roster/metadata output.
-- [ ] Directory defaults to 50 and caps at 100; validate page sizes, exact actor-ID/membership filters and filter-bound continuation. Order by immutable first-admission time descending, then actor ID descending. Every page checks current Manager authority; inserts appear on refresh, current facts may change and a cursor grants no authority or frozen snapshot.
-- [ ] Validate nonempty well-formed Unicode labels, reject controls, honor 80-code-point labels/128-code-point public IDs/512-code-point summaries without truncation or normalization. Distinguish format-valid values from maximum length. Bounded positive versions/revisions serialize as decimal strings and fail without wraparound on exhaustion.
-- [ ] HTTP validates content type, recognized fields, required preconditions and well-formed JSON before mutation; configurable 16 KiB control-body guard produces 413. Provide specified 400/401/403/404/409/503 semantics, private no-store and explicit no-effect responses; no raw-secret control-body fields.
-- [ ] Extend actor-specific curl documentation with admission, identity switching, exact lookup, alone/combined/zero-role assignments, directory continuation and stale-edit reconsideration.
+- [x] Manager-only admission atomically creates caller-prepared actor ID, current label, explicit assignments, membership version/credential revision at one and the first verifier. Validate descriptor actor/revision/binding and trusted recipient-confirmation workflow; no secret file transfer. Existing IDs cannot be overwritten or implicitly readmitted.
+- [x] Authorized repetition confirms only matching current admitted facts without new issuance, expiry, version or attribution. Conflicting bindings/states refuse; lost acknowledgement uses exact prepared actor lookup rather than a new ID.
+- [x] Zero responsibilities is valid; Contributor, Reviewer, Operations and Manager are independent combinable values. Unknown or duplicate responsibilities refuse. Manager alone grants no other responsibility; non-Managers cannot admit/edit/list others, and body claims never override authenticated identity.
+- [x] PATCH requires the observed membership version and desired label and/or complete responsibility set; forbid immutable-ID or implicit membership changes. Atomically recheck current Manager authority, version and last-Manager invariant. Actual changes increment membership version once, preserve credential revision unless credential state changes and record application-time actor ID/label; satisfied absolute state adds no timestamp/version/attribution. Stale incompatible edits return 409 and only permitted current facts.
+- [x] A lone Manager cannot remove their Manager responsibility; self-edits obey the same rules. Concurrency safety is part of this endpoint now, with expanded removal races in Ticket 03.
+- [x] Immutable first-admission actor/origin/time/label facts survive subsequent admitting-Manager relabeling/demotion. Duplicate labels are permitted and never identity; no unrestricted change history or purge API is added.
+- [x] GET self/exact actor and credential metadata apply self-versus-Manager access correctly; unauthorized callers receive no target facts. Never expose raw secrets or stored verifiers in roster/metadata output.
+- [x] Directory defaults to 50 and caps at 100; validate page sizes, exact actor-ID/membership filters and filter-bound continuation. Order by immutable first-admission time descending, then actor ID descending. Every page checks current Manager authority; inserts appear on refresh, current facts may change and a cursor grants no authority or frozen snapshot.
+- [x] Validate nonempty well-formed Unicode labels, reject controls, honor 80-code-point labels/128-code-point public IDs/512-code-point summaries without truncation or normalization. Distinguish format-valid values from maximum length. Bounded positive versions/revisions serialize as decimal strings and fail without wraparound on exhaustion.
+- [x] HTTP validates content type, recognized fields, required preconditions and well-formed JSON before mutation; configurable 16 KiB control-body guard produces 413. Provide specified 400/401/403/404/409/503 semantics, private no-store and explicit no-effect responses; no raw-secret control-body fields.
+- [x] Extend actor-specific curl documentation with admission, identity switching, exact lookup, alone/combined/zero-role assignments, directory continuation and stale-edit reconsideration.
 
 ## Verification to implement
 
@@ -44,3 +44,5 @@ Local assignment/inspection/management evidence contributes to MF-AC-02/03/04; f
 ## Comments
 
 2026-10-14 — Product Owner explicitly approved all eight tickets, their scope/dependencies/order, M01-V01–M01-V17 coverage, integration obligations and verification/handoff. Triage updated to `ready-for-agent`; This ticket remains dependency-blocked as recorded above. This session records approval only: no implementation or verification executed; all acceptance criteria remain unchecked.
+
+2026-10-15 — Implemented under the subsequent explicit implementation instruction. Local HTTP/operator/policy-contract verification is recorded in the linked evidence; approved future integration obligations remain outstanding. Canonical triage labels are preserved separately from execution completion. Standards and Spec reviews have no remaining findings. Product Owner local review and V1 acceptance are not claimed.

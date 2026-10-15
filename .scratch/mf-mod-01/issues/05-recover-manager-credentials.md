@@ -6,8 +6,8 @@
 
 **Status:** ready-for-agent
 **Plan approval:** Explicitly approved by the Product Owner on 2026-10-14.
-**Execution readiness:** Blocked by 04; dependency completion required before execution. Awaiting a separate explicit implementation instruction.
-**Evidence:** Not executed.
+**Execution readiness:** Implemented under `$implement .scratch/mf-mod-01`; direct dependencies completed in the approved order. Local completion ready for owner review on 2026-10-15.
+**Evidence:** [Executed scenario matrix, 50-test result and integration handoff](../../../docs/module-01/verification.md); [full suite output](../test-evidence.txt); [independent review](../review.md).
 
 ## Authoritative context and scope
 
@@ -17,14 +17,14 @@ Add host-only recovery status/preparation metadata and credential-recovery comma
 
 ## Acceptance criteria
 
-- [ ] Trusted-host read-only recovery metadata targets an exact existing currently admitted Manager. Actual recovery rechecks target Manager/admission and observed credential revision in the owned immediate transaction; descriptor must target the next revision of that actor.
-- [ ] Recovery works when all Manager credentials are lost, expired or revoked. It only changes credential state, preserving actor ID/label, membership version/status/assignments, first-admission/historical facts and initialized workspace state.
-- [ ] Removed, non-Manager, unknown, misbound and stale targets refuse with bounded safe feedback and no effect. A target removed/demoted or newly replaced while the operator waits cannot be restored/overwritten using earlier observations.
-- [ ] Record bounded operator origin, application time, affected actor/credential and local OS principal metadata. Never fabricate workspace-Manager attribution or trust a caller-supplied workspace actor as operator identity. Retain no unlimited operator archive.
-- [ ] The operator receives only identity-confirmed owner-prepared registration descriptors, never the raw credential file. Exact-current confirmation preserves original issuance/expiry/revision/attribution; superseded/revoked replay never revives credentials.
-- [ ] Bootstrap remains initialization-only and always refuses initialized stores. Recovery cannot readmit, grant responsibilities, reset/delete workspace state, edit labels or invoke future capabilities; no network recovery endpoint exists.
-- [ ] Lost acknowledgements use permitted host metadata and saved-candidate authentication; trustworthy current facts confirm only what can be established. No blind fresh replacement or automatic body replay. Storage uncertainty uses the shared conservative classification and connection disposal.
-- [ ] Document separate bootstrap/recovery use, exact actor/revision targeting, trusted identity handoff, owner candidate verification and bounded contention/conflict outcomes.
+- [x] Trusted-host read-only recovery metadata targets an exact existing currently admitted Manager. Actual recovery rechecks target Manager/admission and observed credential revision in the owned immediate transaction; descriptor must target the next revision of that actor.
+- [x] Recovery works when all Manager credentials are lost, expired or revoked. It only changes credential state, preserving actor ID/label, membership version/status/assignments, first-admission/historical facts and initialized workspace state.
+- [x] Removed, non-Manager, unknown, misbound and stale targets refuse with bounded safe feedback and no effect. A target removed/demoted or newly replaced while the operator waits cannot be restored/overwritten using earlier observations.
+- [x] Record bounded operator origin, application time, affected actor/credential and local OS principal metadata. Never fabricate workspace-Manager attribution or trust a caller-supplied workspace actor as operator identity. Retain no unlimited operator archive.
+- [x] The operator receives only identity-confirmed owner-prepared registration descriptors, never the raw credential file. Exact-current confirmation preserves original issuance/expiry/revision/attribution; superseded/revoked replay never revives credentials.
+- [x] Bootstrap remains initialization-only and always refuses initialized stores. Recovery cannot readmit, grant responsibilities, reset/delete workspace state, edit labels or invoke future capabilities; no network recovery endpoint exists.
+- [x] Lost acknowledgements use permitted host metadata and saved-candidate authentication; trustworthy current facts confirm only what can be established. No blind fresh replacement or automatic body replay. Storage uncertainty uses the shared conservative classification and connection disposal.
+- [x] Document separate bootstrap/recovery use, exact actor/revision targeting, trusted identity handoff, owner candidate verification and bounded contention/conflict outcomes.
 
 ## Verification to implement
 
@@ -41,3 +41,5 @@ This completes the Module 01 host trust boundary and local Manager-access recove
 ## Comments
 
 2026-10-14 — Product Owner explicitly approved all eight tickets, their scope/dependencies/order, M01-V01–M01-V17 coverage, integration obligations and verification/handoff. Triage updated to `ready-for-agent`; This ticket remains dependency-blocked as recorded above. This session records approval only: no implementation or verification executed; all acceptance criteria remain unchecked.
+
+2026-10-15 — Implemented under the subsequent explicit implementation instruction. Local HTTP/operator/policy-contract verification is recorded in the linked evidence; approved future integration obligations remain outstanding. Canonical triage labels are preserved separately from execution completion. Standards and Spec reviews have no remaining findings. Product Owner local review and V1 acceptance are not claimed.

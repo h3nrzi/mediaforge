@@ -1,4 +1,4 @@
-import { authorize, publicActor, origin, registration } from './authority.js';
+import { authorize, publicActor, origin, registration, initialActor } from './authority.js';
 import { refuse, success, nextRevision, actorId } from './contract.js';
 
 export function target(scope, id) {
@@ -30,7 +30,7 @@ export function admitActor(scope, caller, id, body, now, gate = () => now) {
   }
   now = gate();
   const attribution = origin(caller, now);
-  const actor = { actorId: id, label: body.label, responsibilities: body.responsibilities, membership: 'admitted', membershipVersion: '1', credentialRevision: '1', firstAdmission: { ...attribution, timeMs: now }, latestMembershipChange: attribution, credential: registration(input, now, attribution) };
+  const actor = initialActor(input, body.label, body.responsibilities, now, attribution);
   scope.saveActor(actor); return success(publicActor(actor, now), true);
 }
 export function editActor(scope, caller, id, body, now, gate = () => now) {

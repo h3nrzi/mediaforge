@@ -6,8 +6,8 @@
 
 **Status:** ready-for-agent
 **Plan approval:** Explicitly approved by the Product Owner on 2026-10-14.
-**Execution readiness:** Blocked by 04; dependency completion required before execution. Awaiting a separate explicit implementation instruction.
-**Evidence:** Not executed.
+**Execution readiness:** Implemented under `$implement .scratch/mf-mod-01`; direct dependencies completed in the approved order. Local completion ready for owner review on 2026-10-15.
+**Evidence:** [Executed scenario matrix, 50-test result and integration handoff](../../../docs/module-01/verification.md); [full suite output](../test-evidence.txt); [independent review](../review.md).
 
 ## Authoritative context and scope
 
@@ -17,12 +17,12 @@ This is the approved contract-verification increment, not a new media feature. C
 
 ## Acceptance criteria
 
-- [ ] Boundary takes authenticated proof, action kind and authoritative subject facts, evaluates current credential/membership/responsibilities/ownership at the final gate and supplies stable actor ID/action-time label/time within the same owned transaction as the consumer's admitted change. Proof remains confined to the boundary; no reusable authorization boolean escapes a closed transaction and consumers cannot independently commit after a preliminary/remote permission read.
-- [ ] Cover every approved kind: admitted-member shared read; Contributor source/new-request admission; Contributor own-request or Operations any-request retry/cancel; Reviewer selection; Operations evidence checks/provisional cleanup; Manager membership/responsibility management and accepted-media deletion/follow-up. Unknown kinds deny.
-- [ ] Zero-role admitted members have shared-read policy; assignments union only permitted actions. Manager has no Contributor/Reviewer/Operations inheritance. Request submitter facts, not source-uploader identity or caller assertions, determine own-request power. Any Contributor may request a shared source subject to consumer eligibility.
-- [ ] Current expiry/replacement/revocation/removal/demotion wins after waiting. Consumer writes roll back with failed authority/eligibility; no separate authority snapshot can authorize an effect. Short fresh read scopes permit an already-authorized read to finish, but recheck every new call/page.
-- [ ] Removal/relabeling preserves test-consumer admitted facts and stable attribution without cancellation, accounting release or historical rewrites. Authoritative dependencies prevent actor deletion; no fake production endpoints, actual quota/lifecycle system or unlimited receipt archive is added.
-- [ ] Document the boundary's inputs, transaction ownership, denial/error semantics, secret confinement and consumer responsibility for authoritative subjects, eligibility/quotas/lifecycle and retained dependencies. Carry already-authorized transfer policy forward without building transfer mechanics.
+- [x] Boundary takes authenticated proof, action kind and authoritative subject facts, evaluates current credential/membership/responsibilities/ownership at the final gate and supplies stable actor ID/action-time label/time within the same owned transaction as the consumer's admitted change. Proof remains confined to the boundary; no reusable authorization boolean escapes a closed transaction and consumers cannot independently commit after a preliminary/remote permission read.
+- [x] Cover every approved kind: admitted-member shared read; Contributor source/new-request admission; Contributor own-request or Operations any-request retry/cancel; Reviewer selection; Operations evidence checks/provisional cleanup; Manager membership/responsibility management and accepted-media deletion/follow-up. Unknown kinds deny.
+- [x] Zero-role admitted members have shared-read policy; assignments union only permitted actions. Manager has no Contributor/Reviewer/Operations inheritance. Request submitter facts, not source-uploader identity or caller assertions, determine own-request power. Any Contributor may request a shared source subject to consumer eligibility.
+- [x] Current expiry/replacement/revocation/removal/demotion wins after waiting. Consumer writes roll back with failed authority/eligibility; no separate authority snapshot can authorize an effect. Short fresh read scopes permit an already-authorized read to finish, but recheck every new call/page.
+- [x] Removal/relabeling preserves test-consumer admitted facts and stable attribution without cancellation, accounting release or historical rewrites. Authoritative dependencies prevent actor deletion; no fake production endpoints, actual quota/lifecycle system or unlimited receipt archive is added.
+- [x] Document the boundary's inputs, transaction ownership, denial/error semantics, secret confinement and consumer responsibility for authoritative subjects, eligibility/quotas/lifecycle and retained dependencies. Carry already-authorized transfer policy forward without building transfer mechanics.
 
 ## Verification to implement
 
@@ -39,3 +39,5 @@ Module 02 must integrate actual source/read/continuation authority; Module 03 su
 ## Comments
 
 2026-10-14 — Product Owner explicitly approved all eight tickets, their scope/dependencies/order, M01-V01–M01-V17 coverage, integration obligations and verification/handoff. Triage updated to `ready-for-agent`; This ticket remains dependency-blocked as recorded above. This session records approval only: no implementation or verification executed; all acceptance criteria remain unchecked.
+
+2026-10-15 — Implemented under the subsequent explicit implementation instruction. Local HTTP/operator/policy-contract verification is recorded in the linked evidence; approved future integration obligations remain outstanding. Canonical triage labels are preserved separately from execution completion. Standards and Spec reviews have no remaining findings. Product Owner local review and V1 acceptance are not claimed.

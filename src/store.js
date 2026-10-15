@@ -117,13 +117,17 @@ export class Store {
     } catch (error) {
       let rollback = false;
       if (db?.isTransaction) {
-        try { db.exec('ROLLBACK'); rollback = true; } catch { this.untrusted = true; }
+        try {
+          if (this.faults.rollback) this.faults.rollback(db); else db.exec('ROLLBACK');
+          rollback = !db.isTransaction;
+          if (!rollback) this.untrusted = true;
+        } catch { this.untrusted = true; }
       }
       if (commitAttempted && !rollback) {
         this.untrusted = true;
         throw new Refusal(503, 'commit_unknown', 'Commit outcome is indeterminate. Inspect permitted current facts; do not blindly replay.', undefined, 'indeterminate');
       }
-      if (error instanceof Refusal) throw error;
+      if (error instanceof Refusal && (!admitted || rollback)) throw error;
       if (!admitted || rollback) throw new Refusal(503, 'unavailable', 'Storage refused the operation without effect; inspect before reconsidering.');
       this.untrusted = true;
       throw new Refusal(503, 'storage_unknown', 'Storage outcome is indeterminate. Inspect permitted current facts.', undefined, 'indeterminate');

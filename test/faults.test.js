@@ -89,3 +89,17 @@ test('M01-V13: autocommit alone does not establish outcome after a storage-inter
   assert.equal(result.body.actionStatus, 'indeterminate');
   assert.equal((await f.request('/v1/me')).body.data.label, 'Manager');
 });
+
+test('M01-V13: failed rollback after a consumer refusal is indeterminate and quarantines mutations', async t => {
+  const f = await fixture(t, { faults: { rollback() { throw new Error('rollback outcome unavailable'); } } });
+  const { Refusal } = await import('../src/contract.js');
+  await f.authority.store.write(scope => scope.sql.exec('CREATE TABLE test_rollback (value TEXT) STRICT'));
+  await assert.rejects(f.authority.admit(f.manager.bearer, 'membership_manage', () => ({}), tx => {
+    tx.run('INSERT INTO test_rollback VALUES (?)', 'consumer effect');
+    throw new Refusal(409, 'consumer_conflict', 'Consumer eligibility changed.');
+  }), error => error.status === 503 && error.actionStatus === 'indeterminate');
+  assert.equal(f.authority.store.untrusted, true);
+  const response = await f.request(`/v1/actors/${f.manager.actorId}`, f.manager, 'PATCH', { expectedMembershipVersion: '1', label: 'Must not run' });
+  assert.equal(response.status, 503);
+  assert.equal((await f.request('/v1/me')).body.data.label, 'Manager');
+});

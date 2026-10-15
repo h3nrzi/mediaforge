@@ -6,8 +6,8 @@
 
 **Status:** ready-for-agent
 **Plan approval:** Explicitly approved by the Product Owner on 2026-10-14.
-**Execution readiness:** Blocked by 07; dependency completion required before execution. Awaiting a separate explicit implementation instruction.
-**Evidence:** Not executed.
+**Execution readiness:** Implemented under `$implement .scratch/mf-mod-01`; direct dependencies completed in the approved order. Local completion ready for owner review on 2026-10-15.
+**Evidence:** [Executed scenario matrix, 50-test result and integration handoff](../../../docs/module-01/verification.md); [full suite output](../test-evidence.txt); [independent review](../review.md).
 
 ## Authoritative context and scope
 
@@ -17,14 +17,14 @@ Consolidate documentation and actual evidence after implementation. The ticket i
 
 ## Acceptance criteria
 
-- [ ] A reproducible starting point documents pinned runtime, persistent local database, transport/HTTPS requirements, owner preparation, descriptor identity confirmation, one-time bootstrap, supported commands and actor-specific curl setup. Use curl 8.x with --disable first, owner-only configs, --json request files, --fail-with-body, no automatic redirects and no TLS bypass; jq optional. No secrets in literal arguments, shell history, version control, evidence or traces; no owner-file handoff to Managers/operators.
-- [ ] Execute actual HTTP/command workflows for admission, zero/alone/combined responsibilities, self identity/current authority, management denials, stale changes, safe removal/readmission, self/Manager replacement, exact revoke and operator-only recovery. Show stable actor IDs, assignments/versions, original expiry, bounded attribution and permitted current facts. Future media features are explicitly scheduled, never successful placeholder endpoints.
-- [ ] Verify complete specified HTTP semantics (400/401/403/404/409/413/503), JSON result/reason/action-status fields, no-store, no unauthorized target disclosure, redirect/ambient-config avoidance and readable safe recovery. Include established contention refusal and indeterminate outcome handling.
-- [ ] Execute and record M01-V01 through M01-V17 with scope, method, actual observations, artifact/test references, failures and resolutions. Retain secret-free evidence; distinguish HTTP/host operation evidence, local policy-contract evidence, controlled clock/fault results and manual review. Unexecuted/failed items cannot be marked passed or hidden by aggregate counts.
-- [ ] Run the full applicable suite and repository checks once final changes settle; use meaningful feature tests and the existing JavaScript/runtime checking conventions rather than adding a compiler/framework solely for this ticket. Resolve failures or explicitly report the module incomplete.
-- [ ] Verify all five owned PRD requirements against specification/ticket coverage and acceptance contributions. MF-AC-02/03/04 remain partial local evidence until the named full-scenario participants supply real subjects; record MF-AC-01/42/44 local scope and outstanding MF-AC-29/33/37/38/41 subjects.
-- [ ] Produce a handoff ledger naming Modules 02–06 and MF-GATE-07, boundary/client conventions delivered, outstanding real integration scenarios, storage assumptions and any material limitations. No fabricated learner mastery/performance SLA, edited outcomes, physical power-loss claims or whole V1 pass.
-- [ ] State whether Module 01 local completion evidence is ready for owner review, independently of full V1 acceptance and later-module authorization. Preserve approved decisions; a genuine blocking contradiction must be reported rather than silently changed.
+- [x] A reproducible starting point documents pinned runtime, persistent local database, transport/HTTPS requirements, owner preparation, descriptor identity confirmation, one-time bootstrap, supported commands and actor-specific curl setup. Use curl 8.x with --disable first, owner-only configs, --json request files, --fail-with-body, no automatic redirects and no TLS bypass; jq optional. No secrets in literal arguments, shell history, version control, evidence or traces; no owner-file handoff to Managers/operators.
+- [x] Execute actual HTTP/command workflows for admission, zero/alone/combined responsibilities, self identity/current authority, management denials, stale changes, safe removal/readmission, self/Manager replacement, exact revoke and operator-only recovery. Show stable actor IDs, assignments/versions, original expiry, bounded attribution and permitted current facts. Future media features are explicitly scheduled, never successful placeholder endpoints.
+- [x] Verify complete specified HTTP semantics (400/401/403/404/409/413/503), JSON result/reason/action-status fields, no-store, no unauthorized target disclosure, redirect/ambient-config avoidance and readable safe recovery. Include established contention refusal and indeterminate outcome handling.
+- [x] Execute and record M01-V01 through M01-V17 with scope, method, actual observations, artifact/test references, failures and resolutions. Retain secret-free evidence; distinguish HTTP/host operation evidence, local policy-contract evidence, controlled clock/fault results and manual review. Unexecuted/failed items cannot be marked passed or hidden by aggregate counts.
+- [x] Run the full applicable suite and repository checks once final changes settle; use meaningful feature tests and the existing JavaScript/runtime checking conventions rather than adding a compiler/framework solely for this ticket. Resolve failures or explicitly report the module incomplete.
+- [x] Verify all five owned PRD requirements against specification/ticket coverage and acceptance contributions. MF-AC-02/03/04 remain partial local evidence until the named full-scenario participants supply real subjects; record MF-AC-01/42/44 local scope and outstanding MF-AC-29/33/37/38/41 subjects.
+- [x] Produce a handoff ledger naming Modules 02–06 and MF-GATE-07, boundary/client conventions delivered, outstanding real integration scenarios, storage assumptions and any material limitations. No fabricated learner mastery/performance SLA, edited outcomes, physical power-loss claims or whole V1 pass.
+- [x] State whether Module 01 local completion evidence is ready for owner review, independently of full V1 acceptance and later-module authorization. Preserve approved decisions; a genuine blocking contradiction must be reported rather than silently changed.
 
 ## Verification to implement and perform
 
@@ -50,3 +50,5 @@ All integrations remain outstanding until executed by their named participants. 
 ## Comments
 
 2026-10-14 — Product Owner explicitly approved all eight tickets, their scope/dependencies/order, M01-V01–M01-V17 coverage, integration obligations and verification/handoff. Triage updated to `ready-for-agent`; This ticket remains dependency-blocked as recorded above. This session records approval only: no implementation or verification executed; all acceptance criteria remain unchecked.
+
+2026-10-15 — Implemented under the subsequent explicit implementation instruction. Local HTTP/operator/policy-contract verification is recorded in the linked evidence; approved future integration obligations remain outstanding. Canonical triage labels are preserved separately from execution completion. Standards and Spec reviews have no remaining findings. Product Owner local review and V1 acceptance are not claimed.

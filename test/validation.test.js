@@ -41,6 +41,8 @@ test('M01-V03/V15: strict authentication and HTTP validation return bounded priv
   assert.equal((await raw(f.url + path, { Authorization: f.manager.bearer, 'content-type': 'text/plain' }, '{}', 'PATCH')).status, 400);
   assert.equal((await f.request(path, f.manager, 'PATCH', { expectedMembershipVersion: '2', label: 'x'.repeat(17000) })).status, 413);
   assert.equal((await f.request('/unsupported')).status, 404);
+  assert.equal((await f.request(path + '/unsupported')).status, 404);
+  assert.equal((await f.request(path + '/remove')).status, 404);
   assert.equal((await f.request(`/v1/actors/${'f'.repeat(129)}`)).status, 400);
   const unknown = f.candidate();
   assert.equal((await f.request(`/v1/actors/${unknown.actorId}`, member)).status, 403);

@@ -16,6 +16,14 @@ export function origin(actor, time) {
 export function registration(input, now, attribution) {
   return { credentialId: input.credentialId, verifier: input.verifier, registrationRevision: input.registrationRevision, issuedMs: now, expiresMs: now + LIFETIME, issuedAt: new Date(now).toISOString(), expiresAt: new Date(now + LIFETIME).toISOString(), invalidated: false, latestChange: attribution };
 }
+export function initialActor(input, label, responsibilities, now, attribution) {
+  return {
+    actorId: input.actorId, label, responsibilities, membership: 'admitted',
+    membershipVersion: '1', credentialRevision: '1',
+    firstAdmission: { ...attribution, timeMs: now }, latestMembershipChange: attribution,
+    credential: registration(input, now, attribution),
+  };
+}
 export function authorize(actor, kind, subject = {}) {
   const roles = actor.responsibilities;
   const has = role => roles.includes(role);
@@ -81,7 +89,7 @@ export class Authority {
       if (scope.workspace()) refuse(409, 'already_initialized', 'Workspace is already initialized; bootstrap never changes it.');
       if (input.expectedCredentialRevision !== '0') refuse(400, 'invalid_binding', 'Bootstrap requires revision-one material.');
       const now = this.clock(); const attribution = origin(null, now);
-      const actor = { actorId: input.actorId, label, responsibilities: ['Manager'], membership: 'admitted', membershipVersion: '1', credentialRevision: '1', firstAdmission: { ...attribution, timeMs: now }, latestMembershipChange: attribution, credential: registration(input, now, attribution) };
+      const actor = initialActor(input, label, ['Manager'], now, attribution);
       scope.saveActor(actor); scope.setWorkspace({ initialManagerActorId: actor.actorId, initializedAt: new Date(now).toISOString() });
       return success(publicActor(actor, now), true);
     });

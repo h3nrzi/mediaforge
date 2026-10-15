@@ -35,10 +35,12 @@ function queryInput(url) {
 }
 export function validateMutation(method, suffix, body) {
   if (method === 'PUT' && !suffix) {
+    if (body === undefined) return admitActor;
     fields(body, ['label', 'responsibilities', 'registration']); text(body.label, 80, 'Label');
     body.responsibilities = responsibilities(body.responsibilities); descriptor(body.registration); return admitActor;
   }
   if (method === 'PATCH' && !suffix) {
+    if (body === undefined) return editActor;
     fields(body, ['expectedMembershipVersion', 'label', 'responsibilities'], ['expectedMembershipVersion']); revision(body.expectedMembershipVersion);
     if (!Object.hasOwn(body, 'label') && !Object.hasOwn(body, 'responsibilities')) refuse(400, 'invalid_input', 'Supply a desired label or responsibility set.');
     if (Object.hasOwn(body, 'label')) text(body.label, 80, 'Label');
@@ -46,18 +48,22 @@ export function validateMutation(method, suffix, body) {
     return editActor;
   }
   if (method === 'POST' && suffix === '/credential') {
+    if (body === undefined) return replaceCredential;
     fields(body, ['expectedCredentialRevision', 'registration']); revision(body.expectedCredentialRevision); descriptor(body.registration); return replaceCredential;
   }
   const revoke = /^\/credentials\/([^/]+)\/revoke$/.exec(suffix);
   if (method === 'POST' && revoke) {
+    if (body === undefined) return revokeCredential;
     fields(body, [], []);
     try { body.credentialId = decodeURIComponent(revoke[1]); } catch { refuse(400, 'invalid_input', 'Malformed credential path.'); }
     text(body.credentialId, 128, 'Credential ID'); return revokeCredential;
   }
   if (method === 'POST' && suffix === '/remove') {
+    if (body === undefined) return removeActor;
     fields(body, ['expectedMembershipVersion']); revision(body.expectedMembershipVersion); return removeActor;
   }
   if (method === 'POST' && suffix === '/readmit') {
+    if (body === undefined) return readmitActor;
     fields(body, ['expectedMembershipVersion', 'expectedCredentialRevision', 'responsibilities', 'registration']);
     revision(body.expectedMembershipVersion); revision(body.expectedCredentialRevision);
     body.responsibilities = responsibilities(body.responsibilities); descriptor(body.registration); return readmitActor;
@@ -96,6 +102,7 @@ export function createService(authority, { bodyLimit = 16384, tls, afterAction }
       }
       // Authenticate/authorize before parsing a target mutation; the durable gate repeats it.
       authority.read(proof, (_, actor) => {
+        validateMutation(request.method, suffix);
         if (actor.actorId !== id || !(suffix === '/credential' || /^\/credentials\/[^/]+\/revoke$/.test(suffix))) authorize(actor, 'membership_manage');
       });
       const body = await jsonBody(request, bodyLimit);

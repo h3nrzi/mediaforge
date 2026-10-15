@@ -2,7 +2,7 @@
 
 Implementation authorization: `$implement .scratch/mf-mod-01`, continued on 2026-10-15. The approval-only statements in the specification and tickets describe the earlier authoring sessions. This instruction authorizes these eight tickets together; it does not authorize Module 02 or whole-product acceptance.
 
-Local state: implementation and individually executed feature checks are present; final suite and independent review results will be recorded below. Human Product Owner acceptance remains separate.
+Local state: all eight tickets are implemented; all 50 tests and the runtime/syntax checks passed on 2026-10-15. Module 01 local completion evidence is ready for Product Owner review. Human Product Owner acceptance remains separate.
 
 Runtime: Node.js 24.22.0, downloaded from the official release distribution and matched against its SHA-256 release manifest. curl 8.17.0. JavaScript ES modules and built-in HTTP/HTTPS, crypto, filesystem, SQLite and test runner; no application dependencies or compiler added. `npm run check` verifies the pinned runtime and JavaScript syntax. All tests use actual temporary on-disk SQLite. Clocks, storage faults, barriers and dropped acknowledgements exist only as trusted test-construction arguments, never HTTP/env override endpoints.
 
@@ -59,4 +59,15 @@ Storage assumptions: persistent local disk, one authority host, protected DB/dir
 
 ## Final checks and review
 
-Pending final full-suite run and the two independent review axes. This section will be updated with actual results before delivery.
+Executed on 2026-10-15 with restored, checksum-verified Node.js 24.22.0:
+
+- `node scripts/check.js`: passed (pinned runtime and all JavaScript syntax).
+- `node --test test/*.test.js`: **50 passed, 0 failed, 0 skipped**; real runtime 10.33 seconds. Full output: [test evidence](../../.scratch/mf-mod-01/test-evidence.txt).
+- `node scripts/walkthrough.js`: passed; 39 sanitized observations retained in [walkthrough evidence](../../.scratch/mf-mod-01/walkthrough-evidence.json).
+- `git diff --check`: passed; tracked evidence contains no generated raw secrets or verifier values.
+- Independent Standards review: **0 remaining findings** after correcting failed-rollback classification and sharing initial-actor construction.
+- Independent Spec review: **0 remaining findings** after rechecking the corrected uncertainty behavior. [Separate review reports](../../.scratch/mf-mod-01/review.md).
+
+The changed execution environment removed the earlier temporary runtime and blocked loopback listeners in the sandbox. The pinned official runtime was restored and checksum-verified; approved execution outside the sandbox allowed the real local HTTP suite. The initial EPERM runs did not exercise application assertions and are not counted as passes. The final 50-test run above executed every test successfully. No alternative Node version is counted as acceptance evidence.
+
+Local completion is ready for owner review; all integration obligations above and full V1 acceptance remain outstanding. No later module was implemented.

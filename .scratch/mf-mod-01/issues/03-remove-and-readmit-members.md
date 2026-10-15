@@ -6,8 +6,8 @@
 
 **Status:** ready-for-agent
 **Plan approval:** Explicitly approved by the Product Owner on 2026-10-14.
-**Execution readiness:** Blocked by 02; dependency completion required before execution. Awaiting a separate explicit implementation instruction.
-**Evidence:** Not executed.
+**Execution readiness:** Implemented under `$implement .scratch/mf-mod-01`; direct dependencies completed in the approved order. Local completion ready for owner review on 2026-10-15.
+**Evidence:** [Executed scenario matrix, 50-test result and integration handoff](../../../docs/module-01/verification.md); [full suite output](../test-evidence.txt); [independent review](../review.md).
 
 ## Authoritative context and scope
 
@@ -17,14 +17,14 @@ Implement explicit remove/readmit HTTP operations and expand existing edits/dire
 
 ## Acceptance criteria
 
-- [ ] Removal with observed membership version atomically clears assignments, marks removed and invalidates usable credential state. Advance membership version once and credential revision only when credential state actually changes. Already-invalid credentials do not manufacture another revocation; every subsequent authenticated call by the removed actor denies.
-- [ ] Exact-ID repeat removal adds no version/time/attribution/effect. Stale removal after readmission refuses and cannot remove the new admission. Repetition of a past label/assignment change after an intervening incompatible change also refuses.
-- [ ] Readmission targets an existing removed actor with observed membership and credential revisions, explicit assignments (including empty) and fresh next-revision owner-prepared material. Recheck Manager authority/state/binding at the gate and commit admission/assignments/credential atomically. Never restore old responsibilities or credentials, or reactivate by label matching/new-admission replay.
-- [ ] Retain actor ID, first-admission identity/time/order and immutable attribution snapshots. A different person with the same label receives a new ID. Current label edits/readmission do not rewrite historical action-time labels.
-- [ ] Last-Manager counting considers admitted Manager membership, including expired/revoked credentials. Removal and responsibility edits, including self-actions and competing independent writers, cannot commit zero admitted Managers. A caller demoted/removed while waiting cannot act using earlier authority.
-- [ ] Membership changes have no cascades into work/media/history, cancellation intent or accounting release. Preserve foreign-key actor dependencies, bounded latest-change facts and original first-admission facts; introduce no purge/event archive.
-- [ ] Return readable current permitted facts for conflicts, denied next pages after removal/demotion and safe exact-ID lookup after a lost acknowledgement. Inspecting current state cannot falsely prove a superseded historical outcome.
-- [ ] Extend documented curl workflows for safe self-demotion with another Manager, removal, old-credential denial, exact-ID readmission and stale-removal recovery.
+- [x] Removal with observed membership version atomically clears assignments, marks removed and invalidates usable credential state. Advance membership version once and credential revision only when credential state actually changes. Already-invalid credentials do not manufacture another revocation; every subsequent authenticated call by the removed actor denies.
+- [x] Exact-ID repeat removal adds no version/time/attribution/effect. Stale removal after readmission refuses and cannot remove the new admission. Repetition of a past label/assignment change after an intervening incompatible change also refuses.
+- [x] Readmission targets an existing removed actor with observed membership and credential revisions, explicit assignments (including empty) and fresh next-revision owner-prepared material. Recheck Manager authority/state/binding at the gate and commit admission/assignments/credential atomically. Never restore old responsibilities or credentials, or reactivate by label matching/new-admission replay.
+- [x] Retain actor ID, first-admission identity/time/order and immutable attribution snapshots. A different person with the same label receives a new ID. Current label edits/readmission do not rewrite historical action-time labels.
+- [x] Last-Manager counting considers admitted Manager membership, including expired/revoked credentials. Removal and responsibility edits, including self-actions and competing independent writers, cannot commit zero admitted Managers. A caller demoted/removed while waiting cannot act using earlier authority.
+- [x] Membership changes have no cascades into work/media/history, cancellation intent or accounting release. Preserve foreign-key actor dependencies, bounded latest-change facts and original first-admission facts; introduce no purge/event archive.
+- [x] Return readable current permitted facts for conflicts, denied next pages after removal/demotion and safe exact-ID lookup after a lost acknowledgement. Inspecting current state cannot falsely prove a superseded historical outcome.
+- [x] Extend documented curl workflows for safe self-demotion with another Manager, removal, old-credential denial, exact-ID readmission and stale-removal recovery.
 
 ## Verification to implement
 
@@ -41,3 +41,5 @@ Real membership/credential invalidation and historical local snapshots are owned
 ## Comments
 
 2026-10-14 — Product Owner explicitly approved all eight tickets, their scope/dependencies/order, M01-V01–M01-V17 coverage, integration obligations and verification/handoff. Triage updated to `ready-for-agent`; This ticket remains dependency-blocked as recorded above. This session records approval only: no implementation or verification executed; all acceptance criteria remain unchecked.
+
+2026-10-15 — Implemented under the subsequent explicit implementation instruction. Local HTTP/operator/policy-contract verification is recorded in the linked evidence; approved future integration obligations remain outstanding. Canonical triage labels are preserved separately from execution completion. Standards and Spec reviews have no remaining findings. Product Owner local review and V1 acceptance are not claimed.

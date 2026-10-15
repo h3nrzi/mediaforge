@@ -2,9 +2,9 @@
 
 Status: ready-for-agent
 Specification approval: Explicitly approved by the Product Owner on 2026-10-14 as the authoritative MF-MOD-01 implementation specification.
-Implementation readiness: Sufficiently specified for later agent work; readiness is distinct from approval and does not authorize execution.
-Ticket generation / implementation: Not authorized; no tickets or application code created.
-Executed verification / acceptance: Not executed; no tests or acceptance cases claimed passed, and no capability claimed implemented.
+Implementation execution: Subsequently authorized by `$implement .scratch/mf-mod-01`; all eight approved tickets implemented, with local completion evidence ready for owner review on 2026-10-15.
+Executed verification / acceptance: 50 tests and runtime/syntax checks passed; whole-product acceptance remains outstanding. See [verification and handoff](../../docs/module-01/verification.md).
+Historical authoring context: Approval-only restrictions below describe the original specification/discovery sessions; the approved product and technical decisions remain unchanged.
 Prepared: 2026-10-14.
 
 ## Product Owner Approval Record
