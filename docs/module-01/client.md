@@ -82,7 +82,11 @@ The independent roles are `Contributor`, `Reviewer`, `Operations`, `Manager`. An
 To edit, put this JSON in a separate private file:
 
 ```json
-{"expectedMembershipVersion":"1","label":"Updated label","responsibilities":["Contributor","Reviewer"]}
+{
+  "expectedMembershipVersion": "1",
+  "label": "Updated label",
+  "responsibilities": ["Contributor", "Reviewer"]
+}
 ```
 
 ```sh
@@ -100,13 +104,13 @@ Directory queries use `limit` (default 50, maximum 100), exact `actorId`, `membe
 
 All bodies use the same curl pattern, adding the method and path below. Table entries show request-file contents; descriptors are embedded as objects, never owner files.
 
-| Method/path relative to `/v1/actors/$MF_ACTOR` | JSON body | Guard |
-| --- | --- | --- |
-| POST `/remove` | `{"expectedMembershipVersion":"2"}` | Current Manager; preserves an admitted Manager |
-| POST `/readmit` | `{"expectedMembershipVersion":"3","expectedCredentialRevision":"2","responsibilities":[],"registration":<fresh descriptor>}` | Removed exact actor; fresh next-revision material |
-| GET `/credential` | None | Self or Manager; preparation/current non-secret metadata |
-| POST `/credential` | `{"expectedCredentialRevision":"3","registration":<fresh descriptor>}` | Current self credential or Manager for another admitted actor |
-| POST `/credentials/$MF_CREDENTIAL/revoke` | `{}` | Current owner or Manager; exact credential ID |
+| Method/path relative to `/v1/actors/$MF_ACTOR` | JSON body                                                                                                                    | Guard                                                         |
+| ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| POST `/remove`                                 | `{"expectedMembershipVersion":"2"}`                                                                                          | Current Manager; preserves an admitted Manager                |
+| POST `/readmit`                                | `{"expectedMembershipVersion":"3","expectedCredentialRevision":"2","responsibilities":[],"registration":<fresh descriptor>}` | Removed exact actor; fresh next-revision material             |
+| GET `/credential`                              | None                                                                                                                         | Self or Manager; preparation/current non-secret metadata      |
+| POST `/credential`                             | `{"expectedCredentialRevision":"3","registration":<fresh descriptor>}`                                                       | Current self credential or Manager for another admitted actor |
+| POST `/credentials/$MF_CREDENTIAL/revoke`      | `{}`                                                                                                                         | Current owner or Manager; exact credential ID                 |
 
 Removal clears assignments and invalidates credentials without deleting identity or admitted consumer facts. Removed callers get 401 on future calls. Readmission preserves the actor ID and historical first-admission snapshot and requires explicit assignments and fresh next-revision credentials. A different person with the same label gets a new ID.
 
@@ -133,15 +137,15 @@ node src/cli.js recover --db "$MF_DB" --actor "$MF_ACTOR" \
 
 Recovery registers the owner's prepared next-revision material, preserves membership/roles/labels/identity and records host-operator origin plus local OS UID. Removed/non-Manager/unknown/stale targets refuse. It cannot readmit, grant roles or reset bootstrap. There is no HTTP recovery/setup endpoint. The owner verifies the saved candidate with `/v1/me`; recovery confirmation never refreshes expiry.
 
-| Observation | What is established | Next step |
-| --- | --- | --- |
-| 400/413 invalid input | No effect | Correct input, retaining exact identities |
-| 401/403 | Current authentication/authority denies | Use supported current Manager/operator inspection; do not infer a past lost action failed |
-| 404 after applicable authorization | Permitted target/route absent | Recheck exact target and supported route |
-| 409 stale/binding/last-Manager conflict | This action refused without effect; permitted facts may be supplied | Inspect, reconsider and use newly observed state for deliberate new intent |
-| 503 + `refused_without_effect`, `contention` | No mutation body ran within the cumulative budget | Inspect and reconsider once contention clears |
-| 503 + `indeterminate` | Commit knowledge is unestablished | Inspect exact saved actor/candidate/credential; never blindly create another effect |
-| Disconnection or absent command response | Client does not know outcome | Use the same exact identities and supported inspection |
+| Observation                                  | What is established                                                 | Next step                                                                                 |
+| -------------------------------------------- | ------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| 400/413 invalid input                        | No effect                                                           | Correct input, retaining exact identities                                                 |
+| 401/403                                      | Current authentication/authority denies                             | Use supported current Manager/operator inspection; do not infer a past lost action failed |
+| 404 after applicable authorization           | Permitted target/route absent                                       | Recheck exact target and supported route                                                  |
+| 409 stale/binding/last-Manager conflict      | This action refused without effect; permitted facts may be supplied | Inspect, reconsider and use newly observed state for deliberate new intent                |
+| 503 + `refused_without_effect`, `contention` | No mutation body ran within the cumulative budget                   | Inspect and reconsider once contention clears                                             |
+| 503 + `indeterminate`                        | Commit knowledge is unestablished                                   | Inspect exact saved actor/candidate/credential; never blindly create another effect       |
+| Disconnection or absent command response     | Client does not know outcome                                        | Use the same exact identities and supported inspection                                    |
 
 Admission recovery looks up the prepared actor ID, not a new ID. Edit/removal recovery inspects current version and latest bounded facts. Credential recovery tries the saved candidate and inspects exact metadata. Bootstrap recovery uses candidate authentication and trusted `status`: initialized stores never reset/rerun successfully. Same-candidate retry requires trustworthy non-initialization and absence of an earlier still-active attempt. If another candidate won, do not adopt its identity. Operator recovery similarly inspects target/revision before reconsidering.
 

@@ -17,15 +17,15 @@ An ownership assignment identifies the module accountable for implementing and m
 
 ## 2. Ordered capability list and dependencies
 
-| Order / ID | Capability | Product result | Direct prerequisites |
-| --- | --- | --- | --- |
-| MF-MOD-01 | Private workspace and member authority | A Manager establishes team access, combines responsibilities and revokes future authority safely | None |
-| MF-MOD-02 | Dependable source intake and submission recovery | A Contributor admits an immutable validated source, finds/retrieves it, or recovers an honest refusal/indeterminate submission | 01 |
-| MF-MOD-03 | Verified publication variants and honest processing | A Contributor requests fixed variants and retrieves real verified outputs with individual outcomes and truthful summaries | 02 |
-| MF-MOD-04 | Controlled retry, cancellation and Operations recovery | Authorized actors recover eligible failures, request stopping, and investigate unresolved obligations without inventing results | 03 |
-| MF-MOD-05 | Editorial review and preview evidence | Reviewers inspect available evidence and record independent usable selections; retrieval survives preview failure | 03 |
-| MF-MOD-06 | Safe deletion and history-only expiry | Managers close access and confirm cleanup; required provenance survives and expires only when eligible | 04, 05 |
-| MF-GATE-07 | V1 integration and release acceptance | The complete documented product and its real evidence are reviewed against the entire approved contract | 06 (and acceptance of 01–05) |
+| Order / ID | Capability                                             | Product result                                                                                                                  | Direct prerequisites         |
+| ---------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
+| MF-MOD-01  | Private workspace and member authority                 | A Manager establishes team access, combines responsibilities and revokes future authority safely                                | None                         |
+| MF-MOD-02  | Dependable source intake and submission recovery       | A Contributor admits an immutable validated source, finds/retrieves it, or recovers an honest refusal/indeterminate submission  | 01                           |
+| MF-MOD-03  | Verified publication variants and honest processing    | A Contributor requests fixed variants and retrieves real verified outputs with individual outcomes and truthful summaries       | 02                           |
+| MF-MOD-04  | Controlled retry, cancellation and Operations recovery | Authorized actors recover eligible failures, request stopping, and investigate unresolved obligations without inventing results | 03                           |
+| MF-MOD-05  | Editorial review and preview evidence                  | Reviewers inspect available evidence and record independent usable selections; retrieval survives preview failure               | 03                           |
+| MF-MOD-06  | Safe deletion and history-only expiry                  | Managers close access and confirm cleanup; required provenance survives and expires only when eligible                          | 04, 05                       |
+| MF-GATE-07 | V1 integration and release acceptance                  | The complete documented product and its real evidence are reviewed against the entire approved contract                         | 06 (and acceptance of 01–05) |
 
 Modules 01–02 are foundational **product capabilities**, demonstrable through actual membership and source workflows. Module 03 is the first complete source-to-derived-deliverable workflow. Modules 04–06 extend it with operational control, editorial use and managed lifecycle completion. No separate technical-layer or generic infrastructure module is proposed.
 
@@ -131,21 +131,21 @@ Acceptance cases often span several modules. Local evidence is labelled with the
 
 ## 4. Cross-module contract responsibilities
 
-| Product contract | Single owner | Consumers / contribution responsibility |
-| --- | --- | --- |
-| Current authority, combinations, revocation, stable actor identity | 01 | 02–06 check authority at each read/action effect; each owns action-specific eligibility |
-| Initial access and reproducible client workflow convention | 01 | 02–06 document actual capability workflows as delivered; 07 reviews the complete client |
-| Submission references and attempt protection | 02 | 03/04 bind their original request/retry inputs and return the original admission facts; replay never re-admits |
-| General bounds, logical bytes, temporary/retained release and record protection | 02 | 03 supplies output/work facts; 04 supplies safe check evidence; 05 supplies preview facts; 06 supplies confirmed removal/expiry facts |
-| Request-slot accounting, overlap, order, clocks and six outcomes | 03 | 04's retry/cancel/check actions use that lifecycle; 05/06 use unresolved-work facts without redefining them |
-| Minimal provenance and dependency protection | 02 | 01 supplies stable actors; 03/04 supply revisions/lineage/outcomes; 05 supplies latest/former selections; 06 supplies deletion and eligibility facts |
-| Ninety-day accepted-record eligibility/expiry | 06 | 02 enforces protected-record counts and listing disappearance from those facts; unaccepted attempts remain under 02's separate obligations |
-| Evidence-check authority and provisional cleanup | 04 | 02/03/05 supply inspectable current obligations and evidence; 06 preserves Manager-only accepted-media follow-up |
-| Historical verified completion/fixed output bytes | 03 | 05 reports present availability separately; 06 closes retrieval on deletion without rewriting completion |
-| Preview and editorial selection | 05 | 03 supplies verified output; 04 checks provisional facts; 06 removes active usability and preserves former-selection context |
-| Deletion, access closure, pending/confirmed cleanup | 06 | 02 credits only proven removal; 03/04/05 refuse actions when deletion wins and expose their blockers when work wins |
-| Listings, immutable presentation and feedback semantics | 02 | Every later capability contributes applicable exact filters/facts and readable reasons; 01 governs every continuation's authority |
-| Whole-product evidence, exclusions and educational accounting | 07 | 01–06 contribute evidence, never new architecture requirements or unproved success claims |
+| Product contract                                                                | Single owner | Consumers / contribution responsibility                                                                                                              |
+| ------------------------------------------------------------------------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Current authority, combinations, revocation, stable actor identity              | 01           | 02–06 check authority at each read/action effect; each owns action-specific eligibility                                                              |
+| Initial access and reproducible client workflow convention                      | 01           | 02–06 document actual capability workflows as delivered; 07 reviews the complete client                                                              |
+| Submission references and attempt protection                                    | 02           | 03/04 bind their original request/retry inputs and return the original admission facts; replay never re-admits                                       |
+| General bounds, logical bytes, temporary/retained release and record protection | 02           | 03 supplies output/work facts; 04 supplies safe check evidence; 05 supplies preview facts; 06 supplies confirmed removal/expiry facts                |
+| Request-slot accounting, overlap, order, clocks and six outcomes                | 03           | 04's retry/cancel/check actions use that lifecycle; 05/06 use unresolved-work facts without redefining them                                          |
+| Minimal provenance and dependency protection                                    | 02           | 01 supplies stable actors; 03/04 supply revisions/lineage/outcomes; 05 supplies latest/former selections; 06 supplies deletion and eligibility facts |
+| Ninety-day accepted-record eligibility/expiry                                   | 06           | 02 enforces protected-record counts and listing disappearance from those facts; unaccepted attempts remain under 02's separate obligations           |
+| Evidence-check authority and provisional cleanup                                | 04           | 02/03/05 supply inspectable current obligations and evidence; 06 preserves Manager-only accepted-media follow-up                                     |
+| Historical verified completion/fixed output bytes                               | 03           | 05 reports present availability separately; 06 closes retrieval on deletion without rewriting completion                                             |
+| Preview and editorial selection                                                 | 05           | 03 supplies verified output; 04 checks provisional facts; 06 removes active usability and preserves former-selection context                         |
+| Deletion, access closure, pending/confirmed cleanup                             | 06           | 02 credits only proven removal; 03/04/05 refuse actions when deletion wins and expose their blockers when work wins                                  |
+| Listings, immutable presentation and feedback semantics                         | 02           | Every later capability contributes applicable exact filters/facts and readable reasons; 01 governs every continuation's authority                    |
+| Whole-product evidence, exclusions and educational accounting                   | 07           | 01–06 contribute evidence, never new architecture requirements or unproved success claims                                                            |
 
 These are product responsibilities, not technical interfaces, schemas or synchronization mechanisms. Later module-scoped Technical Discovery determines how each interaction satisfies the approved observable contract.
 
@@ -215,142 +215,142 @@ Range notation in the per-module index includes every identifier in that range. 
 
 ### Requirement ownership — 71 requirements
 
-| Requirement | Approved purpose | Accountable owner |
-| --- | --- | --- |
-| MF-SCOPE-01 | Product purpose and success | MF-GATE-07 |
-| MF-SCOPE-02 | Private workspace and shared visibility | MF-MOD-01 |
-| MF-SCOPE-03 | Backend deliverable and deferred capabilities | MF-GATE-07 |
-| MF-SCOPE-04 | Charter exclusions and guarantee boundaries | MF-GATE-07 |
-| MF-ACCESS-01 | Combinable responsibility permissions | MF-MOD-01 |
-| MF-ACCESS-02 | Request ownership and shared-source processing | MF-MOD-03 |
-| MF-ACCESS-03 | Revocation and work continuity | MF-MOD-01 |
-| MF-ACCESS-04 | Last Manager and stable attribution | MF-MOD-01 |
-| MF-ACCESS-05 | Variant reconciliation authority | MF-MOD-04 |
-| MF-ACCESS-06 | Non-variant recovery authority | MF-MOD-04 |
-| MF-INTAKE-01 | Complete content-based admission | MF-MOD-02 |
-| MF-INTAKE-02 | Rights declaration | MF-MOD-02 |
-| MF-INTAKE-03 | Immutable distinct source and descriptive facts | MF-MOD-02 |
-| MF-INTAKE-04 | Source size and unfinished upload boundaries | MF-MOD-02 |
-| MF-INTAKE-05 | Whole upload deadline and abandoned cleanup | MF-MOD-02 |
-| MF-SUBMIT-01 | Same-attempt identity and unchanged inputs | MF-MOD-02 |
-| MF-SUBMIT-02 | Seven-day reference expiry | MF-MOD-02 |
-| MF-SUBMIT-03 | Recovery access and indeterminate admission | MF-MOD-02 |
-| MF-SUBMIT-04 | Recovery-record obligations | MF-MOD-02 |
-| MF-PRESET-01 | Fixed catalogue and effective revisions | MF-MOD-03 |
-| MF-PRESET-02 | Orientation and precise proportional geometry | MF-MOD-03 |
-| MF-PRESET-03 | Format and transparency | MF-MOD-03 |
-| MF-PRESET-04 | Color interpretation and precision | MF-MOD-03 |
-| MF-PRESET-05 | Metadata privacy and separate provenance | MF-MOD-03 |
-| MF-PRESET-06 | Actual deliverable verification and fixed bytes | MF-MOD-03 |
-| MF-REQUEST-01 | Source/preset grouping and overlap | MF-MOD-03 |
-| MF-REQUEST-02 | Individually visible variants and provenance | MF-MOD-03 |
-| MF-REQUEST-03 | Honest derived request summaries | MF-MOD-03 |
-| MF-REQUEST-04 | Immediate partial deliverables | MF-MOD-03 |
-| MF-REQUEST-05 | Order, bypass and independent siblings | MF-MOD-03 |
-| MF-RESOURCE-01 | Published inclusive limits and distinct categories | MF-MOD-02 |
-| MF-RESOURCE-02 | Retained logical bytes and admission | MF-MOD-02 |
-| MF-RESOURCE-03 | Slots and acting submitter accounting | MF-MOD-03 |
-| MF-RESOURCE-04 | Temporary and generated media pressure | MF-MOD-02 |
-| MF-RESOURCE-05 | Evidence-based release and uncertain usage | MF-MOD-02 |
-| MF-RESOURCE-06 | Record protection and bounded fields | MF-MOD-02 |
-| MF-LIFE-01 | Six truthful variant outcomes | MF-MOD-03 |
-| MF-LIFE-02 | Progress without false precision | MF-MOD-03 |
-| MF-LIFE-03 | Per-variant deadlines | MF-MOD-03 |
-| MF-LIFE-04 | Timeout evidence and late valid results | MF-MOD-03 |
-| MF-LIFE-05 | Uncertainty reconciliation and persistent blockers | MF-MOD-03 |
-| MF-LIFE-06 | Service interruption and admission honesty | MF-MOD-03 |
-| MF-RETRY-01 | Manual eligibility and original revision | MF-MOD-04 |
-| MF-RETRY-02 | Immutable lineage and capped accepted attempts | MF-MOD-04 |
-| MF-RETRY-03 | All-or-nothing selective admission | MF-MOD-04 |
-| MF-CANCEL-01 | Whole specified request and authority | MF-MOD-04 |
-| MF-CANCEL-02 | Intent versus confirmed outcome and race | MF-MOD-04 |
-| MF-CANCEL-03 | Repeated and resolved cancellation | MF-MOD-04 |
-| MF-REVIEW-01 | Evidence and independent usable selections | MF-MOD-05 |
-| MF-REVIEW-02 | Stale edits, repetition and deletion races | MF-MOD-05 |
-| MF-REVIEW-03 | Availability and non-restoration | MF-MOD-05 |
-| MF-PREVIEW-01 | Bounded representation | MF-MOD-05 |
-| MF-PREVIEW-02 | One best-effort attempt and independent status | MF-MOD-05 |
-| MF-PREVIEW-03 | Generation deadline and cleanup evidence | MF-MOD-05 |
-| MF-DELETE-01 | Deletion scope, warning and unsafe-work blockers | MF-MOD-06 |
-| MF-DELETE-02 | Admission and review race ordering | MF-MOD-06 |
-| MF-DELETE-03 | Access closure versus confirmed cleanup | MF-MOD-06 |
-| MF-DELETE-04 | Idempotent follow-up and no undo | MF-MOD-06 |
-| MF-HISTORY-01 | Minimum product facts | MF-MOD-02 |
-| MF-HISTORY-02 | Dependency-pinned provenance | MF-MOD-02 |
-| MF-HISTORY-03 | Fixed ninety-day history-only expiry | MF-MOD-06 |
-| MF-HISTORY-04 | Unaccepted attempt retention distinction | MF-MOD-02 |
-| MF-CLIENT-01 | Reproducible actor workflows | MF-MOD-01 |
-| MF-CLIENT-02 | Bounded stable listings and filters | MF-MOD-02 |
-| MF-CLIENT-03 | Accurate reason categories and safe next steps | MF-MOD-02 |
-| MF-CLIENT-04 | Immutable descriptive experience | MF-MOD-02 |
-| MF-ACCEPT-01 | Structural rendering and precision rubric | MF-MOD-03 |
-| MF-ACCEPT-02 | Owner-reviewed visual references | MF-MOD-03 |
-| MF-ACCEPT-03 | Complete product evidence matrix | MF-GATE-07 |
-| MF-ACCEPT-04 | Future evidence and controlled scenarios | MF-GATE-07 |
-| MF-EDU-01 | Domain 03 learning direction | MF-GATE-07 |
+| Requirement    | Approved purpose                                   | Accountable owner |
+| -------------- | -------------------------------------------------- | ----------------- |
+| MF-SCOPE-01    | Product purpose and success                        | MF-GATE-07        |
+| MF-SCOPE-02    | Private workspace and shared visibility            | MF-MOD-01         |
+| MF-SCOPE-03    | Backend deliverable and deferred capabilities      | MF-GATE-07        |
+| MF-SCOPE-04    | Charter exclusions and guarantee boundaries        | MF-GATE-07        |
+| MF-ACCESS-01   | Combinable responsibility permissions              | MF-MOD-01         |
+| MF-ACCESS-02   | Request ownership and shared-source processing     | MF-MOD-03         |
+| MF-ACCESS-03   | Revocation and work continuity                     | MF-MOD-01         |
+| MF-ACCESS-04   | Last Manager and stable attribution                | MF-MOD-01         |
+| MF-ACCESS-05   | Variant reconciliation authority                   | MF-MOD-04         |
+| MF-ACCESS-06   | Non-variant recovery authority                     | MF-MOD-04         |
+| MF-INTAKE-01   | Complete content-based admission                   | MF-MOD-02         |
+| MF-INTAKE-02   | Rights declaration                                 | MF-MOD-02         |
+| MF-INTAKE-03   | Immutable distinct source and descriptive facts    | MF-MOD-02         |
+| MF-INTAKE-04   | Source size and unfinished upload boundaries       | MF-MOD-02         |
+| MF-INTAKE-05   | Whole upload deadline and abandoned cleanup        | MF-MOD-02         |
+| MF-SUBMIT-01   | Same-attempt identity and unchanged inputs         | MF-MOD-02         |
+| MF-SUBMIT-02   | Seven-day reference expiry                         | MF-MOD-02         |
+| MF-SUBMIT-03   | Recovery access and indeterminate admission        | MF-MOD-02         |
+| MF-SUBMIT-04   | Recovery-record obligations                        | MF-MOD-02         |
+| MF-PRESET-01   | Fixed catalogue and effective revisions            | MF-MOD-03         |
+| MF-PRESET-02   | Orientation and precise proportional geometry      | MF-MOD-03         |
+| MF-PRESET-03   | Format and transparency                            | MF-MOD-03         |
+| MF-PRESET-04   | Color interpretation and precision                 | MF-MOD-03         |
+| MF-PRESET-05   | Metadata privacy and separate provenance           | MF-MOD-03         |
+| MF-PRESET-06   | Actual deliverable verification and fixed bytes    | MF-MOD-03         |
+| MF-REQUEST-01  | Source/preset grouping and overlap                 | MF-MOD-03         |
+| MF-REQUEST-02  | Individually visible variants and provenance       | MF-MOD-03         |
+| MF-REQUEST-03  | Honest derived request summaries                   | MF-MOD-03         |
+| MF-REQUEST-04  | Immediate partial deliverables                     | MF-MOD-03         |
+| MF-REQUEST-05  | Order, bypass and independent siblings             | MF-MOD-03         |
+| MF-RESOURCE-01 | Published inclusive limits and distinct categories | MF-MOD-02         |
+| MF-RESOURCE-02 | Retained logical bytes and admission               | MF-MOD-02         |
+| MF-RESOURCE-03 | Slots and acting submitter accounting              | MF-MOD-03         |
+| MF-RESOURCE-04 | Temporary and generated media pressure             | MF-MOD-02         |
+| MF-RESOURCE-05 | Evidence-based release and uncertain usage         | MF-MOD-02         |
+| MF-RESOURCE-06 | Record protection and bounded fields               | MF-MOD-02         |
+| MF-LIFE-01     | Six truthful variant outcomes                      | MF-MOD-03         |
+| MF-LIFE-02     | Progress without false precision                   | MF-MOD-03         |
+| MF-LIFE-03     | Per-variant deadlines                              | MF-MOD-03         |
+| MF-LIFE-04     | Timeout evidence and late valid results            | MF-MOD-03         |
+| MF-LIFE-05     | Uncertainty reconciliation and persistent blockers | MF-MOD-03         |
+| MF-LIFE-06     | Service interruption and admission honesty         | MF-MOD-03         |
+| MF-RETRY-01    | Manual eligibility and original revision           | MF-MOD-04         |
+| MF-RETRY-02    | Immutable lineage and capped accepted attempts     | MF-MOD-04         |
+| MF-RETRY-03    | All-or-nothing selective admission                 | MF-MOD-04         |
+| MF-CANCEL-01   | Whole specified request and authority              | MF-MOD-04         |
+| MF-CANCEL-02   | Intent versus confirmed outcome and race           | MF-MOD-04         |
+| MF-CANCEL-03   | Repeated and resolved cancellation                 | MF-MOD-04         |
+| MF-REVIEW-01   | Evidence and independent usable selections         | MF-MOD-05         |
+| MF-REVIEW-02   | Stale edits, repetition and deletion races         | MF-MOD-05         |
+| MF-REVIEW-03   | Availability and non-restoration                   | MF-MOD-05         |
+| MF-PREVIEW-01  | Bounded representation                             | MF-MOD-05         |
+| MF-PREVIEW-02  | One best-effort attempt and independent status     | MF-MOD-05         |
+| MF-PREVIEW-03  | Generation deadline and cleanup evidence           | MF-MOD-05         |
+| MF-DELETE-01   | Deletion scope, warning and unsafe-work blockers   | MF-MOD-06         |
+| MF-DELETE-02   | Admission and review race ordering                 | MF-MOD-06         |
+| MF-DELETE-03   | Access closure versus confirmed cleanup            | MF-MOD-06         |
+| MF-DELETE-04   | Idempotent follow-up and no undo                   | MF-MOD-06         |
+| MF-HISTORY-01  | Minimum product facts                              | MF-MOD-02         |
+| MF-HISTORY-02  | Dependency-pinned provenance                       | MF-MOD-02         |
+| MF-HISTORY-03  | Fixed ninety-day history-only expiry               | MF-MOD-06         |
+| MF-HISTORY-04  | Unaccepted attempt retention distinction           | MF-MOD-02         |
+| MF-CLIENT-01   | Reproducible actor workflows                       | MF-MOD-01         |
+| MF-CLIENT-02   | Bounded stable listings and filters                | MF-MOD-02         |
+| MF-CLIENT-03   | Accurate reason categories and safe next steps     | MF-MOD-02         |
+| MF-CLIENT-04   | Immutable descriptive experience                   | MF-MOD-02         |
+| MF-ACCEPT-01   | Structural rendering and precision rubric          | MF-MOD-03         |
+| MF-ACCEPT-02   | Owner-reviewed visual references                   | MF-MOD-03         |
+| MF-ACCEPT-03   | Complete product evidence matrix                   | MF-GATE-07        |
+| MF-ACCEPT-04   | Future evidence and controlled scenarios           | MF-GATE-07        |
+| MF-EDU-01      | Domain 03 learning direction                       | MF-GATE-07        |
 
 ### Acceptance coordination — 44 cases
 
 Numbers in participant columns refer to the ordered module/gate IDs above. Every complete case is required at gate 07.
 
-| Acceptance case | Evidence lead | Other integration participants |
-| --- | --- | --- |
-| MF-AC-01 — Release scope and workflow entry | 07 | 01, 02 |
-| MF-AC-02 — Private shared access | 01 | 02, 03, 05, 06 |
-| MF-AC-03 — Responsibility combinations | 01 | 02, 03, 04, 05, 06 |
-| MF-AC-04 — Revocation and last Manager | 01 | 03, 06 |
-| MF-AC-05 — Valid source, declaration and original bytes | 02 | None |
-| MF-AC-06 — Invalid and misleading inputs | 02 | 03 |
-| MF-AC-07 — Inclusive source boundaries | 02 | None |
-| MF-AC-08 — Upload concurrency and expiry | 02 | None |
-| MF-AC-09 — Same-attempt replay and acknowledgement loss | 02 | 03, 04 |
-| MF-AC-10 — Changed, refused and expired references | 02 | 03, 04 |
-| MF-AC-11 — One-source distinct presets and overlap | 03 | None |
-| MF-AC-12 — Fixed immutable presets | 03 | None |
-| MF-AC-13 — Geometry and orientation | 03 | None |
-| MF-AC-14 — Format, alpha and PNG fidelity | 03 | None |
-| MF-AC-15 — JPEG interior tolerance | 03 | None |
-| MF-AC-16 — Profiles, precision and visual detail | 03 | None |
-| MF-AC-17 — Metadata and source preservation | 03 | 02, 05 |
-| MF-AC-18 — Verify before completion and immutable output | 03 | None |
-| MF-AC-19 — Retained allowance and contenders | 02 | 03, 05, 06 |
-| MF-AC-20 — Workload/member slots | 03 | 02 |
-| MF-AC-21 — Temporary and generated-file limits | 02 | 03, 04, 05 |
-| MF-AC-22 — Record caps and fields | 02 | 03, 04, 06 |
-| MF-AC-23 — Order and bypass | 03 | 04 |
-| MF-AC-24 — Six outcomes and honest progress | 03 | 02, 04 |
-| MF-AC-25 — Partial success and summaries | 03 | 04, 05, 06 |
-| MF-AC-26 — Waiting/processing deadlines and downtime | 03 | 04 |
-| MF-AC-27 — Selective retry eligibility and lineage | 04 | 03, 06 |
-| MF-AC-28 — Atomic retry and repeated recovery | 04 | 02, 03 |
-| MF-AC-29 — Cancellation scope and repeated action | 04 | 01, 03 |
-| MF-AC-30 — Cancellation/completion/deadline race | 04 | 03 |
-| MF-AC-31 — Reconciliation and persistent uncertainty | 04 | 02, 03, 06 |
-| MF-AC-32 — Interruption continuity | 03 | 02, 04, 05 |
-| MF-AC-33 — Review selection and stale changes | 05 | 01 |
-| MF-AC-34 — Preview rendition and bounded attempt | 05 | 04 |
-| MF-AC-35 — Missing/damaged output and no silent restoration | 05 | 03, 06 |
-| MF-AC-36 — Deletion scope, authority and admission race | 06 | 03, 04, 05 |
-| MF-AC-37 — Deletion pending, downloads and capacity | 06 | 01, 02, 03, 05 |
-| MF-AC-38 — Provenance facts and live protection | 06 | 01, 02, 03, 04, 05 |
-| MF-AC-39 — Ninety-day eligibility and expiry | 06 | 02, 03, 04, 05 |
-| MF-AC-40 — Attempt retention versus accepted history | 02 | 04 |
-| MF-AC-41 — Listing continuation and exact filters | 02 | 01, 03, 04, 05, 06 |
-| MF-AC-42 — Actionable feedback | 02 | 01, 03, 04, 05, 06 |
-| MF-AC-43 — Non-variant Operations and Manager follow-up | 04 | 02, 05, 06 |
-| MF-AC-44 — Evidence review and educational boundary | 07 | 01, 02, 03, 04, 05, 06 |
+| Acceptance case                                             | Evidence lead | Other integration participants |
+| ----------------------------------------------------------- | ------------- | ------------------------------ |
+| MF-AC-01 — Release scope and workflow entry                 | 07            | 01, 02                         |
+| MF-AC-02 — Private shared access                            | 01            | 02, 03, 05, 06                 |
+| MF-AC-03 — Responsibility combinations                      | 01            | 02, 03, 04, 05, 06             |
+| MF-AC-04 — Revocation and last Manager                      | 01            | 03, 06                         |
+| MF-AC-05 — Valid source, declaration and original bytes     | 02            | None                           |
+| MF-AC-06 — Invalid and misleading inputs                    | 02            | 03                             |
+| MF-AC-07 — Inclusive source boundaries                      | 02            | None                           |
+| MF-AC-08 — Upload concurrency and expiry                    | 02            | None                           |
+| MF-AC-09 — Same-attempt replay and acknowledgement loss     | 02            | 03, 04                         |
+| MF-AC-10 — Changed, refused and expired references          | 02            | 03, 04                         |
+| MF-AC-11 — One-source distinct presets and overlap          | 03            | None                           |
+| MF-AC-12 — Fixed immutable presets                          | 03            | None                           |
+| MF-AC-13 — Geometry and orientation                         | 03            | None                           |
+| MF-AC-14 — Format, alpha and PNG fidelity                   | 03            | None                           |
+| MF-AC-15 — JPEG interior tolerance                          | 03            | None                           |
+| MF-AC-16 — Profiles, precision and visual detail            | 03            | None                           |
+| MF-AC-17 — Metadata and source preservation                 | 03            | 02, 05                         |
+| MF-AC-18 — Verify before completion and immutable output    | 03            | None                           |
+| MF-AC-19 — Retained allowance and contenders                | 02            | 03, 05, 06                     |
+| MF-AC-20 — Workload/member slots                            | 03            | 02                             |
+| MF-AC-21 — Temporary and generated-file limits              | 02            | 03, 04, 05                     |
+| MF-AC-22 — Record caps and fields                           | 02            | 03, 04, 06                     |
+| MF-AC-23 — Order and bypass                                 | 03            | 04                             |
+| MF-AC-24 — Six outcomes and honest progress                 | 03            | 02, 04                         |
+| MF-AC-25 — Partial success and summaries                    | 03            | 04, 05, 06                     |
+| MF-AC-26 — Waiting/processing deadlines and downtime        | 03            | 04                             |
+| MF-AC-27 — Selective retry eligibility and lineage          | 04            | 03, 06                         |
+| MF-AC-28 — Atomic retry and repeated recovery               | 04            | 02, 03                         |
+| MF-AC-29 — Cancellation scope and repeated action           | 04            | 01, 03                         |
+| MF-AC-30 — Cancellation/completion/deadline race            | 04            | 03                             |
+| MF-AC-31 — Reconciliation and persistent uncertainty        | 04            | 02, 03, 06                     |
+| MF-AC-32 — Interruption continuity                          | 03            | 02, 04, 05                     |
+| MF-AC-33 — Review selection and stale changes               | 05            | 01                             |
+| MF-AC-34 — Preview rendition and bounded attempt            | 05            | 04                             |
+| MF-AC-35 — Missing/damaged output and no silent restoration | 05            | 03, 06                         |
+| MF-AC-36 — Deletion scope, authority and admission race     | 06            | 03, 04, 05                     |
+| MF-AC-37 — Deletion pending, downloads and capacity         | 06            | 01, 02, 03, 05                 |
+| MF-AC-38 — Provenance facts and live protection             | 06            | 01, 02, 03, 04, 05             |
+| MF-AC-39 — Ninety-day eligibility and expiry                | 06            | 02, 03, 04, 05                 |
+| MF-AC-40 — Attempt retention versus accepted history        | 02            | 04                             |
+| MF-AC-41 — Listing continuation and exact filters           | 02            | 01, 03, 04, 05, 06             |
+| MF-AC-42 — Actionable feedback                              | 02            | 01, 03, 04, 05, 06             |
+| MF-AC-43 — Non-variant Operations and Manager follow-up     | 04            | 02, 05, 06                     |
+| MF-AC-44 — Evidence review and educational boundary         | 07            | 01, 02, 03, 04, 05, 06         |
 
 ### Journey coverage — seven workflows
 
-| Journey | Owning capabilities and integration |
-| --- | --- |
-| MF-J-01 — Establish/manage access | 01 owns authority; 02–06 exercise it with their real actions and records |
-| MF-J-02 — Submit a source | 02 owns intake/recovery/accounting; 01 provides current authority; 04 adds Operations inquiry |
-| MF-J-03 — Request variants | 03 owns processing/verification; 02 provides shared source/recovery/resource contracts |
-| MF-J-04 — Review/retrieve | 03 first delivers verified downloads; 05 adds preview/selection/availability; 06 adds deletion interactions |
-| MF-J-05 — Recover or stop work | 04 owns manual controls and Operations actions; 02/03/05 provide original facts/obligations; 06 governs accepted-media follow-up |
-| MF-J-06 — Delete and retain history | 06 owns deletion/expiry; 02 owns minimal protected provenance/accounting; 03–05 provide blockers and context |
-| MF-J-07 — Recover acknowledgement/find results | 02 owns references/listing; 03/04 integrate new-request/retry facts; 01 enforces current access |
+| Journey                                        | Owning capabilities and integration                                                                                              |
+| ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| MF-J-01 — Establish/manage access              | 01 owns authority; 02–06 exercise it with their real actions and records                                                         |
+| MF-J-02 — Submit a source                      | 02 owns intake/recovery/accounting; 01 provides current authority; 04 adds Operations inquiry                                    |
+| MF-J-03 — Request variants                     | 03 owns processing/verification; 02 provides shared source/recovery/resource contracts                                           |
+| MF-J-04 — Review/retrieve                      | 03 first delivers verified downloads; 05 adds preview/selection/availability; 06 adds deletion interactions                      |
+| MF-J-05 — Recover or stop work                 | 04 owns manual controls and Operations actions; 02/03/05 provide original facts/obligations; 06 governs accepted-media follow-up |
+| MF-J-06 — Delete and retain history            | 06 owns deletion/expiry; 02 owns minimal protected provenance/accounting; 03–05 provide blockers and context                     |
+| MF-J-07 — Recover acknowledgement/find results | 02 owns references/listing; 03/04 integrate new-request/retry facts; 01 enforces current access                                  |
 
 All seven journeys receive complete end-to-end acceptance at gate 07.
 
@@ -358,16 +358,16 @@ All seven journeys receive complete end-to-end acceptance at gate 07.
 
 **Genuine unresolved product contradictions identified: None.** The apparent conflicts between intent/outcome, historical completion/availability, access closure/cleanup, reference expiry/protected evidence and media/history lifetime are already resolved by the approved PRD. Historical status text does not reopen discovery.
 
-| Planning risk | Consequence | Planned treatment |
-| --- | --- | --- |
-| Modules 02 and 03 contain substantial cross-cutting behavior | Happy-path delivery could leave admission/recovery invariants unfinished | Keep their cohesive product workflows; later module-scoped tickets may subdivide work without creating technical-layer modules or dropping required behavior |
-| Partial module evidence mistaken for a whole case pass | Later subjects/races escape verification | Record exercised scope and remaining participants explicitly; every full case is reviewed at gate 07 |
-| Shared policies drift between capabilities | Different quota, authority, expiry or outcome meanings | Single-owner ledger; integrate facts through existing contracts; cross-module fixes stay with the responsible owner |
-| Rendering references are not yet produced/approved | Final fidelity cannot be accepted | Schedule artifact production and owner review within 03's later authorized work; reuse references for 05; block final rendering acceptance until approved |
-| Uncertainty can indefinitely occupy capacity | Recovery may establish no safe release | Demonstrate the approved persistent-blocker behavior and permitted checks; no forced outcome, SLA or automatic rerun |
-| Preview work adds provisional obligations after Operations delivery | Incomplete visibility or unsafe deletion | 05 must integrate its facts into 04's checks; 06 cannot complete without preview blocker/cleanup/race evidence |
-| Deleting media does not immediately free record allowance | Confusing capacity feedback or premature provenance erasure | 02 owns separate protected counts; 06 supplies actual eligibility/expiry; demonstrate caps and history timing together |
-| Educational goals become mechanism mandates | Product planning prematurely locks runtime design | Carry challenge groups and concrete learning questions forward; defer mechanisms to module-scoped discovery and report actual learner evidence honestly |
+| Planning risk                                                       | Consequence                                                              | Planned treatment                                                                                                                                            |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Modules 02 and 03 contain substantial cross-cutting behavior        | Happy-path delivery could leave admission/recovery invariants unfinished | Keep their cohesive product workflows; later module-scoped tickets may subdivide work without creating technical-layer modules or dropping required behavior |
+| Partial module evidence mistaken for a whole case pass              | Later subjects/races escape verification                                 | Record exercised scope and remaining participants explicitly; every full case is reviewed at gate 07                                                         |
+| Shared policies drift between capabilities                          | Different quota, authority, expiry or outcome meanings                   | Single-owner ledger; integrate facts through existing contracts; cross-module fixes stay with the responsible owner                                          |
+| Rendering references are not yet produced/approved                  | Final fidelity cannot be accepted                                        | Schedule artifact production and owner review within 03's later authorized work; reuse references for 05; block final rendering acceptance until approved    |
+| Uncertainty can indefinitely occupy capacity                        | Recovery may establish no safe release                                   | Demonstrate the approved persistent-blocker behavior and permitted checks; no forced outcome, SLA or automatic rerun                                         |
+| Preview work adds provisional obligations after Operations delivery | Incomplete visibility or unsafe deletion                                 | 05 must integrate its facts into 04's checks; 06 cannot complete without preview blocker/cleanup/race evidence                                               |
+| Deleting media does not immediately free record allowance           | Confusing capacity feedback or premature provenance erasure              | 02 owns separate protected counts; 06 supplies actual eligibility/expiry; demonstrate caps and history timing together                                       |
+| Educational goals become mechanism mandates                         | Product planning prematurely locks runtime design                        | Carry challenge groups and concrete learning questions forward; defer mechanisms to module-scoped discovery and report actual learner evidence honestly      |
 
 These are sequencing and verification risks, not unanswered product policies. Any genuine contradiction discovered later must be identified against the exact PRD requirement and brought to the Product Owner rather than silently resolved through an implementation choice.
 

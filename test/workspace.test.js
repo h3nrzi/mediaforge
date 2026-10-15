@@ -22,11 +22,20 @@ test('M01-V01/V02: owner prepares privately and operator bootstraps exactly once
     assert.equal(readFileSync(descriptor, 'utf8').includes('secret'), false);
     const db = join(dir, 'workspace.sqlite');
     assert.equal(cli('status', '--db', db).data.data.state, 'absent');
-    assert.equal(cli('bootstrap', '--db', db, '--descriptor', descriptor, '--label', 'Initial Manager').code, 0);
+    assert.equal(
+      cli('bootstrap', '--db', db, '--descriptor', descriptor, '--label', 'Initial Manager').code,
+      0,
+    );
     const status = cli('status', '--db', db).data;
     assert.equal(status.data.state, 'initialized');
-    assert.equal(cli('bootstrap', '--db', db, '--descriptor', descriptor, '--label', 'Other').data.reasonCategory, 'already_initialized');
+    assert.equal(
+      cli('bootstrap', '--db', db, '--descriptor', descriptor, '--label', 'Other').data
+        .reasonCategory,
+      'already_initialized',
+    );
     assert.deepEqual(cli('status', '--db', db).data, status);
     assert.notEqual(cli('prepare', '--out', owner).code, 0);
-  } finally { rmSync(dir, { recursive: true, force: true }); }
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
 });

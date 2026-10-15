@@ -40,7 +40,6 @@ The Product Owner explicitly stated: “I explicitly approve all seven recommend
 
 **Q7 clarification:** No unlimited storage or permanent archival guarantee. At Round 1 approval, capacity limits, storage exhaustion, deletion rules, and related policies remained open. Round 2 subsequently settled their initial boundaries; the owner-preserved unresolved details below remain open. Round 1 approval did not itself approve Round 2 recommendations.
 
-
 **Round 2 approval:** The Product Owner explicitly stated: “I explicitly approve all fourteen recommendations, Q8–Q21, exactly as proposed, including their numeric limits, qualifications, and deferred policy details.” Recorded on 2026-10-14.
 
 - **Q8:** All admitted workspace members can inspect shared sources, processing requests, outcomes, and completed outputs. Visibility does not imply modification permission.
@@ -68,7 +67,6 @@ The Product Owner explicitly stated: “I explicitly approve all seven recommend
 - Acceptance expectations for the documented client.
 
 At Round 2 approval these areas remained unresolved except where an earlier approved recommendation established a boundary. Round 3 subsequently settled the policies recorded below; its deferred details remain open. Round 2 approval did not itself approve Round 3 recommendations or authorize technical architecture choices.
-
 
 **Round 3 approval:** The Product Owner explicitly stated: “I explicitly approve all twenty recommendations, Q22–Q41, exactly as proposed, including their numerical limits, trade-offs, qualifications, and deferred policy details.” Recorded on 2026-10-14.
 
@@ -104,7 +102,6 @@ At Round 2 approval these areas remained unresolved except where an earlier appr
 7. **Q41:** Interrupted work must be reconciled based on evidence rather than assumed success or failure.
 
 Round 3 approval does not approve Round 4 recommendations. Deferred details remain open until explicitly decided.
-
 
 **Round 4 approval:** The Product Owner explicitly stated: “I explicitly approve all fourteen recommendations, Q42–Q55, exactly as proposed, including their numerical limits, qualifications, alternatives, and deferred details.” Recorded on 2026-10-14.
 
@@ -828,24 +825,24 @@ Completion requires verification of the actual decodable, retained, retrievable 
 
 ### Numeric boundaries
 
-| Boundary | Approved value and rule |
-| --- | --- |
-| Source file | At most 20 MiB, 40 million pixels, and 12,000 pixels per dimension; all inclusive |
-| Retained media | At most 1 GiB of logical source/output/preview bytes; distinct visible copies count separately; no automatic eviction or promised future output space |
-| Outstanding requests | At most 20 per workspace and 5 per acting submitter; each request counts once until all variants have known final outcomes |
-| Unfinished uploads | At most 4 per workspace and 1 per submitting member |
-| Temporary media | At most 256 MiB per active media operation and 512 MiB workspace-wide; not a general machine-memory or process-count guarantee |
-| Final output / preview | At most 32 MiB per output / 1 MiB per preview |
-| Source / request records | At most 5,000 source records / 10,000 processing-request records including retries and required history |
-| Attempt records | At most 10,000 records protected by the reference-recovery window or unresolved acceptance/cleanup evidence |
-| Text | Filename 255 UTF-8 bytes; references/public identifiers 128 Unicode code points; display labels where used 80 code points; reason summaries 512 code points |
-| Whole upload | 5 minutes from admission, including reception and validation; no partial-byte resumption |
-| Variant waiting / processing | 10 minutes from request acceptance / 2 minutes from actual variant start; downtime counts and reconciliation does not reset clocks |
-| Retry lineage | 3 accepted retries plus the original attempt per originally requested variant; refusals and same-attempt recovery consume no extra attempt |
-| Preview | One best-effort PNG within 400 × 400, same rounding/orientation/no-crop/no-enlargement rules; 30-second generation deadline; no automatic regeneration/retries |
-| Submission reference | 7 days from advertised issuance; actor/action/input bound; expired or refused references cannot become new effects |
-| History-only retention | 90 elapsed days only after related media is actually gone and all supporting work/dependencies are resolved |
-| Listings | Default 50 records per page, maximum 100; stable ordering/continuation with approved exact filters and current permission checks |
+| Boundary                     | Approved value and rule                                                                                                                                        |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Source file                  | At most 20 MiB, 40 million pixels, and 12,000 pixels per dimension; all inclusive                                                                              |
+| Retained media               | At most 1 GiB of logical source/output/preview bytes; distinct visible copies count separately; no automatic eviction or promised future output space          |
+| Outstanding requests         | At most 20 per workspace and 5 per acting submitter; each request counts once until all variants have known final outcomes                                     |
+| Unfinished uploads           | At most 4 per workspace and 1 per submitting member                                                                                                            |
+| Temporary media              | At most 256 MiB per active media operation and 512 MiB workspace-wide; not a general machine-memory or process-count guarantee                                 |
+| Final output / preview       | At most 32 MiB per output / 1 MiB per preview                                                                                                                  |
+| Source / request records     | At most 5,000 source records / 10,000 processing-request records including retries and required history                                                        |
+| Attempt records              | At most 10,000 records protected by the reference-recovery window or unresolved acceptance/cleanup evidence                                                    |
+| Text                         | Filename 255 UTF-8 bytes; references/public identifiers 128 Unicode code points; display labels where used 80 code points; reason summaries 512 code points    |
+| Whole upload                 | 5 minutes from admission, including reception and validation; no partial-byte resumption                                                                       |
+| Variant waiting / processing | 10 minutes from request acceptance / 2 minutes from actual variant start; downtime counts and reconciliation does not reset clocks                             |
+| Retry lineage                | 3 accepted retries plus the original attempt per originally requested variant; refusals and same-attempt recovery consume no extra attempt                     |
+| Preview                      | One best-effort PNG within 400 × 400, same rounding/orientation/no-crop/no-enlargement rules; 30-second generation deadline; no automatic regeneration/retries |
+| Submission reference         | 7 days from advertised issuance; actor/action/input bound; expired or refused references cannot become new effects                                             |
+| History-only retention       | 90 elapsed days only after related media is actually gone and all supporting work/dependencies are resolved                                                    |
+| Listings                     | Default 50 records per page, maximum 100; stable ordering/continuation with approved exact filters and current permission checks                               |
 
 Admission and retention may fail honestly even for a supported source. Media, record, workload, and temporary limits remain distinct; protected history cannot be evicted to make room. Temporary-to-retained transitions count a logical file exactly once. Unknown cleanup/usage cannot be credited as free capacity; deny affected new admissions when compliance cannot be established while preserving inspection/recovery actions. These values are product boundaries, not measured hosting, runtime performance, or success-rate guarantees.
 
@@ -879,16 +876,16 @@ Exclude/defer audio/video/animation/vector intake, remote fetching/imports, arbi
 
 ## Product-policy decision tree audit — Q1–Q55
 
-| Branch | Approved coverage | Audit outcome |
-| --- | --- | --- |
-| Audience, workspace, authority and ownership | Q1, Q3, Q8–Q9, Q22, Q54–Q55 | Closed; current authority, shared sources, request ownership, management and recovery boundaries explicit |
-| Intake, identity, rights and safe recovery | Q2, Q4, Q11–Q15, Q23, Q25, Q42–Q44, Q51 | Closed; validation, compatibility, immutable submissions, attempt expiry and uncertainty obligations explicit |
-| Presets, dimensions, color, verification and previews | Q10–Q11, Q24–Q27, Q45–Q46 | Closed; actual reference-artifact approval is later acceptance work, not an unanswered product policy |
-| Admission, quotas, ordering and resource release | Q16–Q17, Q28–Q30, Q44, Q49, Q53 | Closed; known limits, record protection, overlap, ordering and unknown occupancy reconciled |
-| Lifecycle, deadlines, retries, cancellation and interruption | Q5, Q18, Q23, Q31–Q35, Q41–Q43, Q49 | Closed; final outcomes require evidence, clocks survive downtime, retry counters and parent/child separation explicit |
-| Review, availability, action races and deletion | Q6–Q7, Q19–Q20, Q36–Q37, Q46–Q47, Q53, Q55 | Closed; historical outcome versus present availability, stale changes, downloads, safe cleanup and authority explicit |
-| History and attribution | Q26, Q32, Q38, Q43–Q44, Q47–Q48, Q51 | Closed; dependency-pinned records, 90-day timer, recovery records, caps and media non-expiry consistent |
-| Client, feedback, acceptance and education | Q21, Q39–Q40, Q45, Q50–Q52 and Charter | Closed; delivery, representative rubric, failure/boundary evidence and educational direction explicit |
+| Branch                                                       | Approved coverage                          | Audit outcome                                                                                                         |
+| ------------------------------------------------------------ | ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------- |
+| Audience, workspace, authority and ownership                 | Q1, Q3, Q8–Q9, Q22, Q54–Q55                | Closed; current authority, shared sources, request ownership, management and recovery boundaries explicit             |
+| Intake, identity, rights and safe recovery                   | Q2, Q4, Q11–Q15, Q23, Q25, Q42–Q44, Q51    | Closed; validation, compatibility, immutable submissions, attempt expiry and uncertainty obligations explicit         |
+| Presets, dimensions, color, verification and previews        | Q10–Q11, Q24–Q27, Q45–Q46                  | Closed; actual reference-artifact approval is later acceptance work, not an unanswered product policy                 |
+| Admission, quotas, ordering and resource release             | Q16–Q17, Q28–Q30, Q44, Q49, Q53            | Closed; known limits, record protection, overlap, ordering and unknown occupancy reconciled                           |
+| Lifecycle, deadlines, retries, cancellation and interruption | Q5, Q18, Q23, Q31–Q35, Q41–Q43, Q49        | Closed; final outcomes require evidence, clocks survive downtime, retry counters and parent/child separation explicit |
+| Review, availability, action races and deletion              | Q6–Q7, Q19–Q20, Q36–Q37, Q46–Q47, Q53, Q55 | Closed; historical outcome versus present availability, stale changes, downloads, safe cleanup and authority explicit |
+| History and attribution                                      | Q26, Q32, Q38, Q43–Q44, Q47–Q48, Q51       | Closed; dependency-pinned records, 90-day timer, recovery records, caps and media non-expiry consistent               |
+| Client, feedback, acceptance and education                   | Q21, Q39–Q40, Q45, Q50–Q52 and Charter     | Closed; delivery, representative rubric, failure/boundary evidence and educational direction explicit                 |
 
 **Remaining product-policy frontier:** Empty. No Round 5 proposed. No unapproved recommendation is being promoted to a decision.
 

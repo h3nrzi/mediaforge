@@ -1,0 +1,10 @@
+.git/
+.agents/
+.codex/
+.scratch/
+node_modules/
+.runtime/
+.private/
+*.owner.json
+*.curl.conf
+*.sqlite*

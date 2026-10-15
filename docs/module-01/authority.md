@@ -6,16 +6,16 @@ Modules 02–06 integrate with `Authority.admit(bearer, kind, loadSubject, apply
 
 The boundary acquires `BEGIN IMMEDIATE` on an owned connection before dependent reads. It authenticates current credential/membership, loads subjects, takes fresh time and rechecks credential expiry, evaluates policy and invokes consumer work once. Only the store commits, using WAL, FULL synchronization, foreign keys and immediate acquisition with a default one-second cumulative monotonic budget. Failed authority or consumer eligibility rolls back all consumer effects. Consumers must not edit authority tables, implement separate role semantics, precompute authorization remotely or move effects into a separate commit. Add consumer schema through an explicit atomic non-destructive migration before admitting its operations; no generic migration platform is delivered.
 
-| Action kind | Current authority |
-| --- | --- |
-| `shared_read` | Any admitted member, including zero roles |
-| `source_submit`, `request_submit` | Contributor |
-| `request_retry`, `request_cancel` | Operations, or Contributor whose actor ID equals authoritative `subject.submittingActorId` |
-| `selection` | Reviewer |
-| `evidence_check`, `provisional_cleanup` | Operations |
-| `membership_manage`, `responsibilities_manage` | Manager |
-| `accepted_media_delete`, `deletion_followup` | Manager |
-| Unknown kind | Denied |
+| Action kind                                    | Current authority                                                                          |
+| ---------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| `shared_read`                                  | Any admitted member, including zero roles                                                  |
+| `source_submit`, `request_submit`              | Contributor                                                                                |
+| `request_retry`, `request_cancel`              | Operations, or Contributor whose actor ID equals authoritative `subject.submittingActorId` |
+| `selection`                                    | Reviewer                                                                                   |
+| `evidence_check`, `provisional_cleanup`        | Operations                                                                                 |
+| `membership_manage`, `responsibilities_manage` | Manager                                                                                    |
+| `accepted_media_delete`, `deletion_followup`   | Manager                                                                                    |
+| Unknown kind                                   | Denied                                                                                     |
 
 Combining roles unions these permissions. Manager inherits no other role. Source-uploader identity does not grant request ownership. A consumer loads the request submitter from its retained record, not caller JSON. Any Contributor may submit a request for an eligible shared source; consumer eligibility remains its own responsibility.
 

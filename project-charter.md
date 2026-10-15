@@ -29,6 +29,7 @@ A contributor can request a supported transformation, distinguish running/failed
 ## Product boundary: in / out / deferred
 
 **In scope for V1:**
+
 - Submit supported media assets with source identity, metadata and validation feedback.
 - Choose from a **small, explicitly published** set of output presets relevant to the initial supported media type(s).
 - Create separately identified processing requests showing source, selected preset(s), state and any available progress.
@@ -37,12 +38,14 @@ A contributor can request a supported transformation, distinguish running/failed
 - Allow an editor to review result previews or metadata and identify final usable variants.
 
 **Out of scope:**
+
 - Arbitrary user-authored executable processing scripts, custom plugins or untrusted code execution.
 - A public unlimited transcoding/rendering farm, enterprise compute scheduler or infrastructure management console.
 - Full video editing suite, complex collaborative asset annotation or a general DAM marketplace.
 - Guarantee that a cancellation reverses output already delivered or effects at external processors.
 
 **Deferred beyond V1 or subject to subsequent explicit scope approval:**
+
 - Automated recurring batch schedules, third-party publishing and content-management integrations.
 - User-defined transformation pipelines and compound workflows spanning many media types.
 - Professional collaborative approvals, long-term archive/legal retention and large-scale distributed processing.
@@ -61,7 +64,7 @@ No implementation code, technical ADR, architecture or library selections are au
 
 **Distinctness / portfolio rationale:** Unlike P01's intake/handoff, MediaForge creates **new derived assets**; unlike D01's generic large-data workspace it solves a focused creative content publishing workflow rather than arbitrary records/aggregations.
 
-These are *potential* learning challenges, not a mandate to implement a specific Node mechanism or proof of learner proficiency. D01/D02 related project Charters and their scope remain unchanged.
+These are _potential_ learning challenges, not a mandate to implement a specific Node mechanism or proof of learner proficiency. D01/D02 related project Charters and their scope remain unchanged.
 
 ## Educational engineering challenge
 
