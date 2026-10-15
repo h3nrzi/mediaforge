@@ -1,0 +1,169 @@
+{
+  "build": "0cddedb485007ed4377c019e40203fc963084337",
+  "date": "2026-10-15",
+  "timezone": "Asia/Tehran",
+  "currentScenario": "S01.01",
+  "humanAcceptance": "not_run",
+  "actualPostmanExecution": "not_run",
+  "environment": "/Users/hossein/Projects/mediaforge/.private/mf-mod-01-postman/local.postman_environment.json",
+  "baseUrl": "http://127.0.0.1:60317",
+  "database": "/Users/hossein/Projects/mediaforge/.private/mf-mod-01-postman/workspace.sqlite",
+  "existingEvidence": "../../walkthrough-evidence.json",
+  "tickets": {
+    "01": {
+      "userResult": "not_run",
+      "criteria": [
+        "T01.C01",
+        "T01.C02",
+        "T01.C03",
+        "T01.C04",
+        "T01.C05",
+        "T01.C06",
+        "T01.C07",
+        "T01.C08",
+        "T01.C09"
+      ]
+    },
+    "02": {
+      "userResult": "not_run",
+      "criteria": [
+        "T02.C01",
+        "T02.C02",
+        "T02.C03",
+        "T02.C04",
+        "T02.C05",
+        "T02.C06",
+        "T02.C07",
+        "T02.C08",
+        "T02.C09",
+        "T02.C10",
+        "T02.C11"
+      ]
+    },
+    "03": {
+      "userResult": "not_run",
+      "criteria": [
+        "T03.C01",
+        "T03.C02",
+        "T03.C03",
+        "T03.C04",
+        "T03.C05",
+        "T03.C06",
+        "T03.C07",
+        "T03.C08"
+      ]
+    },
+    "04": {
+      "userResult": "not_run",
+      "criteria": [
+        "T04.C01",
+        "T04.C02",
+        "T04.C03",
+        "T04.C04",
+        "T04.C05",
+        "T04.C06",
+        "T04.C07",
+        "T04.C08"
+      ]
+    },
+    "05": {
+      "userResult": "not_run",
+      "criteria": [
+        "T05.C01",
+        "T05.C02",
+        "T05.C03",
+        "T05.C04",
+        "T05.C05",
+        "T05.C06",
+        "T05.C07",
+        "T05.C08"
+      ]
+    },
+    "06": {
+      "userResult": "not_run",
+      "criteria": [
+        "T06.C01",
+        "T06.C02",
+        "T06.C03",
+        "T06.C04",
+        "T06.C05",
+        "T06.C06"
+      ]
+    },
+    "07": {
+      "userResult": "not_run",
+      "criteria": [
+        "T07.C01",
+        "T07.C02",
+        "T07.C03",
+        "T07.C04",
+        "T07.C05",
+        "T07.C06",
+        "T07.C07",
+        "T07.C08"
+      ]
+    },
+    "08": {
+      "userResult": "not_run",
+      "criteria": [
+        "T08.C01",
+        "T08.C02",
+        "T08.C03",
+        "T08.C04",
+        "T08.C05",
+        "T08.C06",
+        "T08.C07",
+        "T08.C08"
+      ]
+    }
+  },
+  "scenarios": {
+    "S01": {
+      "userResult": "not_run",
+      "observation": null,
+      "build": "0cddedb485007ed4377c019e40203fc963084337"
+    },
+    "S02": {
+      "userResult": "not_run",
+      "observation": null,
+      "build": "0cddedb485007ed4377c019e40203fc963084337"
+    },
+    "S03": {
+      "userResult": "not_run",
+      "observation": null,
+      "build": "0cddedb485007ed4377c019e40203fc963084337"
+    },
+    "S04": {
+      "userResult": "not_run",
+      "observation": null,
+      "build": "0cddedb485007ed4377c019e40203fc963084337"
+    },
+    "S05": {
+      "userResult": "not_run",
+      "observation": null,
+      "build": "0cddedb485007ed4377c019e40203fc963084337"
+    },
+    "S06": {
+      "userResult": "not_run",
+      "observation": null,
+      "build": "0cddedb485007ed4377c019e40203fc963084337"
+    },
+    "S07": {
+      "userResult": "not_run",
+      "observation": null,
+      "build": "0cddedb485007ed4377c019e40203fc963084337"
+    },
+    "S08": {
+      "userResult": "not_run",
+      "observation": null,
+      "build": "0cddedb485007ed4377c019e40203fc963084337"
+    },
+    "S09": {
+      "userResult": "not_run",
+      "observation": null,
+      "build": "0cddedb485007ed4377c019e40203fc963084337"
+    }
+  },
+  "history": [],
+  "nextAction": "Import both files locally; select Mediaforge Module 01 - Local Acceptance; Send GET /v1/me / S01.01 - Inspect initial Manager."
+}

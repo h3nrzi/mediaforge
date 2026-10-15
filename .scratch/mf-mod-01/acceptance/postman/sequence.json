@@ -1,0 +1,687 @@
+[
+  {
+    "id": "S01.01",
+    "name": "S01.01 - Inspect initial Manager",
+    "family": "GET /v1/me",
+    "method": "GET",
+    "path": "/v1/me",
+    "actor": "manager",
+    "status": 200
+  },
+  {
+    "id": "S01.02",
+    "name": "S01.02 - Reject anonymous caller",
+    "family": "GET /v1/me",
+    "method": "GET",
+    "path": "/v1/me",
+    "actor": null,
+    "status": 401
+  },
+  {
+    "id": "S01.03",
+    "name": "S01.03 - Protect last Manager from demotion",
+    "family": "PATCH /v1/actors/{actorId}",
+    "method": "PATCH",
+    "path": "/v1/actors/{{manager_id}}",
+    "actor": "manager",
+    "status": 409
+  },
+  {
+    "id": "S01.04",
+    "name": "S01.04 - Protect last Manager from removal",
+    "family": "POST /v1/actors/{actorId}/remove",
+    "method": "POST",
+    "path": "/v1/actors/{{manager_id}}/remove",
+    "actor": "manager",
+    "status": 409
+  },
+  {
+    "id": "S02.1a",
+    "name": "S02.1a - Admit member",
+    "family": "PUT /v1/actors/{actorId}",
+    "method": "PUT",
+    "path": "/v1/actors/{{member_id}}",
+    "actor": "manager",
+    "status": 200
+  },
+  {
+    "id": "S02.1b",
+    "name": "S02.1b - Inspect member self",
+    "family": "GET /v1/me",
+    "method": "GET",
+    "path": "/v1/me",
+    "actor": "member",
+    "status": 200
+  },
+  {
+    "id": "S02.2a",
+    "name": "S02.2a - Admit contributor",
+    "family": "PUT /v1/actors/{actorId}",
+    "method": "PUT",
+    "path": "/v1/actors/{{contributor_id}}",
+    "actor": "manager",
+    "status": 200
+  },
+  {
+    "id": "S02.2b",
+    "name": "S02.2b - Inspect contributor self",
+    "family": "GET /v1/me",
+    "method": "GET",
+    "path": "/v1/me",
+    "actor": "contributor",
+    "status": 200
+  },
+  {
+    "id": "S02.3a",
+    "name": "S02.3a - Admit reviewer",
+    "family": "PUT /v1/actors/{actorId}",
+    "method": "PUT",
+    "path": "/v1/actors/{{reviewer_id}}",
+    "actor": "manager",
+    "status": 200
+  },
+  {
+    "id": "S02.3b",
+    "name": "S02.3b - Inspect reviewer self",
+    "family": "GET /v1/me",
+    "method": "GET",
+    "path": "/v1/me",
+    "actor": "reviewer",
+    "status": 200
+  },
+  {
+    "id": "S02.4a",
+    "name": "S02.4a - Admit operations",
+    "family": "PUT /v1/actors/{actorId}",
+    "method": "PUT",
+    "path": "/v1/actors/{{operations_id}}",
+    "actor": "manager",
+    "status": 200
+  },
+  {
+    "id": "S02.4b",
+    "name": "S02.4b - Inspect operations self",
+    "family": "GET /v1/me",
+    "method": "GET",
+    "path": "/v1/me",
+    "actor": "operations",
+    "status": 200
+  },
+  {
+    "id": "S02.5a",
+    "name": "S02.5a - Admit backup",
+    "family": "PUT /v1/actors/{actorId}",
+    "method": "PUT",
+    "path": "/v1/actors/{{backup_id}}",
+    "actor": "manager",
+    "status": 200
+  },
+  {
+    "id": "S02.5b",
+    "name": "S02.5b - Inspect backup self",
+    "family": "GET /v1/me",
+    "method": "GET",
+    "path": "/v1/me",
+    "actor": "backup",
+    "status": 200
+  },
+  {
+    "id": "S02.6a",
+    "name": "S02.6a - Admit combined",
+    "family": "PUT /v1/actors/{actorId}",
+    "method": "PUT",
+    "path": "/v1/actors/{{combined_id}}",
+    "actor": "manager",
+    "status": 200
+  },
+  {
+    "id": "S02.6b",
+    "name": "S02.6b - Inspect combined self",
+    "family": "GET /v1/me",
+    "method": "GET",
+    "path": "/v1/me",
+    "actor": "combined",
+    "status": 200
+  },
+  {
+    "id": "S02.7a",
+    "name": "S02.7a - Admit allroles",
+    "family": "PUT /v1/actors/{actorId}",
+    "method": "PUT",
+    "path": "/v1/actors/{{allroles_id}}",
+    "actor": "manager",
+    "status": 200
+  },
+  {
+    "id": "S02.7b",
+    "name": "S02.7b - Inspect allroles self",
+    "family": "GET /v1/me",
+    "method": "GET",
+    "path": "/v1/me",
+    "actor": "allroles",
+    "status": 200
+  },
+  {
+    "id": "S02.08",
+    "name": "S02.08 - Confirm identical admission",
+    "family": "PUT /v1/actors/{actorId}",
+    "method": "PUT",
+    "path": "/v1/actors/{{member_id}}",
+    "actor": "manager",
+    "status": 200
+  },
+  {
+    "id": "S02.09",
+    "name": "S02.09 - Reject zero-role directory access",
+    "family": "GET /v1/actors",
+    "method": "GET",
+    "path": "/v1/actors",
+    "actor": "member",
+    "status": 403
+  },
+  {
+    "id": "S02.10",
+    "name": "S02.10 - Conceal other actor",
+    "family": "GET /v1/actors/{actorId}",
+    "method": "GET",
+    "path": "/v1/actors/{{manager_id}}",
+    "actor": "member",
+    "status": 403
+  },
+  {
+    "id": "S02.11",
+    "name": "S02.11 - Reject zero-role membership edit",
+    "family": "PATCH /v1/actors/{actorId}",
+    "method": "PATCH",
+    "path": "/v1/actors/{{manager_id}}",
+    "actor": "member",
+    "status": 403
+  },
+  {
+    "id": "S02.12",
+    "name": "S02.12 - Conceal other credential metadata",
+    "family": "GET /v1/actors/{actorId}/credential",
+    "method": "GET",
+    "path": "/v1/actors/{{manager_id}}/credential",
+    "actor": "member",
+    "status": 403
+  },
+  {
+    "id": "S03.01",
+    "name": "S03.01 - Read first directory page",
+    "family": "GET /v1/actors",
+    "method": "GET",
+    "path": "/v1/actors?limit=2&membership=admitted",
+    "actor": "manager",
+    "status": 200
+  },
+  {
+    "id": "S03.02",
+    "name": "S03.02 - Read distinct next page",
+    "family": "GET /v1/actors",
+    "method": "GET",
+    "path": "/v1/actors?limit=2&membership=admitted&cursor={{cursor}}",
+    "actor": "manager",
+    "status": 200
+  },
+  {
+    "id": "S03.03",
+    "name": "S03.03 - Reject changed cursor filters",
+    "family": "GET /v1/actors",
+    "method": "GET",
+    "path": "/v1/actors?limit=2&membership=removed&cursor={{cursor}}",
+    "actor": "manager",
+    "status": 400
+  },
+  {
+    "id": "S03.04",
+    "name": "S03.04 - Reject excessive page size",
+    "family": "GET /v1/actors",
+    "method": "GET",
+    "path": "/v1/actors?limit=101",
+    "actor": "manager",
+    "status": 400
+  },
+  {
+    "id": "S03.05",
+    "name": "S03.05 - Inspect exact actor filter",
+    "family": "GET /v1/actors",
+    "method": "GET",
+    "path": "/v1/actors?actorId={{member_id}}&membership=admitted",
+    "actor": "manager",
+    "status": 200
+  },
+  {
+    "id": "S04.01",
+    "name": "S04.01 - Reject unknown responsibility",
+    "family": "PATCH /v1/actors/{actorId}",
+    "method": "PATCH",
+    "path": "/v1/actors/{{member_id}}",
+    "actor": "manager",
+    "status": 400
+  },
+  {
+    "id": "S04.02",
+    "name": "S04.02 - Reject duplicate responsibility",
+    "family": "PATCH /v1/actors/{actorId}",
+    "method": "PATCH",
+    "path": "/v1/actors/{{member_id}}",
+    "actor": "manager",
+    "status": 400
+  },
+  {
+    "id": "S04.03",
+    "name": "S04.03 - Reject empty label",
+    "family": "PATCH /v1/actors/{actorId}",
+    "method": "PATCH",
+    "path": "/v1/actors/{{member_id}}",
+    "actor": "manager",
+    "status": 400
+  },
+  {
+    "id": "S04.04",
+    "name": "S04.04 - Reject long Unicode label",
+    "family": "PATCH /v1/actors/{actorId}",
+    "method": "PATCH",
+    "path": "/v1/actors/{{member_id}}",
+    "actor": "manager",
+    "status": 400
+  },
+  {
+    "id": "S04.05",
+    "name": "S04.05 - Reject immutable identity field",
+    "family": "PATCH /v1/actors/{actorId}",
+    "method": "PATCH",
+    "path": "/v1/actors/{{member_id}}",
+    "actor": "manager",
+    "status": 400
+  },
+  {
+    "id": "S04.06",
+    "name": "S04.06 - Reject missing precondition",
+    "family": "PATCH /v1/actors/{actorId}",
+    "method": "PATCH",
+    "path": "/v1/actors/{{member_id}}",
+    "actor": "manager",
+    "status": 400
+  },
+  {
+    "id": "S04.07",
+    "name": "S04.07 - Reject malformed JSON",
+    "family": "PATCH /v1/actors/{actorId}",
+    "method": "PATCH",
+    "path": "/v1/actors/{{member_id}}",
+    "actor": "manager",
+    "status": 400
+  },
+  {
+    "id": "S04.08",
+    "name": "S04.08 - Reject wrong content type",
+    "family": "PATCH /v1/actors/{actorId}",
+    "method": "PATCH",
+    "path": "/v1/actors/{{member_id}}",
+    "actor": "manager",
+    "status": 400
+  },
+  {
+    "id": "S04.09",
+    "name": "S04.09 - Reject oversized body",
+    "family": "PATCH /v1/actors/{actorId}",
+    "method": "PATCH",
+    "path": "/v1/actors/{{member_id}}",
+    "actor": "manager",
+    "status": 413
+  },
+  {
+    "id": "S04.10",
+    "name": "S04.10 - Confirm validation has no effect",
+    "family": "GET /v1/actors/{actorId}",
+    "method": "GET",
+    "path": "/v1/actors/{{member_id}}",
+    "actor": "manager",
+    "status": 200
+  },
+  {
+    "id": "S04.11",
+    "name": "S04.11 - Reject unknown actor",
+    "family": "GET /v1/actors/{actorId}",
+    "method": "GET",
+    "path": "/v1/actors/00000000-0000-4000-8000-000000000001",
+    "actor": "manager",
+    "status": 404
+  },
+  {
+    "id": "S05.01",
+    "name": "S05.01 - Rename and assign complete role set",
+    "family": "PATCH /v1/actors/{actorId}",
+    "method": "PATCH",
+    "path": "/v1/actors/{{member_id}}",
+    "actor": "manager",
+    "status": 200
+  },
+  {
+    "id": "S05.02",
+    "name": "S05.02 - Refuse stale incompatible edit",
+    "family": "PATCH /v1/actors/{actorId}",
+    "method": "PATCH",
+    "path": "/v1/actors/{{member_id}}",
+    "actor": "manager",
+    "status": 409
+  },
+  {
+    "id": "S05.03",
+    "name": "S05.03 - Confirm stale edit has no effect",
+    "family": "GET /v1/actors/{actorId}",
+    "method": "GET",
+    "path": "/v1/actors/{{member_id}}",
+    "actor": "manager",
+    "status": 200
+  },
+  {
+    "id": "S05.04",
+    "name": "S05.04 - Confirm matching edit without new effect",
+    "family": "PATCH /v1/actors/{actorId}",
+    "method": "PATCH",
+    "path": "/v1/actors/{{member_id}}",
+    "actor": "manager",
+    "status": 200
+  },
+  {
+    "id": "S05.05",
+    "name": "S05.05 - Observe current roles using same credential",
+    "family": "GET /v1/me",
+    "method": "GET",
+    "path": "/v1/me",
+    "actor": "member",
+    "status": 200
+  },
+  {
+    "id": "S06.01",
+    "name": "S06.01 - Remove member",
+    "family": "POST /v1/actors/{actorId}/remove",
+    "method": "POST",
+    "path": "/v1/actors/{{member_id}}/remove",
+    "actor": "manager",
+    "status": 200
+  },
+  {
+    "id": "S06.02",
+    "name": "S06.02 - Deny removed credential",
+    "family": "GET /v1/me",
+    "method": "GET",
+    "path": "/v1/me",
+    "actor": "member",
+    "status": 401
+  },
+  {
+    "id": "S06.03",
+    "name": "S06.03 - Confirm repeated removal",
+    "family": "POST /v1/actors/{actorId}/remove",
+    "method": "POST",
+    "path": "/v1/actors/{{member_id}}/remove",
+    "actor": "manager",
+    "status": 200
+  },
+  {
+    "id": "S06.04",
+    "name": "S06.04 - Refuse admission replay for removed actor",
+    "family": "PUT /v1/actors/{actorId}",
+    "method": "PUT",
+    "path": "/v1/actors/{{member_id}}",
+    "actor": "manager",
+    "status": 409
+  },
+  {
+    "id": "S06.05",
+    "name": "S06.05 - Readmit exact actor with fresh credential",
+    "family": "POST /v1/actors/{actorId}/readmit",
+    "method": "POST",
+    "path": "/v1/actors/{{member_id}}/readmit",
+    "actor": "manager",
+    "status": 200
+  },
+  {
+    "id": "S06.06",
+    "name": "S06.06 - Inspect readmitted self",
+    "family": "GET /v1/me",
+    "method": "GET",
+    "path": "/v1/me",
+    "actor": "returned",
+    "status": 200
+  },
+  {
+    "id": "S06.07",
+    "name": "S06.07 - Refuse stale removal of readmission",
+    "family": "POST /v1/actors/{actorId}/remove",
+    "method": "POST",
+    "path": "/v1/actors/{{member_id}}/remove",
+    "actor": "manager",
+    "status": 409
+  },
+  {
+    "id": "S06.08",
+    "name": "S06.08 - Confirm readmission survives stale removal",
+    "family": "GET /v1/actors/{actorId}",
+    "method": "GET",
+    "path": "/v1/actors/{{member_id}}",
+    "actor": "manager",
+    "status": 200
+  },
+  {
+    "id": "S07.01",
+    "name": "S07.01 - Inspect own credential metadata",
+    "family": "GET /v1/actors/{actorId}/credential",
+    "method": "GET",
+    "path": "/v1/actors/{{member_id}}/credential",
+    "actor": "returned",
+    "status": 200
+  },
+  {
+    "id": "S07.02",
+    "name": "S07.02 - Replace own zero-role credential",
+    "family": "POST /v1/actors/{actorId}/credential",
+    "method": "POST",
+    "path": "/v1/actors/{{member_id}}/credential",
+    "actor": "returned",
+    "status": 200
+  },
+  {
+    "id": "S07.03",
+    "name": "S07.03 - Deny superseded owner credential",
+    "family": "GET /v1/me",
+    "method": "GET",
+    "path": "/v1/me",
+    "actor": "returned",
+    "status": 401
+  },
+  {
+    "id": "S07.04",
+    "name": "S07.04 - Inspect saved replacement candidate",
+    "family": "GET /v1/me",
+    "method": "GET",
+    "path": "/v1/me",
+    "actor": "selfnext",
+    "status": 200
+  },
+  {
+    "id": "S07.05",
+    "name": "S07.05 - Confirm exact current registration",
+    "family": "POST /v1/actors/{actorId}/credential",
+    "method": "POST",
+    "path": "/v1/actors/{{member_id}}/credential",
+    "actor": "manager",
+    "status": 200
+  },
+  {
+    "id": "S07.06",
+    "name": "S07.06 - Deny another actor replacement",
+    "family": "POST /v1/actors/{actorId}/credential",
+    "method": "POST",
+    "path": "/v1/actors/{{manager_id}}/credential",
+    "actor": "selfnext",
+    "status": 403
+  },
+  {
+    "id": "S07.07",
+    "name": "S07.07 - Manager replaces member credential",
+    "family": "POST /v1/actors/{actorId}/credential",
+    "method": "POST",
+    "path": "/v1/actors/{{member_id}}/credential",
+    "actor": "manager",
+    "status": 200
+  },
+  {
+    "id": "S07.08",
+    "name": "S07.08 - Refuse superseded candidate replay",
+    "family": "POST /v1/actors/{actorId}/credential",
+    "method": "POST",
+    "path": "/v1/actors/{{member_id}}/credential",
+    "actor": "manager",
+    "status": 409
+  },
+  {
+    "id": "S07.09",
+    "name": "S07.09 - Confirm stale replacement has no effect",
+    "family": "GET /v1/actors/{actorId}",
+    "method": "GET",
+    "path": "/v1/actors/{{member_id}}",
+    "actor": "manager",
+    "status": 200
+  },
+  {
+    "id": "S07.10",
+    "name": "S07.10 - Revoke exact current credential",
+    "family": "POST /v1/actors/{actorId}/credentials/{credentialId}/revoke",
+    "method": "POST",
+    "path": "/v1/actors/{{member_id}}/credentials/{{managed_credential}}/revoke",
+    "actor": "manager",
+    "status": 200
+  },
+  {
+    "id": "S07.11",
+    "name": "S07.11 - Deny revoked credential",
+    "family": "GET /v1/me",
+    "method": "GET",
+    "path": "/v1/me",
+    "actor": "managed",
+    "status": 401
+  },
+  {
+    "id": "S07.12",
+    "name": "S07.12 - Confirm repeated exact revocation",
+    "family": "POST /v1/actors/{actorId}/credentials/{credentialId}/revoke",
+    "method": "POST",
+    "path": "/v1/actors/{{member_id}}/credentials/{{managed_credential}}/revoke",
+    "actor": "manager",
+    "status": 200
+  },
+  {
+    "id": "S07.13",
+    "name": "S07.13 - Restore admitted member credential",
+    "family": "POST /v1/actors/{actorId}/credential",
+    "method": "POST",
+    "path": "/v1/actors/{{member_id}}/credential",
+    "actor": "manager",
+    "status": 200
+  },
+  {
+    "id": "S07.14",
+    "name": "S07.14 - Old revocation cannot redirect",
+    "family": "POST /v1/actors/{actorId}/credentials/{credentialId}/revoke",
+    "method": "POST",
+    "path": "/v1/actors/{{member_id}}/credentials/{{managed_credential}}/revoke",
+    "actor": "manager",
+    "status": 409
+  },
+  {
+    "id": "S07.15",
+    "name": "S07.15 - Inspect restored owner after old revocation",
+    "family": "GET /v1/me",
+    "method": "GET",
+    "path": "/v1/me",
+    "actor": "restored",
+    "status": 200
+  },
+  {
+    "id": "S08.01",
+    "name": "S08.01 - Demote backup Manager",
+    "family": "PATCH /v1/actors/{actorId}",
+    "method": "PATCH",
+    "path": "/v1/actors/{{backup_id}}",
+    "actor": "manager",
+    "status": 200
+  },
+  {
+    "id": "S08.02",
+    "name": "S08.02 - Deny next page after demotion",
+    "family": "GET /v1/actors",
+    "method": "GET",
+    "path": "/v1/actors?limit=2&membership=admitted&cursor={{cursor}}",
+    "actor": "backup",
+    "status": 403
+  },
+  {
+    "id": "S08.03",
+    "name": "S08.03 - Revoke all-roles Manager credential",
+    "family": "POST /v1/actors/{actorId}/credentials/{credentialId}/revoke",
+    "method": "POST",
+    "path": "/v1/actors/{{allroles_id}}/credentials/{{allroles_credential}}/revoke",
+    "actor": "allroles",
+    "status": 200
+  },
+  {
+    "id": "S08.04",
+    "name": "S08.04 - Revoke initial Manager credential",
+    "family": "POST /v1/actors/{actorId}/credentials/{credentialId}/revoke",
+    "method": "POST",
+    "path": "/v1/actors/{{manager_id}}/credentials/{{manager_credential}}/revoke",
+    "actor": "manager",
+    "status": 200
+  },
+  {
+    "id": "S08.05",
+    "name": "S08.05 - Deny revoked Manager",
+    "family": "GET /v1/me",
+    "method": "GET",
+    "path": "/v1/me",
+    "actor": "manager",
+    "status": 401
+  },
+  {
+    "id": "S08.H",
+    "host": "recover",
+    "narrative": "بازیابی میزبان پس از ازبین‌رفتن همهٔ credentialهای Manager؛ تنها manager و allroles هنوز نقش Manager دارند و هر دو credential باطل شده‌اند."
+  },
+  {
+    "id": "S08.06",
+    "name": "S08.06 - Inspect recovered Manager candidate",
+    "family": "GET /v1/me",
+    "method": "GET",
+    "path": "/v1/me",
+    "actor": "recovered",
+    "status": 200
+  },
+  {
+    "id": "S09.H",
+    "host": "restart",
+    "narrative": "سرویس همین پایگاه داده را متوقف و دوباره راه‌اندازی کنید؛ Environment را دوباره Import نکنید و فقط baseUrl را در صورت تغییر پورت ویرایش کنید."
+  },
+  {
+    "id": "S09.01",
+    "name": "S09.01 - Inspect persisted recovered Manager",
+    "family": "GET /v1/me",
+    "method": "GET",
+    "path": "/v1/me",
+    "actor": "recovered",
+    "status": 200
+  },
+  {
+    "id": "S09.02",
+    "name": "S09.02 - Inspect persisted restored member",
+    "family": "GET /v1/actors/{actorId}",
+    "method": "GET",
+    "path": "/v1/actors/{{member_id}}",
+    "actor": "recovered",
+    "status": 200
+  }
+]

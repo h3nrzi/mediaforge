@@ -1,0 +1,2471 @@
+{
+  "revision": "0cddedb485007ed4377c019e40203fc963084337",
+  "runtime": "24.22.0",
+  "date": "2026-10-15",
+  "scope": "HTTP/export preflight using real CLI, service process, on-disk SQLite and fetch; minimal pm adapter implements test, expect.to.eql, response code/json/headers.get and environment get/set. Not actual Postman import or sandbox execution.",
+  "actualPostmanExecution": "not_run",
+  "humanAcceptance": "not_run",
+  "hostSetup": [
+    {
+      "operation": "status before bootstrap",
+      "result": "absent"
+    },
+    {
+      "operation": "bootstrap",
+      "result": "ok"
+    },
+    {
+      "operation": "repeat bootstrap",
+      "reasonCategory": "already_initialized"
+    }
+  ],
+  "results": [
+    {
+      "id": "S01.01",
+      "request": "S01.01 - Inspect initial Manager",
+      "method": "GET",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "d5a6cb10-d2b6-456b-a463-69d3f0239fd0",
+      "membershipVersion": "1",
+      "credentialRevision": "1",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Exact actor identity",
+          "pass": true
+        },
+        {
+          "name": "Complete independent responsibility set",
+          "pass": true
+        },
+        {
+          "name": "Initial versions and lifetime",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S01.02",
+      "request": "S01.02 - Reject anonymous caller",
+      "method": "GET",
+      "status": 401,
+      "result": "refused",
+      "reasonCategory": "unauthenticated",
+      "checks": [
+        {
+          "name": "HTTP 401",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Unauthorized target facts concealed",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S01.03",
+      "request": "S01.03 - Protect last Manager from demotion",
+      "method": "PATCH",
+      "status": 409,
+      "result": "refused",
+      "reasonCategory": "state_conflict",
+      "checks": [
+        {
+          "name": "HTTP 409",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S01.04",
+      "request": "S01.04 - Protect last Manager from removal",
+      "method": "POST",
+      "status": 409,
+      "result": "refused",
+      "reasonCategory": "state_conflict",
+      "checks": [
+        {
+          "name": "HTTP 409",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S02.1a",
+      "request": "S02.1a - Admit member",
+      "method": "PUT",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "cd1b2add-4bf4-47aa-95e7-0d44c450e2ee",
+      "membershipVersion": "1",
+      "credentialRevision": "1",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Exact actor identity",
+          "pass": true
+        },
+        {
+          "name": "Complete independent responsibility set",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S02.1b",
+      "request": "S02.1b - Inspect member self",
+      "method": "GET",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "cd1b2add-4bf4-47aa-95e7-0d44c450e2ee",
+      "membershipVersion": "1",
+      "credentialRevision": "1",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Exact actor identity",
+          "pass": true
+        },
+        {
+          "name": "Complete independent responsibility set",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S02.2a",
+      "request": "S02.2a - Admit contributor",
+      "method": "PUT",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "62302772-ecdb-4fe7-9c09-15c5bb06ea15",
+      "membershipVersion": "1",
+      "credentialRevision": "1",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Exact actor identity",
+          "pass": true
+        },
+        {
+          "name": "Complete independent responsibility set",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S02.2b",
+      "request": "S02.2b - Inspect contributor self",
+      "method": "GET",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "62302772-ecdb-4fe7-9c09-15c5bb06ea15",
+      "membershipVersion": "1",
+      "credentialRevision": "1",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Exact actor identity",
+          "pass": true
+        },
+        {
+          "name": "Complete independent responsibility set",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S02.3a",
+      "request": "S02.3a - Admit reviewer",
+      "method": "PUT",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "034030b5-6ee0-4b5c-8a0e-df77efdd6346",
+      "membershipVersion": "1",
+      "credentialRevision": "1",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Exact actor identity",
+          "pass": true
+        },
+        {
+          "name": "Complete independent responsibility set",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S02.3b",
+      "request": "S02.3b - Inspect reviewer self",
+      "method": "GET",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "034030b5-6ee0-4b5c-8a0e-df77efdd6346",
+      "membershipVersion": "1",
+      "credentialRevision": "1",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Exact actor identity",
+          "pass": true
+        },
+        {
+          "name": "Complete independent responsibility set",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S02.4a",
+      "request": "S02.4a - Admit operations",
+      "method": "PUT",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "5f2de14c-d721-49a2-9c16-c584a272b769",
+      "membershipVersion": "1",
+      "credentialRevision": "1",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Exact actor identity",
+          "pass": true
+        },
+        {
+          "name": "Complete independent responsibility set",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S02.4b",
+      "request": "S02.4b - Inspect operations self",
+      "method": "GET",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "5f2de14c-d721-49a2-9c16-c584a272b769",
+      "membershipVersion": "1",
+      "credentialRevision": "1",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Exact actor identity",
+          "pass": true
+        },
+        {
+          "name": "Complete independent responsibility set",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S02.5a",
+      "request": "S02.5a - Admit backup",
+      "method": "PUT",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "e8f4353f-5d5a-414c-b738-c74b9ddad943",
+      "membershipVersion": "1",
+      "credentialRevision": "1",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Exact actor identity",
+          "pass": true
+        },
+        {
+          "name": "Complete independent responsibility set",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S02.5b",
+      "request": "S02.5b - Inspect backup self",
+      "method": "GET",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "e8f4353f-5d5a-414c-b738-c74b9ddad943",
+      "membershipVersion": "1",
+      "credentialRevision": "1",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Exact actor identity",
+          "pass": true
+        },
+        {
+          "name": "Complete independent responsibility set",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S02.6a",
+      "request": "S02.6a - Admit combined",
+      "method": "PUT",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "4d460791-f597-4c3a-a0dd-9bb20ea8cab0",
+      "membershipVersion": "1",
+      "credentialRevision": "1",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Exact actor identity",
+          "pass": true
+        },
+        {
+          "name": "Complete independent responsibility set",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S02.6b",
+      "request": "S02.6b - Inspect combined self",
+      "method": "GET",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "4d460791-f597-4c3a-a0dd-9bb20ea8cab0",
+      "membershipVersion": "1",
+      "credentialRevision": "1",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Exact actor identity",
+          "pass": true
+        },
+        {
+          "name": "Complete independent responsibility set",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S02.7a",
+      "request": "S02.7a - Admit allroles",
+      "method": "PUT",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "4b36cd4c-4aa5-4637-b36e-8db5468c8188",
+      "membershipVersion": "1",
+      "credentialRevision": "1",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Exact actor identity",
+          "pass": true
+        },
+        {
+          "name": "Complete independent responsibility set",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S02.7b",
+      "request": "S02.7b - Inspect allroles self",
+      "method": "GET",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "4b36cd4c-4aa5-4637-b36e-8db5468c8188",
+      "membershipVersion": "1",
+      "credentialRevision": "1",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Exact actor identity",
+          "pass": true
+        },
+        {
+          "name": "Complete independent responsibility set",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S02.08",
+      "request": "S02.08 - Confirm identical admission",
+      "method": "PUT",
+      "status": 200,
+      "result": "already_satisfied",
+      "reasonCategory": "no_change",
+      "actorId": "cd1b2add-4bf4-47aa-95e7-0d44c450e2ee",
+      "membershipVersion": "1",
+      "credentialRevision": "1",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Exact actor identity",
+          "pass": true
+        },
+        {
+          "name": "Complete independent responsibility set",
+          "pass": true
+        },
+        {
+          "name": "Unchanged complete actor snapshot",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S02.09",
+      "request": "S02.09 - Reject zero-role directory access",
+      "method": "GET",
+      "status": 403,
+      "result": "refused",
+      "reasonCategory": "forbidden",
+      "checks": [
+        {
+          "name": "HTTP 403",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Unauthorized target facts concealed",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S02.10",
+      "request": "S02.10 - Conceal other actor",
+      "method": "GET",
+      "status": 403,
+      "result": "refused",
+      "reasonCategory": "forbidden",
+      "checks": [
+        {
+          "name": "HTTP 403",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Unauthorized target facts concealed",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S02.11",
+      "request": "S02.11 - Reject zero-role membership edit",
+      "method": "PATCH",
+      "status": 403,
+      "result": "refused",
+      "reasonCategory": "forbidden",
+      "checks": [
+        {
+          "name": "HTTP 403",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Unauthorized target facts concealed",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S02.12",
+      "request": "S02.12 - Conceal other credential metadata",
+      "method": "GET",
+      "status": 403,
+      "result": "refused",
+      "reasonCategory": "forbidden",
+      "checks": [
+        {
+          "name": "HTTP 403",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Unauthorized target facts concealed",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S03.01",
+      "request": "S03.01 - Read first directory page",
+      "method": "GET",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Page size and continuation",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S03.02",
+      "request": "S03.02 - Read distinct next page",
+      "method": "GET",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Distinct admitted page",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S03.03",
+      "request": "S03.03 - Reject changed cursor filters",
+      "method": "GET",
+      "status": 400,
+      "result": "refused",
+      "reasonCategory": "invalid_cursor",
+      "checks": [
+        {
+          "name": "HTTP 400",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S03.04",
+      "request": "S03.04 - Reject excessive page size",
+      "method": "GET",
+      "status": 400,
+      "result": "refused",
+      "reasonCategory": "invalid_input",
+      "checks": [
+        {
+          "name": "HTTP 400",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S03.05",
+      "request": "S03.05 - Inspect exact actor filter",
+      "method": "GET",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Exact filter",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S04.01",
+      "request": "S04.01 - Reject unknown responsibility",
+      "method": "PATCH",
+      "status": 400,
+      "result": "refused",
+      "reasonCategory": "invalid_input",
+      "checks": [
+        {
+          "name": "HTTP 400",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S04.02",
+      "request": "S04.02 - Reject duplicate responsibility",
+      "method": "PATCH",
+      "status": 400,
+      "result": "refused",
+      "reasonCategory": "invalid_input",
+      "checks": [
+        {
+          "name": "HTTP 400",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S04.03",
+      "request": "S04.03 - Reject empty label",
+      "method": "PATCH",
+      "status": 400,
+      "result": "refused",
+      "reasonCategory": "invalid_input",
+      "checks": [
+        {
+          "name": "HTTP 400",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S04.04",
+      "request": "S04.04 - Reject long Unicode label",
+      "method": "PATCH",
+      "status": 400,
+      "result": "refused",
+      "reasonCategory": "invalid_input",
+      "checks": [
+        {
+          "name": "HTTP 400",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S04.05",
+      "request": "S04.05 - Reject immutable identity field",
+      "method": "PATCH",
+      "status": 400,
+      "result": "refused",
+      "reasonCategory": "invalid_input",
+      "checks": [
+        {
+          "name": "HTTP 400",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S04.06",
+      "request": "S04.06 - Reject missing precondition",
+      "method": "PATCH",
+      "status": 400,
+      "result": "refused",
+      "reasonCategory": "invalid_input",
+      "checks": [
+        {
+          "name": "HTTP 400",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S04.07",
+      "request": "S04.07 - Reject malformed JSON",
+      "method": "PATCH",
+      "status": 400,
+      "result": "refused",
+      "reasonCategory": "invalid_json",
+      "checks": [
+        {
+          "name": "HTTP 400",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S04.08",
+      "request": "S04.08 - Reject wrong content type",
+      "method": "PATCH",
+      "status": 400,
+      "result": "refused",
+      "reasonCategory": "invalid_input",
+      "checks": [
+        {
+          "name": "HTTP 400",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S04.09",
+      "request": "S04.09 - Reject oversized body",
+      "method": "PATCH",
+      "status": 413,
+      "result": "refused",
+      "reasonCategory": "body_too_large",
+      "checks": [
+        {
+          "name": "HTTP 413",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S04.10",
+      "request": "S04.10 - Confirm validation has no effect",
+      "method": "GET",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "cd1b2add-4bf4-47aa-95e7-0d44c450e2ee",
+      "membershipVersion": "1",
+      "credentialRevision": "1",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Unchanged complete actor snapshot",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S04.11",
+      "request": "S04.11 - Reject unknown actor",
+      "method": "GET",
+      "status": 404,
+      "result": "refused",
+      "reasonCategory": "not_found",
+      "checks": [
+        {
+          "name": "HTTP 404",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S05.01",
+      "request": "S05.01 - Rename and assign complete role set",
+      "method": "PATCH",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "cd1b2add-4bf4-47aa-95e7-0d44c450e2ee",
+      "membershipVersion": "2",
+      "credentialRevision": "1",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Exact actor identity",
+          "pass": true
+        },
+        {
+          "name": "Complete independent responsibility set",
+          "pass": true
+        },
+        {
+          "name": "Membership change only",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S05.02",
+      "request": "S05.02 - Refuse stale incompatible edit",
+      "method": "PATCH",
+      "status": 409,
+      "result": "refused",
+      "reasonCategory": "state_conflict",
+      "checks": [
+        {
+          "name": "HTTP 409",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S05.03",
+      "request": "S05.03 - Confirm stale edit has no effect",
+      "method": "GET",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "cd1b2add-4bf4-47aa-95e7-0d44c450e2ee",
+      "membershipVersion": "2",
+      "credentialRevision": "1",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Unchanged complete actor snapshot",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S05.04",
+      "request": "S05.04 - Confirm matching edit without new effect",
+      "method": "PATCH",
+      "status": 200,
+      "result": "already_satisfied",
+      "reasonCategory": "no_change",
+      "actorId": "cd1b2add-4bf4-47aa-95e7-0d44c450e2ee",
+      "membershipVersion": "2",
+      "credentialRevision": "1",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Unchanged complete actor snapshot",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S05.05",
+      "request": "S05.05 - Observe current roles using same credential",
+      "method": "GET",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "cd1b2add-4bf4-47aa-95e7-0d44c450e2ee",
+      "membershipVersion": "2",
+      "credentialRevision": "1",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Exact actor identity",
+          "pass": true
+        },
+        {
+          "name": "Complete independent responsibility set",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S06.01",
+      "request": "S06.01 - Remove member",
+      "method": "POST",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "cd1b2add-4bf4-47aa-95e7-0d44c450e2ee",
+      "membershipVersion": "3",
+      "credentialRevision": "2",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Exact actor identity",
+          "pass": true
+        },
+        {
+          "name": "Complete independent responsibility set",
+          "pass": true
+        },
+        {
+          "name": "Removal invalidates and retains identity",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S06.02",
+      "request": "S06.02 - Deny removed credential",
+      "method": "GET",
+      "status": 401,
+      "result": "refused",
+      "reasonCategory": "unauthenticated",
+      "checks": [
+        {
+          "name": "HTTP 401",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Unauthorized target facts concealed",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S06.03",
+      "request": "S06.03 - Confirm repeated removal",
+      "method": "POST",
+      "status": 200,
+      "result": "already_satisfied",
+      "reasonCategory": "no_change",
+      "actorId": "cd1b2add-4bf4-47aa-95e7-0d44c450e2ee",
+      "membershipVersion": "3",
+      "credentialRevision": "2",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Unchanged complete actor snapshot",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S06.04",
+      "request": "S06.04 - Refuse admission replay for removed actor",
+      "method": "PUT",
+      "status": 409,
+      "result": "refused",
+      "reasonCategory": "state_conflict",
+      "checks": [
+        {
+          "name": "HTTP 409",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S06.05",
+      "request": "S06.05 - Readmit exact actor with fresh credential",
+      "method": "POST",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "cd1b2add-4bf4-47aa-95e7-0d44c450e2ee",
+      "membershipVersion": "4",
+      "credentialRevision": "3",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Exact actor identity",
+          "pass": true
+        },
+        {
+          "name": "Complete independent responsibility set",
+          "pass": true
+        },
+        {
+          "name": "First admission retained",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S06.06",
+      "request": "S06.06 - Inspect readmitted self",
+      "method": "GET",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "cd1b2add-4bf4-47aa-95e7-0d44c450e2ee",
+      "membershipVersion": "4",
+      "credentialRevision": "3",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Exact actor identity",
+          "pass": true
+        },
+        {
+          "name": "Complete independent responsibility set",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S06.07",
+      "request": "S06.07 - Refuse stale removal of readmission",
+      "method": "POST",
+      "status": 409,
+      "result": "refused",
+      "reasonCategory": "state_conflict",
+      "checks": [
+        {
+          "name": "HTTP 409",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S06.08",
+      "request": "S06.08 - Confirm readmission survives stale removal",
+      "method": "GET",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "cd1b2add-4bf4-47aa-95e7-0d44c450e2ee",
+      "membershipVersion": "4",
+      "credentialRevision": "3",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Unchanged complete actor snapshot",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S07.01",
+      "request": "S07.01 - Inspect own credential metadata",
+      "method": "GET",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "cd1b2add-4bf4-47aa-95e7-0d44c450e2ee",
+      "credentialRevision": "3",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Exact actor identity",
+          "pass": true
+        },
+        {
+          "name": "Observed credential revision",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S07.02",
+      "request": "S07.02 - Replace own zero-role credential",
+      "method": "POST",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "cd1b2add-4bf4-47aa-95e7-0d44c450e2ee",
+      "membershipVersion": "4",
+      "credentialRevision": "4",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Exact actor identity",
+          "pass": true
+        },
+        {
+          "name": "Credential-only transition",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S07.03",
+      "request": "S07.03 - Deny superseded owner credential",
+      "method": "GET",
+      "status": 401,
+      "result": "refused",
+      "reasonCategory": "unauthenticated",
+      "checks": [
+        {
+          "name": "HTTP 401",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Unauthorized target facts concealed",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S07.04",
+      "request": "S07.04 - Inspect saved replacement candidate",
+      "method": "GET",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "cd1b2add-4bf4-47aa-95e7-0d44c450e2ee",
+      "membershipVersion": "4",
+      "credentialRevision": "4",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Exact actor identity",
+          "pass": true
+        },
+        {
+          "name": "Unchanged complete actor snapshot",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S07.05",
+      "request": "S07.05 - Confirm exact current registration",
+      "method": "POST",
+      "status": 200,
+      "result": "already_satisfied",
+      "reasonCategory": "no_change",
+      "actorId": "cd1b2add-4bf4-47aa-95e7-0d44c450e2ee",
+      "membershipVersion": "4",
+      "credentialRevision": "4",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Unchanged complete actor snapshot",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S07.06",
+      "request": "S07.06 - Deny another actor replacement",
+      "method": "POST",
+      "status": 403,
+      "result": "refused",
+      "reasonCategory": "forbidden",
+      "checks": [
+        {
+          "name": "HTTP 403",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Unauthorized target facts concealed",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S07.07",
+      "request": "S07.07 - Manager replaces member credential",
+      "method": "POST",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "cd1b2add-4bf4-47aa-95e7-0d44c450e2ee",
+      "membershipVersion": "4",
+      "credentialRevision": "5",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Exact actor identity",
+          "pass": true
+        },
+        {
+          "name": "Membership remains unchanged",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S07.08",
+      "request": "S07.08 - Refuse superseded candidate replay",
+      "method": "POST",
+      "status": 409,
+      "result": "refused",
+      "reasonCategory": "state_conflict",
+      "checks": [
+        {
+          "name": "HTTP 409",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S07.09",
+      "request": "S07.09 - Confirm stale replacement has no effect",
+      "method": "GET",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "cd1b2add-4bf4-47aa-95e7-0d44c450e2ee",
+      "membershipVersion": "4",
+      "credentialRevision": "5",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Unchanged complete actor snapshot",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S07.10",
+      "request": "S07.10 - Revoke exact current credential",
+      "method": "POST",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "cd1b2add-4bf4-47aa-95e7-0d44c450e2ee",
+      "membershipVersion": "4",
+      "credentialRevision": "6",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Invalidation recorded",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S07.11",
+      "request": "S07.11 - Deny revoked credential",
+      "method": "GET",
+      "status": 401,
+      "result": "refused",
+      "reasonCategory": "unauthenticated",
+      "checks": [
+        {
+          "name": "HTTP 401",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Unauthorized target facts concealed",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S07.12",
+      "request": "S07.12 - Confirm repeated exact revocation",
+      "method": "POST",
+      "status": 200,
+      "result": "already_satisfied",
+      "reasonCategory": "no_change",
+      "actorId": "cd1b2add-4bf4-47aa-95e7-0d44c450e2ee",
+      "membershipVersion": "4",
+      "credentialRevision": "6",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Unchanged complete actor snapshot",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S07.13",
+      "request": "S07.13 - Restore admitted member credential",
+      "method": "POST",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "cd1b2add-4bf4-47aa-95e7-0d44c450e2ee",
+      "membershipVersion": "4",
+      "credentialRevision": "7",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Exact actor identity",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S07.14",
+      "request": "S07.14 - Old revocation cannot redirect",
+      "method": "POST",
+      "status": 409,
+      "result": "refused",
+      "reasonCategory": "state_conflict",
+      "checks": [
+        {
+          "name": "HTTP 409",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S07.15",
+      "request": "S07.15 - Inspect restored owner after old revocation",
+      "method": "GET",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "cd1b2add-4bf4-47aa-95e7-0d44c450e2ee",
+      "membershipVersion": "4",
+      "credentialRevision": "7",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Exact actor identity",
+          "pass": true
+        },
+        {
+          "name": "Unchanged complete actor snapshot",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S08.01",
+      "request": "S08.01 - Demote backup Manager",
+      "method": "PATCH",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "e8f4353f-5d5a-414c-b738-c74b9ddad943",
+      "membershipVersion": "2",
+      "credentialRevision": "1",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Exact actor identity",
+          "pass": true
+        },
+        {
+          "name": "Complete independent responsibility set",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S08.02",
+      "request": "S08.02 - Deny next page after demotion",
+      "method": "GET",
+      "status": 403,
+      "result": "refused",
+      "reasonCategory": "forbidden",
+      "checks": [
+        {
+          "name": "HTTP 403",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Unauthorized target facts concealed",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S08.03",
+      "request": "S08.03 - Revoke all-roles Manager credential",
+      "method": "POST",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "4b36cd4c-4aa5-4637-b36e-8db5468c8188",
+      "membershipVersion": "1",
+      "credentialRevision": "2",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S08.04",
+      "request": "S08.04 - Revoke initial Manager credential",
+      "method": "POST",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "d5a6cb10-d2b6-456b-a463-69d3f0239fd0",
+      "membershipVersion": "1",
+      "credentialRevision": "2",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S08.05",
+      "request": "S08.05 - Deny revoked Manager",
+      "method": "GET",
+      "status": 401,
+      "result": "refused",
+      "reasonCategory": "unauthenticated",
+      "checks": [
+        {
+          "name": "HTTP 401",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Unauthorized target facts concealed",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S08.H",
+      "operation": "host recovery and exact confirmation",
+      "result": "ok",
+      "credentialRevision": "3",
+      "noOpSnapshotEqual": true
+    },
+    {
+      "id": "S08.06",
+      "request": "S08.06 - Inspect recovered Manager candidate",
+      "method": "GET",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "d5a6cb10-d2b6-456b-a463-69d3f0239fd0",
+      "membershipVersion": "1",
+      "credentialRevision": "3",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Exact actor identity",
+          "pass": true
+        },
+        {
+          "name": "Complete independent responsibility set",
+          "pass": true
+        },
+        {
+          "name": "Recovery changes only credential",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S09.H",
+      "operation": "restart same database",
+      "result": "ok"
+    },
+    {
+      "id": "S09.01",
+      "request": "S09.01 - Inspect persisted recovered Manager",
+      "method": "GET",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "d5a6cb10-d2b6-456b-a463-69d3f0239fd0",
+      "membershipVersion": "1",
+      "credentialRevision": "3",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Exact actor identity",
+          "pass": true
+        },
+        {
+          "name": "Complete persisted actor snapshot",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "S09.02",
+      "request": "S09.02 - Inspect persisted restored member",
+      "method": "GET",
+      "status": 200,
+      "result": "ok",
+      "reasonCategory": "ok",
+      "actorId": "cd1b2add-4bf4-47aa-95e7-0d44c450e2ee",
+      "membershipVersion": "4",
+      "credentialRevision": "7",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "Private JSON feedback",
+          "pass": true
+        },
+        {
+          "name": "No secret or verifier fields",
+          "pass": true
+        },
+        {
+          "name": "Result and effect contract",
+          "pass": true
+        },
+        {
+          "name": "Exact actor identity",
+          "pass": true
+        },
+        {
+          "name": "Unchanged complete actor snapshot",
+          "pass": true
+        }
+      ]
+    }
+  ]
+}

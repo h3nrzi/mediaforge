@@ -1,0 +1,533 @@
+{
+  "build": "0cddedb485007ed4377c019e40203fc963084337",
+  "criteria": [
+    {
+      "id": "T01.C01",
+      "source": ".scratch/mf-mod-01/issues/01-establish-private-workspace.md",
+      "criterion": "Pin and check the approved runtime/API surface. Provide reproducible service and test entry points using Node's test runner; do not infer compatibility from installed Node 26.",
+      "productScenario": "شروع/S01",
+      "technicalOrDeferredEvidence": "runtime؛ test/workspace.test.js",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T01.C02",
+      "source": ".scratch/mf-mod-01/issues/01-establish-private-workspace.md",
+      "criterion": "The owner helper prepares a UUID actor ID, revision-one descriptor, independently random 32-byte secret and revision-bound random credential locator. Canonical base64url secret and SHA-256 verifier follow the specification. The shareable descriptor contains no secret; document trusted recipient/actor confirmation.",
+      "productScenario": "آماده‌سازی/S01.01",
+      "technicalOrDeferredEvidence": "test/workspace.test.js؛ تأیید شخص واقعی دستی و خارج از نمونهٔ محلی",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T01.C03",
+      "source": ".scratch/mf-mod-01/issues/01-establish-private-workspace.md",
+      "criterion": "Exclusive owner-only private-file creation refuses unsafe ownership, symlinks and existing destinations; flush contents and parent directory before reporting readiness. Interrupted preparation is identified as incomplete and cannot register incomplete material or overwrite valid files. Derive an owner-only curl config locally without printing its bearer value. Exclude private artifacts from version control and redact credential-bearing diagnostics.",
+      "productScenario": "آماده‌سازی",
+      "technicalOrDeferredEvidence": "test/validation.test.js؛ حفاظت فایل و وقفهٔ آماده‌سازی فنی است",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T01.C04",
+      "source": ".scratch/mf-mod-01/issues/01-establish-private-workspace.md",
+      "criterion": "Host setup/bootstrap and initialization status distinguish absent, uninitialized, initialized and unavailable stores. Bootstrap atomically commits singleton state, initial admitted Manager-only actor, versions/revisions at one, bounded operator-origin attribution and verifier. Every initialized rerun refuses without modifying state, even for the same candidate.",
+      "productScenario": "آماده‌سازی/S01",
+      "technicalOrDeferredEvidence": "test/workspace.test.js؛ status و bootstrap واقعی اجرا شدند",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T01.C05",
+      "source": ".scratch/mf-mod-01/issues/01-establish-private-workspace.md",
+      "criterion": "Use an explicit local persistent database location independent of working directory, protected database/directory/WAL sidecars, WAL, synchronous=FULL and foreign keys on every connection; parameterized SQL and disabled extension loading. Atomic non-destructive schema setup/migration preserves authority facts. Ordinary startup opens and verifies an existing store; missing/corrupt/unsupported storage never silently creates writable authority. Uninitialized state grants no usable operations.",
+      "productScenario": "S09",
+      "technicalOrDeferredEvidence": "test/persistence.test.js؛ فساد/مهاجرت/PRAGMA فنی",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T01.C06",
+      "source": ".scratch/mf-mod-01/issues/01-establish-private-workspace.md",
+      "criterion": "Bootstrap uses an owned BEGIN IMMEDIATE transaction before dependent reads, immediate acquisition attempts with asynchronous backoff and the default configurable 1,000 ms cumulative monotonic budget, one body execution and acknowledgement only after durable commit. Known non-admission/rollback and indeterminate outcomes are distinct; unestablished connection state is discarded and the body is never automatically replayed.",
+      "productScenario": "فقط فنی",
+      "technicalOrDeferredEvidence": "test/concurrency.test.js و test/faults.test.js؛ gate و commit قابل ساختن از Postman نیست",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T01.C07",
+      "source": ".scratch/mf-mod-01/issues/01-establish-private-workspace.md",
+      "criterion": "GET /v1/me authenticates only the exact registered bearer ID plus raw secret using strict single-header parsing, canonical encoding/length validation and constant-time verifier comparison. IDs, verifiers, cookies, query tokens, supplied identities and role claims cannot authenticate. Fresh reads verify admission and expiry at now >= issuance + 30 elapsed days, including downtime. Responses omit secrets/verifiers and expose exact identity, current label/responsibilities, decimal-string versions and ISO issuance/expiry.",
+      "productScenario": "S01/S06/S07",
+      "technicalOrDeferredEvidence": "test/validation.test.js و test/expiry.test.js؛ strict proof و مرز ۳۰ روز فنی",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T01.C08",
+      "source": ".scratch/mf-mod-01/issues/01-establish-private-workspace.md",
+      "criterion": "Supply the common JSON result/reason/action-status contract, no-store, bounded errors and transport guard: loopback HTTP for local development; configured HTTPS required for nonlocal binding. No public setup/signup or operator-recovery HTTP endpoint exists.",
+      "productScenario": "همهٔ درخواست‌ها",
+      "technicalOrDeferredEvidence": "test/transport.test.js؛ HTTPS غیرمحلی در این محیط اجرا نشده",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T01.C09",
+      "source": ".scratch/mf-mod-01/issues/01-establish-private-workspace.md",
+      "criterion": "Document bootstrap lost-response recovery through the saved candidate and trustworthy host status. Retry only when non-initialization and absence of a still-active prior attempt are established; initialized state is never reset. Loss of committed owner material awaits the separate recovery command from Ticket 05.",
+      "productScenario": "راهنمای توقف/ادامه",
+      "technicalOrDeferredEvidence": "test/persistence.test.js و test/faults.test.js؛ گم‌شدن پاسخ ساختگی فنی",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T02.C01",
+      "source": ".scratch/mf-mod-01/issues/02-manage-actors-and-responsibilities.md",
+      "criterion": "Manager-only admission atomically creates caller-prepared actor ID, current label, explicit assignments, membership version/credential revision at one and the first verifier. Validate descriptor actor/revision/binding and trusted recipient-confirmation workflow; no secret file transfer. Existing IDs cannot be overwritten or implicitly readmitted.",
+      "productScenario": "S02",
+      "technicalOrDeferredEvidence": "test/membership.test.js؛ تأیید گیرندهٔ واقعی موکول به استفادهٔ واقعی",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T02.C02",
+      "source": ".scratch/mf-mod-01/issues/02-manage-actors-and-responsibilities.md",
+      "criterion": "Authorized repetition confirms only matching current admitted facts without new issuance, expiry, version or attribution. Conflicting bindings/states refuse; lost acknowledgement uses exact prepared actor lookup rather than a new ID.",
+      "productScenario": "S02.08/S06.04",
+      "technicalOrDeferredEvidence": "test/membership.test.js؛ تکرار و binding",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T02.C03",
+      "source": ".scratch/mf-mod-01/issues/02-manage-actors-and-responsibilities.md",
+      "criterion": "Zero responsibilities is valid; Contributor, Reviewer, Operations and Manager are independent combinable values. Unknown or duplicate responsibilities refuse. Manager alone grants no other responsibility; non-Managers cannot admit/edit/list others, and body claims never override authenticated identity.",
+      "productScenario": "S02/S05",
+      "technicalOrDeferredEvidence": "test/policy.test.js؛ ماتریس کامل ۱۶ ترکیب صرفاً فنی",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T02.C04",
+      "source": ".scratch/mf-mod-01/issues/02-manage-actors-and-responsibilities.md",
+      "criterion": "PATCH requires the observed membership version and desired label and/or complete responsibility set; forbid immutable-ID or implicit membership changes. Atomically recheck current Manager authority, version and last-Manager invariant. Actual changes increment membership version once, preserve credential revision unless credential state changes and record application-time actor ID/label; satisfied absolute state adds no timestamp/version/attribution. Stale incompatible edits return 409 and only permitted current facts.",
+      "productScenario": "S05",
+      "technicalOrDeferredEvidence": "test/membership.test.js و test/concurrency.test.js",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T02.C05",
+      "source": ".scratch/mf-mod-01/issues/02-manage-actors-and-responsibilities.md",
+      "criterion": "A lone Manager cannot remove their Manager responsibility; self-edits obey the same rules. Concurrency safety is part of this endpoint now, with expanded removal races in Ticket 03.",
+      "productScenario": "S01.03/S08",
+      "technicalOrDeferredEvidence": "test/concurrency.test.js؛ invariant هم‌زمان فنی",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T02.C06",
+      "source": ".scratch/mf-mod-01/issues/02-manage-actors-and-responsibilities.md",
+      "criterion": "Immutable first-admission actor/origin/time/label facts survive subsequent admitting-Manager relabeling/demotion. Duplicate labels are permitted and never identity; no unrestricted change history or purge API is added.",
+      "productScenario": "S05/S06",
+      "technicalOrDeferredEvidence": "test/membership.test.js؛ duplicate label و snapshot مدیر فنی",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T02.C07",
+      "source": ".scratch/mf-mod-01/issues/02-manage-actors-and-responsibilities.md",
+      "criterion": "GET self/exact actor and credential metadata apply self-versus-Manager access correctly; unauthorized callers receive no target facts. Never expose raw secrets or stored verifiers in roster/metadata output.",
+      "productScenario": "S02.10/S02.12/S07.01",
+      "technicalOrDeferredEvidence": "test/validation.test.js؛ نبود secret/verifier در همهٔ پاسخ‌ها بررسی می‌شود",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T02.C08",
+      "source": ".scratch/mf-mod-01/issues/02-manage-actors-and-responsibilities.md",
+      "criterion": "Directory defaults to 50 and caps at 100; validate page sizes, exact actor-ID/membership filters and filter-bound continuation. Order by immutable first-admission time descending, then actor ID descending. Every page checks current Manager authority; inserts appear on refresh, current facts may change and a cursor grants no authority or frozen snapshot.",
+      "productScenario": "S03/S08.02",
+      "technicalOrDeferredEvidence": "test/directory.test.js؛ ترتیب کامل و ورود هم‌زمان فنی",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T02.C09",
+      "source": ".scratch/mf-mod-01/issues/02-manage-actors-and-responsibilities.md",
+      "criterion": "Validate nonempty well-formed Unicode labels, reject controls, honor 80-code-point labels/128-code-point public IDs/512-code-point summaries without truncation or normalization. Distinguish format-valid values from maximum length. Bounded positive versions/revisions serialize as decimal strings and fail without wraparound on exhaustion.",
+      "productScenario": "S04",
+      "technicalOrDeferredEvidence": "test/validation.test.js؛ overflow و همهٔ حدود متن فنی",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T02.C10",
+      "source": ".scratch/mf-mod-01/issues/02-manage-actors-and-responsibilities.md",
+      "criterion": "HTTP validates content type, recognized fields, required preconditions and well-formed JSON before mutation; configurable 16 KiB control-body guard produces 413. Provide specified 400/401/403/404/409/503 semantics, private no-store and explicit no-effect responses; no raw-secret control-body fields.",
+      "productScenario": "S04 و همهٔ پاسخ‌ها",
+      "technicalOrDeferredEvidence": "test/faults.test.js؛ 503 و certainty صرفاً فنی",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T02.C11",
+      "source": ".scratch/mf-mod-01/issues/02-manage-actors-and-responsibilities.md",
+      "criterion": "Extend actor-specific curl documentation with admission, identity switching, exact lookup, alone/combined/zero-role assignments, directory continuation and stale-edit reconsideration.",
+      "productScenario": "کل راهنما",
+      "technicalOrDeferredEvidence": "docs/module-01/client.md؛ مسیر Postman کنار curl حفظ شده",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T03.C01",
+      "source": ".scratch/mf-mod-01/issues/03-remove-and-readmit-members.md",
+      "criterion": "Removal with observed membership version atomically clears assignments, marks removed and invalidates usable credential state. Advance membership version once and credential revision only when credential state actually changes. Already-invalid credentials do not manufacture another revocation; every subsequent authenticated call by the removed actor denies.",
+      "productScenario": "S06.01/S06.02",
+      "technicalOrDeferredEvidence": "test/membership.test.js؛ removal با credential قبلاً باطل فنی",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T03.C02",
+      "source": ".scratch/mf-mod-01/issues/03-remove-and-readmit-members.md",
+      "criterion": "Exact-ID repeat removal adds no version/time/attribution/effect. Stale removal after readmission refuses and cannot remove the new admission. Repetition of a past label/assignment change after an intervening incompatible change also refuses.",
+      "productScenario": "S06.03/S06.07/S05.02",
+      "technicalOrDeferredEvidence": "test/membership.test.js",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T03.C03",
+      "source": ".scratch/mf-mod-01/issues/03-remove-and-readmit-members.md",
+      "criterion": "Readmission targets an existing removed actor with observed membership and credential revisions, explicit assignments (including empty) and fresh next-revision owner-prepared material. Recheck Manager authority/state/binding at the gate and commit admission/assignments/credential atomically. Never restore old responsibilities or credentials, or reactivate by label matching/new-admission replay.",
+      "productScenario": "S06.04/S06.05",
+      "technicalOrDeferredEvidence": "test/membership.test.js؛ bindingهای منفی فنی",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T03.C04",
+      "source": ".scratch/mf-mod-01/issues/03-remove-and-readmit-members.md",
+      "criterion": "Retain actor ID, first-admission identity/time/order and immutable attribution snapshots. A different person with the same label receives a new ID. Current label edits/readmission do not rewrite historical action-time labels.",
+      "productScenario": "S06.05/S06.08",
+      "technicalOrDeferredEvidence": "test/membership.test.js؛ duplicate label و ترتیب اولیه فنی",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T03.C05",
+      "source": ".scratch/mf-mod-01/issues/03-remove-and-readmit-members.md",
+      "criterion": "Last-Manager counting considers admitted Manager membership, including expired/revoked credentials. Removal and responsibility edits, including self-actions and competing independent writers, cannot commit zero admitted Managers. A caller demoted/removed while waiting cannot act using earlier authority.",
+      "productScenario": "S01.04/S08",
+      "technicalOrDeferredEvidence": "test/concurrency.test.js؛ شمارش credential منقضی و رقابت فنی",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T03.C06",
+      "source": ".scratch/mf-mod-01/issues/03-remove-and-readmit-members.md",
+      "criterion": "Membership changes have no cascades into work/media/history, cancellation intent or accounting release. Preserve foreign-key actor dependencies, bounded latest-change facts and original first-admission facts; introduce no purge/event archive.",
+      "productScenario": "فقط فنی و ادغام آتی",
+      "technicalOrDeferredEvidence": "test/policy.test.js؛ work/media واقعی در Modules 02–06 وجود ندارد",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T03.C07",
+      "source": ".scratch/mf-mod-01/issues/03-remove-and-readmit-members.md",
+      "criterion": "Return readable current permitted facts for conflicts, denied next pages after removal/demotion and safe exact-ID lookup after a lost acknowledgement. Inspecting current state cannot falsely prove a superseded historical outcome.",
+      "productScenario": "S05.03/S06.08/S08.02",
+      "technicalOrDeferredEvidence": "test/faults.test.js؛ تاریخچهٔ نامعلوم بازسازی نمی‌شود",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T03.C08",
+      "source": ".scratch/mf-mod-01/issues/03-remove-and-readmit-members.md",
+      "criterion": "Extend documented curl workflows for safe self-demotion with another Manager, removal, old-credential denial, exact-ID readmission and stale-removal recovery.",
+      "productScenario": "S06 و راهنمای توقف",
+      "technicalOrDeferredEvidence": "docs/module-01/client.md؛ self-demotion/رقابت مکمل فنی",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T04.C01",
+      "source": ".scratch/mf-mod-01/issues/04-replace-and-revoke-credentials.md",
+      "criterion": "Self replacement requires the valid exact currently authenticating credential, admitted membership and current revision; no Manager responsibility. It cannot target another actor. A Manager targeting self uses this same guard. Expired/revoked/removed callers cannot renew themselves.",
+      "productScenario": "S07.02/S07.06",
+      "technicalOrDeferredEvidence": "test/credentials.test.js و test/expiry.test.js",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T04.C02",
+      "source": ".scratch/mf-mod-01/issues/04-replace-and-revoke-credentials.md",
+      "criterion": "Third-party Manager replacement requires current Manager authority, currently admitted exact target and observed credential revision. Fresh prepared descriptors bind exact actor, intended next revision, locator and verifier; stale conflicts are 409 without mutation or unauthorized facts. One active credential remains after commit.",
+      "productScenario": "S07.07/S07.08",
+      "technicalOrDeferredEvidence": "test/credentials.test.js؛ binding و تعارض اپراتور فنی",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T04.C03",
+      "source": ".scratch/mf-mod-01/issues/04-replace-and-revoke-credentials.md",
+      "criterion": "Actual registration/replacement/revocation advances credential revision once; credential-only changes never alter membership version/assignments/identity/first admission. No-op confirmations and refused actions add no revision/time/attribution. Revision exhaustion cannot wrap or partially invalidate old access.",
+      "productScenario": "S07/S09",
+      "technicalOrDeferredEvidence": "test/validation.test.js؛ overflow فنی",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T04.C04",
+      "source": ".scratch/mf-mod-01/issues/04-replace-and-revoke-credentials.md",
+      "criterion": "Issuance uses fresh server gate time, expiry exactly 30 elapsed days later. Before/exactly-at/after checks, downtime and waiting use current trusted UTC time; no background expiry transition, idle timeout, refresh token or automatic renewal. Inspection and exact-current confirmation never extend lifetime.",
+      "productScenario": "S01.01/S07.05",
+      "technicalOrDeferredEvidence": "test/expiry.test.js؛ قبل/دقیقاً/بعد از expiry و downtime فنی",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T04.C05",
+      "source": ".scratch/mf-mod-01/issues/04-replace-and-revoke-credentials.md",
+      "criterion": "Authorized exact-current non-revoked candidate confirmation preserves original issuance/expiry/revision/attribution. Conflicting bindings, superseded/revoked locators or stale mutation preconditions cannot re-register old material. Another authorized Manager may inspect a time-expired registration without renewing it.",
+      "productScenario": "S07.05/S07.08",
+      "technicalOrDeferredEvidence": "test/credentials.test.js؛ تأیید candidate منقضی توسط Manager فنی",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T04.C06",
+      "source": ".scratch/mf-mod-01/issues/04-replace-and-revoke-credentials.md",
+      "criterion": "Exact-ID revoke is permitted to current authenticated owner or a current Manager for another admitted actor. It never redirects to whichever credential is current later. Repeated revocation adds no effect and replaying an old ID cannot revoke a replacement; disclose only bounded latest facts, without an event archive.",
+      "productScenario": "S07.10–S07.15/S08.03",
+      "technicalOrDeferredEvidence": "test/credentials.test.js؛ exact-ID و no-op",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T04.C07",
+      "source": ".scratch/mf-mod-01/issues/04-replace-and-revoke-credentials.md",
+      "criterion": "Self replacement invalidates the old credential atomically; saved-candidate authentication and metadata inspection recover a lost acknowledgement. After self-revocation, another Manager may be needed for inspection/replacement; failed authentication or stale conflicts alone do not prove a prior uncertain action never committed.",
+      "productScenario": "S07.03/S07.04 و توقف",
+      "technicalOrDeferredEvidence": "test/faults.test.js؛ افت acknowledgement صرفاً فنی",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T04.C08",
+      "source": ".scratch/mf-mod-01/issues/04-replace-and-revoke-credentials.md",
+      "criterion": "Helper/private-file protections, trusted identity handoff, strict bearer parsing, redacted logs, no-store and common HTTP action-status/error semantics hold for every new operation. Extend curl instructions for preparation, self/Manager replacement, exact revoke, expiry and recovery.",
+      "productScenario": "همهٔ درخواست‌ها و آماده‌سازی",
+      "technicalOrDeferredEvidence": "test/validation.test.js؛ حفاظت فایل و strict parsing فنی",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T05.C01",
+      "source": ".scratch/mf-mod-01/issues/05-recover-manager-credentials.md",
+      "criterion": "Trusted-host read-only recovery metadata targets an exact existing currently admitted Manager. Actual recovery rechecks target Manager/admission and observed credential revision in the owned immediate transaction; descriptor must target the next revision of that actor.",
+      "productScenario": "S08.H",
+      "technicalOrDeferredEvidence": "test/credentials.test.js و test/concurrency.test.js",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T05.C02",
+      "source": ".scratch/mf-mod-01/issues/05-recover-manager-credentials.md",
+      "criterion": "Recovery works when all Manager credentials are lost, expired or revoked. It only changes credential state, preserving actor ID/label, membership version/status/assignments, first-admission/historical facts and initialized workspace state.",
+      "productScenario": "S08.H/S08.06",
+      "technicalOrDeferredEvidence": "test/credentials.test.js؛ loss ناشی از expiry فنی",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T05.C03",
+      "source": ".scratch/mf-mod-01/issues/05-recover-manager-credentials.md",
+      "criterion": "Removed, non-Manager, unknown, misbound and stale targets refuse with bounded safe feedback and no effect. A target removed/demoted or newly replaced while the operator waits cannot be restored/overwritten using earlier observations.",
+      "productScenario": "فقط فنی",
+      "technicalOrDeferredEvidence": "test/credentials.test.js و test/concurrency.test.js؛ همهٔ targetهای نامعتبر و stale",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T05.C04",
+      "source": ".scratch/mf-mod-01/issues/05-recover-manager-credentials.md",
+      "criterion": "Record bounded operator origin, application time, affected actor/credential and local OS principal metadata. Never fabricate workspace-Manager attribution or trust a caller-supplied workspace actor as operator identity. Retain no unlimited operator archive.",
+      "productScenario": "S08.06",
+      "technicalOrDeferredEvidence": "test/credentials.test.js؛ origin و principal",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T05.C05",
+      "source": ".scratch/mf-mod-01/issues/05-recover-manager-credentials.md",
+      "criterion": "The operator receives only identity-confirmed owner-prepared registration descriptors, never the raw credential file. Exact-current confirmation preserves original issuance/expiry/revision/attribution; superseded/revoked replay never revives credentials.",
+      "productScenario": "S08.H",
+      "technicalOrDeferredEvidence": "test/credentials.test.js؛ تأیید بدون تمدید و replay منفی",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T05.C06",
+      "source": ".scratch/mf-mod-01/issues/05-recover-manager-credentials.md",
+      "criterion": "Bootstrap remains initialization-only and always refuses initialized stores. Recovery cannot readmit, grant responsibilities, reset/delete workspace state, edit labels or invoke future capabilities; no network recovery endpoint exists.",
+      "productScenario": "شروع/S08.H",
+      "technicalOrDeferredEvidence": "test/workspace.test.js و test/transport.test.js؛ هیچ endpoint بازیابی ساخته نشده",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T05.C07",
+      "source": ".scratch/mf-mod-01/issues/05-recover-manager-credentials.md",
+      "criterion": "Lost acknowledgements use permitted host metadata and saved-candidate authentication; trustworthy current facts confirm only what can be established. No blind fresh replacement or automatic body replay. Storage uncertainty uses the shared conservative classification and connection disposal.",
+      "productScenario": "توقف/ادامه و S08.06",
+      "technicalOrDeferredEvidence": "test/faults.test.js؛ ambiguity و connection disposal فنی",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T05.C08",
+      "source": ".scratch/mf-mod-01/issues/05-recover-manager-credentials.md",
+      "criterion": "Document separate bootstrap/recovery use, exact actor/revision targeting, trusted identity handoff, owner candidate verification and bounded contention/conflict outcomes.",
+      "productScenario": "S08 و راهنمای کامل",
+      "technicalOrDeferredEvidence": "docs/module-01/client.md؛ handoff واقعی انسان‌ها خارج از نمونه",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T06.C01",
+      "source": ".scratch/mf-mod-01/issues/06-verify-shared-authority-boundary.md",
+      "criterion": "Boundary takes authenticated proof, action kind and authoritative subject facts, evaluates current credential/membership/responsibilities/ownership at the final gate and supplies stable actor ID/action-time label/time within the same owned transaction as the consumer's admitted change. Proof remains confined to the boundary; no reusable authorization boolean escapes a closed transaction and consumers cannot independently commit after a preliminary/remote permission read.",
+      "productScenario": "فقط فنی",
+      "technicalOrDeferredEvidence": "test/policy.test.js؛ consumer scope اتمیک و confinement",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T06.C02",
+      "source": ".scratch/mf-mod-01/issues/06-verify-shared-authority-boundary.md",
+      "criterion": "Cover every approved kind: admitted-member shared read; Contributor source/new-request admission; Contributor own-request or Operations any-request retry/cancel; Reviewer selection; Operations evidence checks/provisional cleanup; Manager membership/responsibility management and accepted-media deletion/follow-up. Unknown kinds deny.",
+      "productScenario": "فقط فنی؛ ادغام آتی",
+      "technicalOrDeferredEvidence": "test/policy.test.js؛ subjectهای واقعی Modules 02–06 هنوز وجود ندارند",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T06.C03",
+      "source": ".scratch/mf-mod-01/issues/06-verify-shared-authority-boundary.md",
+      "criterion": "Zero-role admitted members have shared-read policy; assignments union only permitted actions. Manager has no Contributor/Reviewer/Operations inheritance. Request submitter facts, not source-uploader identity or caller assertions, determine own-request power. Any Contributor may request a shared source subject to consumer eligibility.",
+      "productScenario": "S02 فقط نقش و مدیریت",
+      "technicalOrDeferredEvidence": "test/policy.test.js؛ shared_read و union تمام roleها صرفاً contract",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T06.C04",
+      "source": ".scratch/mf-mod-01/issues/06-verify-shared-authority-boundary.md",
+      "criterion": "Current expiry/replacement/revocation/removal/demotion wins after waiting. Consumer writes roll back with failed authority/eligibility; no separate authority snapshot can authorize an effect. Short fresh read scopes permit an already-authorized read to finish, but recheck every new call/page.",
+      "productScenario": "فقط فنی",
+      "technicalOrDeferredEvidence": "test/concurrency.test.js و test/expiry.test.js؛ gate تازه و rollback",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T06.C05",
+      "source": ".scratch/mf-mod-01/issues/06-verify-shared-authority-boundary.md",
+      "criterion": "Removal/relabeling preserves test-consumer admitted facts and stable attribution without cancellation, accounting release or historical rewrites. Authoritative dependencies prevent actor deletion; no fake production endpoints, actual quota/lifecycle system or unlimited receipt archive is added.",
+      "productScenario": "فقط فنی؛ ادغام آتی",
+      "technicalOrDeferredEvidence": "test/policy.test.js؛ continuity رسانه/کار واقعی موکول است",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T06.C06",
+      "source": ".scratch/mf-mod-01/issues/06-verify-shared-authority-boundary.md",
+      "criterion": "Document the boundary's inputs, transaction ownership, denial/error semantics, secret confinement and consumer responsibility for authoritative subjects, eligibility/quotas/lifecycle and retained dependencies. Carry already-authorized transfer policy forward without building transfer mechanics.",
+      "productScenario": "فقط مستند/فنی",
+      "technicalOrDeferredEvidence": "docs/module-01/authority.md؛ موضوعات quota/lifecycle/transfer موکول به مصرف‌کنندگان",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T07.C01",
+      "source": ".scratch/mf-mod-01/issues/07-recover-interrupted-administration.md",
+      "criterion": "Every mutation owns its connection/transaction and acquires BEGIN IMMEDIATE before dependent reads. Immediate nonblocking acquisition with asynchronous bounded backoff uses the same configurable default 1,000 ms cumulative monotonic budget; attempts never reset it or block the event loop with a long synchronous busy timeout. Keep filesystem/network/recipient preparation outside the writer. No other request interleaves inside the transaction.",
+      "productScenario": "فقط فنی",
+      "technicalOrDeferredEvidence": "test/concurrency.test.js و test/faults.test.js؛ مالکیت transaction و بودجهٔ monotonic",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T07.C02",
+      "source": ".scratch/mf-mod-01/issues/07-recover-interrupted-administration.md",
+      "criterion": "Independent writer contention either acquires in budget or returns established 503/refused_without_effect before body execution. Once acquired, validate current authentication, membership/responsibilities, target/version/invariants and fresh gate time. Expiry/replacement/revocation/removal/demotion while waiting gives the appropriate 401/403/409, never a stale-authority effect.",
+      "productScenario": "فقط فنی",
+      "technicalOrDeferredEvidence": "test/concurrency.test.js؛ 503 و invalidation هنگام انتظار",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T07.C03",
+      "source": ".scratch/mf-mod-01/issues/07-recover-interrupted-administration.md",
+      "criterion": "Distinguish known pre-effect failure, confirmed rollback, indeterminate commit-interface failure and lost transport acknowledgement. Inspect transaction state/error semantics, safely roll back active uncommitted work and discard/quarantine unestablished connections. Neither exception nor autocommit alone proves outcome. Never rerun an executed body or retry failed COMMIT indefinitely.",
+      "productScenario": "فقط فنی",
+      "technicalOrDeferredEvidence": "test/faults.test.js؛ rollback/indeterminate و quarantine",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T07.C04",
+      "source": ".scratch/mf-mod-01/issues/07-recover-interrupted-administration.md",
+      "criterion": "503 marks refused_without_effect only when non-admission/rollback is established; otherwise indeterminate with permitted safe inspection guidance. Fail closed when writable authority/storage cannot be trusted. Reads return only established current facts and no inferred historical actionStatus.",
+      "productScenario": "همهٔ پاسخ‌ها؛ 503 فقط فنی",
+      "technicalOrDeferredEvidence": "test/faults.test.js؛ قطع شبکهٔ ساختگی در Postman اجرا نمی‌شود",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T07.C05",
+      "source": ".scratch/mf-mod-01/issues/07-recover-interrupted-administration.md",
+      "criterion": "Recovery covers prepared admission ID; observed membership version/latest bounded facts; saved replacement candidate; exact revocation ID; bootstrap status/candidate; operator target/revision status. Confirmation creates no version, clock, expiry or attribution change. Superseding changes may prevent proof of prior outcomes; preserve that uncertainty without reapplying old intent.",
+      "productScenario": "S02.08/S05/S06/S07/S08 و توقف",
+      "technicalOrDeferredEvidence": "test/faults.test.js؛ حفظ uncertainty تاریخی",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T07.C06",
+      "source": ".scratch/mf-mod-01/issues/07-recover-interrupted-administration.md",
+      "criterion": "Restart preserves singleton/initial Manager, actor identity/status/assignments, versions, latest verifier/invalidation metadata, original expiry and attribution. Missing/corrupt store remains unavailable rather than silently initialized. Verify atomic non-destructive migrations preserve these facts; add no speculative migration platform or backup/restore design.",
+      "productScenario": "S09",
+      "technicalOrDeferredEvidence": "test/persistence.test.js؛ missing/corrupt/migration صرفاً فنی",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T07.C07",
+      "source": ".scratch/mf-mod-01/issues/07-recover-interrupted-administration.md",
+      "criterion": "Complete bounded positive revision overflow and reason-summary coverage on error paths; feedback preserves category/status without truncating supplied identity text or exposing secrets/verifiers/internal traces. No action/event archive or seven-day administrative submission-reference system.",
+      "productScenario": "S04 و همهٔ پاسخ‌ها",
+      "technicalOrDeferredEvidence": "test/validation.test.js؛ overflow و حدود summary فنی",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T07.C08",
+      "source": ".scratch/mf-mod-01/issues/07-recover-interrupted-administration.md",
+      "criterion": "Extend supported inspection/recovery documentation with known-refusal versus lost-response/indeterminate examples and conservative next steps. All fault/checkpoint/clock controls remain test-construction-only.",
+      "productScenario": "توقف/ادامه",
+      "technicalOrDeferredEvidence": "docs/module-01/client.md؛ fault/clock endpoint وجود ندارد",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T08.C01",
+      "source": ".scratch/mf-mod-01/issues/08-verify-module-and-handoff.md",
+      "criterion": "A reproducible starting point documents pinned runtime, persistent local database, transport/HTTPS requirements, owner preparation, descriptor identity confirmation, one-time bootstrap, supported commands and actor-specific curl setup. Use curl 8.x with --disable first, owner-only configs, --json request files, --fail-with-body, no automatic redirects and no TLS bypass; jq optional. No secrets in literal arguments, shell history, version control, evidence or traces; no owner-file handoff to Managers/operators.",
+      "productScenario": "آماده‌سازی و S01",
+      "technicalOrDeferredEvidence": "README.md و docs/module-01/client.md؛ HTTPS واقعی بررسی نشده",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T08.C02",
+      "source": ".scratch/mf-mod-01/issues/08-verify-module-and-handoff.md",
+      "criterion": "Execute actual HTTP/command workflows for admission, zero/alone/combined responsibilities, self identity/current authority, management denials, stale changes, safe removal/readmission, self/Manager replacement, exact revoke and operator-only recovery. Show stable actor IDs, assignments/versions, original expiry, bounded attribution and permitted current facts. Future media features are explicitly scheduled, never successful placeholder endpoints.",
+      "productScenario": "S01–S09",
+      "technicalOrDeferredEvidence": "HTTP واقعی؛ sample credentialها جای تحویل واقعی شخص نیستند",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T08.C03",
+      "source": ".scratch/mf-mod-01/issues/08-verify-module-and-handoff.md",
+      "criterion": "Verify complete specified HTTP semantics (400/401/403/404/409/413/503), JSON result/reason/action-status fields, no-store, no unauthorized target disclosure, redirect/ambient-config avoidance and readable safe recovery. Include established contention refusal and indeterminate outcome handling.",
+      "productScenario": "S01–S09؛ 503 فقط فنی",
+      "technicalOrDeferredEvidence": "test/transport.test.js، test/faults.test.js؛ همهٔ semantics فنی تکمیل می‌شوند",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T08.C04",
+      "source": ".scratch/mf-mod-01/issues/08-verify-module-and-handoff.md",
+      "criterion": "Execute and record M01-V01 through M01-V17 with scope, method, actual observations, artifact/test references, failures and resolutions. Retain secret-free evidence; distinguish HTTP/host operation evidence, local policy-contract evidence, controlled clock/fault results and manual review. Unexecuted/failed items cannot be marked passed or hidden by aggregate counts.",
+      "productScenario": "دفتر شواهد",
+      "technicalOrDeferredEvidence": "docs/module-01/verification.md؛ M01-V01 تا M01-V17 و فایل preflight جدید",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T08.C05",
+      "source": ".scratch/mf-mod-01/issues/08-verify-module-and-handoff.md",
+      "criterion": "Run the full applicable suite and repository checks once final changes settle; use meaningful feature tests and the existing JavaScript/runtime checking conventions rather than adding a compiler/framework solely for this ticket. Resolve failures or explicitly report the module incomplete.",
+      "productScenario": "شواهد جاری",
+      "technicalOrDeferredEvidence": "technical-test-evidence.txt؛ 50 آزمون موفق و npm run check موفق",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T08.C06",
+      "source": ".scratch/mf-mod-01/issues/08-verify-module-and-handoff.md",
+      "criterion": "Verify all five owned PRD requirements against specification/ticket coverage and acceptance contributions. MF-AC-02/03/04 remain partial local evidence until the named full-scenario participants supply real subjects; record MF-AC-01/42/44 local scope and outstanding MF-AC-29/33/37/38/41 subjects.",
+      "productScenario": "محدودهٔ ادغام آتی",
+      "technicalOrDeferredEvidence": "docs/module-01/verification.md؛ MF-AC-02/03/04 جزئی، MF-AC-29/33/37/38/41 نیازمند subject واقعی",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T08.C07",
+      "source": ".scratch/mf-mod-01/issues/08-verify-module-and-handoff.md",
+      "criterion": "Produce a handoff ledger naming Modules 02–06 and MF-GATE-07, boundary/client conventions delivered, outstanding real integration scenarios, storage assumptions and any material limitations. No fabricated learner mastery/performance SLA, edited outcomes, physical power-loss claims or whole V1 pass.",
+      "productScenario": "محدودهٔ ادغام آتی",
+      "technicalOrDeferredEvidence": "docs/module-01/verification.md؛ Modules 02–06 و MF-GATE-07، نه پذیرش کل V1",
+      "userResult": "not_run"
+    },
+    {
+      "id": "T08.C08",
+      "source": ".scratch/mf-mod-01/issues/08-verify-module-and-handoff.md",
+      "criterion": "State whether Module 01 local completion evidence is ready for owner review, independently of full V1 acceptance and later-module authorization. Preserve approved decisions; a genuine blocking contradiction must be reported rather than silently changed.",
+      "productScenario": "تحویل/نقطهٔ ادامه",
+      "technicalOrDeferredEvidence": "پذیرش مالک pending؛ تغییر labelهای tracker و پذیرش کل V1 ادعا نمی‌شود",
+      "userResult": "not_run"
+    }
+  ]
+}

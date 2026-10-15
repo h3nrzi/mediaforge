@@ -1,0 +1,62 @@
+
+> test
+> node --test test/*.test.js
+
+✔ M01-V12: independent writer yields bounded known refusal with a responsive HTTP read (579.773625ms)
+✔ M01-V09/V12: expiry during writer wait wins at the final gate (648.489875ms)
+✔ M01-V05/V09: independent self-demotions serialize; waiting caller loses Manager power (885.46475ms)
+✔ M01-V05/V09: removal while waiting denies the caller and leaves target unchanged (678.2935ms)
+✔ M01-V08/V09: operator recovery wins ordering; waiting Manager replacement cannot overwrite its revision (1026.45775ms)
+✔ M01-V08/V09: replacement while waiting invalidates authenticating proof at the gate (726.501875ms)
+✔ M01-V06/V12: two queued edits execute once each; current version prevents lost updates (657.307ms)
+✔ M01-V09: demotion while waiting denies an earlier Manager permission snapshot (706.104167ms)
+✔ M01-V08/V10: zero-role self replacement and exact revocation never revive or redirect old material (1142.681541ms)
+✔ M01-V11: trusted operator recovers an admitted Manager, never a member or removed actor (1638.674583ms)
+✔ M01-V11: operator recovery refuses removed, unknown, stale and misbound targets without changes (2418.21525ms)
+✔ M01-V16: directory bounds, immutable ordering, filter-bound cursors and each-page Manager authority (13978.186709ms)
+✔ M01-V09: exact 30-day boundary, no renewal from reads/confirmation and host recovery after downtime (1402.16ms)
+✔ M01-V09: fresh application-gate time refuses expiry after target/precondition checks (588.17925ms)
+✔ M01-V13: beforeBody preserves honest effect knowledge without replay (584.321625ms)
+✔ M01-V13: beforeCommit preserves honest effect knowledge without replay (652.874458ms)
+✔ M01-V13: commitUnknown preserves honest effect knowledge without replay (745.383167ms)
+✔ M01-V13: commit-interface error with confirmed active rollback is refused without effect (341.367125ms)
+✔ M01-V13: after-commit acknowledgement fault preserves replacement candidate and original metadata (705.076333ms)
+✔ M01-V13: admission rolls back atomically on pre-commit storage refusal (578.517417ms)
+✔ M01-V13: removal rolls back atomically on pre-commit storage refusal (632.056625ms)
+✔ M01-V13: readmission rolls back atomically on pre-commit storage refusal (688.818916ms)
+✔ M01-V13: replacement rolls back atomically on pre-commit storage refusal (697.1135ms)
+✔ M01-V13: revocation rolls back atomically on pre-commit storage refusal (643.958042ms)
+✔ M01-V13: autocommit alone does not establish outcome after a storage-interface failure (365.998041ms)
+✔ M01-V13: failed rollback after a consumer refusal is indeterminate and quarantines mutations (351.903916ms)
+✔ M01-V03/V06: Manager admits a zero-role actor; edits have guarded no-effect replay (666.316208ms)
+✔ M01-V05/V07: removal invalidates access; readmission preserves identity with fresh explicit assignments (1249.439917ms)
+✔ M01-V06/V07: first-admission attribution survives the admitting Manager relabel/removal (765.340708ms)
+✔ M01-V06/V10: removal of an already-revoked credential adds no credential revision (551.3125ms)
+✔ M01-V02/V14: interrupted bootstrap rolls back; actual post-commit process kill recovers the saved candidate (1118.590792ms)
+✔ M01-V02: competing independent bootstrap commands initialize one candidate only (1355.366584ms)
+✔ M01-V14: ordinary startup fails closed for absent/corrupt stores; explicit setup is non-destructive (1129.314084ms)
+✔ M01-V14: actual recovery-process termination preserves new credential and historical facts (688.865042ms)
+✔ M01-V13: operator recovery pre-commit failure preserves previous credential and membership facts (662.305292ms)
+✔ M01-V04: local policy-contract matrix covers zero, each alone and all sixteen responsibility combinations (3970.772ms)
+✔ M01-V07: local consumer effects retain attribution, roll back on refusal and cannot commit separately (620.746541ms)
+✔ M01-V13: dropped HTTP admission acknowledgement recovers current facts without a duplicate effect (574.506166ms)
+✔ M01-V13: dropped HTTP edit acknowledgement recovers current facts without a duplicate effect (567.916958ms)
+✔ M01-V13: dropped HTTP removal acknowledgement recovers current facts without a duplicate effect (555.792417ms)
+✔ M01-V13: dropped HTTP readmission acknowledgement recovers current facts without a duplicate effect (770.744917ms)
+✔ M01-V13: dropped HTTP replacement acknowledgement recovers current facts without a duplicate effect (791.508875ms)
+✔ M01-V13: dropped HTTP revocation acknowledgement recovers current facts without a duplicate effect (517.302667ms)
+✔ M01-V17: --disable ignores ambient curl settings and no credential reaches a redirect destination (277.691792ms)
+✔ M01-V03/V15: strict authentication and HTTP validation return bounded private feedback (953.658125ms)
+✔ M01-V01: helper refuses symlink/existing artifacts and insecure parent directories (798.874958ms)
+✔ M01-V15: supported host commands reject unknown options and insecure external service transport (657.93ms)
+✔ M01-V15: revision exhaustion refuses complete operations without partial invalidation (489.721542ms)
+✔ M01-V17: documented curl/command walkthrough executes real actor workflows with secret-free evidence (3588.239791ms)
+✔ M01-V01/V02: owner prepares privately and operator bootstraps exactly once (1073.496583ms)
+ℹ tests 50
+ℹ suites 0
+ℹ pass 50
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 14114.782625

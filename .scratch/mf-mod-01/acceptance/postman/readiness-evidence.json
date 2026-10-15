@@ -1,0 +1,27 @@
+{
+  "build": "0cddedb485007ed4377c019e40203fc963084337",
+  "baseUrl": "http://127.0.0.1:60317",
+  "setup": "observed: absent -> bootstrap -> initialized; repeated bootstrap refused; reloaded verified owner artifacts after declaring missing checkpoint variable",
+  "readiness": {
+    "httpStatus": 200,
+    "managerActorId": "be538269-4459-4c56-b5b9-f2fae58dd5c7",
+    "membershipVersion": "1",
+    "credentialRevision": "1",
+    "actorCount": 1
+  },
+  "exportChecks": {
+    "json": true,
+    "scriptSyntax": true,
+    "variableReferences": true,
+    "endpointGrouping": true,
+    "guidePaths": true,
+    "guideLinks": true,
+    "postmanTextEnglish": true,
+    "privateModes": true,
+    "knownSecretsAndVerifiersAbsent": true,
+    "formalSchemaValidation": "not_run"
+  },
+  "initialSandboxRestriction": "listen EPERM; authorized loopback execution passed",
+  "humanAcceptance": "not_run",
+  "actualPostmanExecution": "not_run"
+}
